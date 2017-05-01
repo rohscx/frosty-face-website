@@ -407,15 +407,15 @@
       input.name = 'incedent_1';
       input.value = 'Incenent Number...';
 
-      var input = form.appendChild(document.createElement('select'));
-      var aca_list_1 = ["NULL","FPI","NWFCS","FCE"];
-      var aLen = aca_list_1.length;
-      input.name = 'ACA';
+      var input = form.appendChild(document.createElement('select')); // creates select box
+      var aca_list_1 = ["NULL","FPI","NWFCS","FCE"];  // lista all usable ACA's. NULL is a place holder so that the ACA number matches DB Value
+      var aLen = aca_list_1.length; // gets the length of the array
+      input.name = 'ACA'; // creates name to be passed
       for (i = 1; i< aLen; i++){
-        var opt = document.createElement('option');
-        opt.value = i;
-        opt.innerHTML = aca_list_1[i];
-        input.appendChild(opt);
+        var opt = document.createElement('option'); // creates options for select box
+        opt.value = i;  // POST or GET value
+        opt.innerHTML = aca_list_1[i];  // pulls from array and creates named option for the list
+        input.appendChild(opt); // appends worked on items to select
       }
       document.getElementById('spinner').style.display = "none";
       input = form.appendChild(document.createElement('input'));
