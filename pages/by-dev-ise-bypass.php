@@ -394,7 +394,7 @@
 
       var input = form.appendChild(document.createElement('input'));
       input.type = 'text';
-      input.name = 'fname_1';
+      input.name = 'lname_1';
       input.value = 'Last Name...';
 
       var input = form.appendChild(document.createElement('input'));
@@ -413,6 +413,7 @@
       var aLen = aca_list_1.length;
       for (i = 0; i< aLen; i++){
         var opt = document.createElement('option');
+        opt.name = "aca"+i;
         opt.value = i;
         opt.innerHTML = aca_list_1[i];
         input.appendChild(opt);
