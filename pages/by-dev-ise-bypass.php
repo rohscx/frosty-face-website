@@ -408,7 +408,6 @@
       input.value = 'Incenent Number...';
 
       var input = form.appendChild(document.createElement('select'));
-
       var aca_list_1 = ["FPI","NWFCS","FCE"];
       var aLen = aca_list_1.length;
       for (i = 0; i< aLen; i++){
@@ -416,11 +415,9 @@
         opt.name = "aca"+i;
         opt.value = i;
         opt.innerHTML = aca_list_1[i];
-        var input = form.appendChild(opt);
+        input.appendChild(opt);
       }
       document.getElementById('spinner').style.display = "none";
-
-
       input = form.appendChild(document.createElement('input'));
       input.type = 'submit';
       input.value = 'Submit';
