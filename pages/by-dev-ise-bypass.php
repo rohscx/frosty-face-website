@@ -422,7 +422,6 @@
 
 
       input = form.appendChild(document.createElement('input'));
-      input = form.appendChild(document.createElement('select'));
       input.type = 'submit';
       input.value = 'Submit';
       modal.style.display = "block";
