@@ -421,7 +421,8 @@
       document.getElementById('spinner').style.display = "none";
 
 
-      //input = form.appendChild(document.createElement('input'));
+      input = form.appendChild(document.createElement('input'));
+      input = form.appendChild(document.createElement('select'));
       input.type = 'submit';
       input.value = 'Submit';
       modal.style.display = "block";
