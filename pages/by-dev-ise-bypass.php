@@ -381,7 +381,7 @@
 
       var form = form_1.appendChild(document.createElement('form'));
 
-      form.name = 'input1';
+      form.name = 'input';
       form.action = 'html_form_action.asp';
       form.method = 'get';
 
@@ -421,7 +421,7 @@
       document.getElementById('spinner').style.display = "none";
 
 
-      input = form.appendChild(document.createElement('input'));
+      //input = form.appendChild(document.createElement('input'));
       input.type = 'submit';
       input.value = 'Submit';
       modal.style.display = "block";
