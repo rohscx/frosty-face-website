@@ -410,8 +410,8 @@
       var input = form.appendChild(document.createElement('select'));
       var aca_list_1 = ["FPI","NWFCS","FCE"];
       var aLen = aca_list_1.length;
-      input.name = 'TEST';
-      for (i = 0; i< aLen; i++){
+      input.name = 'ACA';
+      for (i = 1; i< aLen; i++){
         var opt = document.createElement('option');
         opt.value = i;
         opt.innerHTML = aca_list_1[i];
