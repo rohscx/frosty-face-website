@@ -381,7 +381,7 @@
 
       var form = form_1.appendChild(document.createElement('form'));
 
-      form.name = 'input';
+      form.name = 'input''select';
       form.action = 'html_form_action.asp';
       form.method = 'get';
 
