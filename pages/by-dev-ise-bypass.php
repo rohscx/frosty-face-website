@@ -416,7 +416,7 @@
         opt.name = "aca"+i;
         opt.value = i;
         opt.innerHTML = aca_list_1[i];
-        input.appendChild(opt);
+        var input = form.appendChild(opt);
       }
       document.getElementById('spinner').style.display = "none";
 
