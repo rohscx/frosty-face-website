@@ -168,7 +168,7 @@ if (isset($_GET['sqlQuery']) & isset($_GET['sqlWhere'])) {
 	//print_r($db->results);	// debug
 	echo json_encode($db->results);
 	$output = json_encode($db->results);	// debug
-	print "existCheck result " . $output['State'];	// debug
+	print "existCheck 1232 result " . $output['State'];	// debug
 	print_r(json_encode($db->results));
 }
 ?>
