@@ -80,6 +80,7 @@ class mysqlquery {
   }
 	function existCheck($query, $mac) {
 		$this->sqlquery($this->query_6, $this->int_1);
+		echo "existCheck result " . $this->results;
 
 	}
    function sqlquery($Query, $sqlWhere) {
