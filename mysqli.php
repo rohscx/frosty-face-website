@@ -79,8 +79,8 @@ class mysqlquery {
 
   }
 	function existCheck($query, $mac) {
-
-
+		$this->sqlquery($this->query_6, $this->int_1);
+		
 	}
    function sqlquery($Query, $sqlWhere) {
 	  $this->searchterm_1 = $sqlWhere;
