@@ -72,7 +72,7 @@ class mysqlquery {
 		  $this->sqlquery($this->query_6, $this->int_1);
 		} elseif ($sqlQuery == "query_7") {
 		  $this->mac2int_1($sqlWhere);	// converts mac address to int
-			$this->sqlQuery($this->query_7, $this->int_1)
+			$this->sqlQuery($this->query_7, $this->int_1);
 		} elseif ($function == "iseTicket_1") {
 		  $this->iseTicket_1();
 	  }
