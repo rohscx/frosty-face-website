@@ -80,7 +80,9 @@ class mysqlquery {
   }
 	function existCheck($query, $mac) {
 		$this->sqlquery($this->query_6, $this->int_1);
-		echo "existCheck 111111result " . $this->results;
+		//echo "existCheck result " . $this->results;
+		$output = json_encode($this->results);	// debug
+		print "existCheck 9 result " . $output[0]['State'];	// debug
 
 	}
    function sqlquery($Query, $sqlWhere) {
@@ -167,8 +169,5 @@ if (isset($_GET['sqlQuery']) & isset($_GET['sqlWhere'])) {
 	$db = new mysqlquery($_GET['sqlQuery'], $_GET['sqlWhere']);	// sets class property
 	//print_r($db->results);	// debug
 	echo json_encode($db->results);
-	$output = json_encode($db->results);	// debug
-	print "existCheck 1232 result " . $output['State'];	// debug
-	print_r(json_encode($db->results));
 }
 ?>
