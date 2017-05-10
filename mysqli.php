@@ -167,6 +167,6 @@ if (isset($_GET['sqlQuery']) & isset($_GET['sqlWhere'])) {
 	$db = new mysqlquery($_GET['sqlQuery'], $_GET['sqlWhere']);	// sets class property
 	//print_r($db->results);	// debug
 	echo json_encode($db->results);
-	echo "existCheck result " . $db->results[0]["State"];
+	echo "existCheck result " . $db->results[0]['State'];
 }
 ?>
