@@ -50,7 +50,7 @@ class mysqlquery {
 				JOIN aca_mab_metadata as amm
 				ON am.Mac_ID = amm.Mac_ID
 				WHERE am.Valid_Until = '1000-01-01 00:00:00' AND  am.Mac_ID LIKE  ?
-				ORDER BY am.Valid_From ASC";	// search MAB table DB by MAC Address
+				ORDER BY am.Valid_From ASC";	// search MAB table DB by MAC Address and Returns sigle row
 	protected $results;
 
   	function __construct($sqlQuery,$sqlWhere) {
@@ -70,11 +70,16 @@ class mysqlquery {
 		  $this->mac2int_1($sqlWhere);
 		  $this->int_1 = '%' . $this->int_1 . '%';	// adds formating needed for sql searches
 		  $this->sqlquery($this->query_6, $this->int_1);
-	  } elseif ($function == "iseTicket_1") {
+		} elseif ($sqlQuery == "query_7") {
+		  $this->mac2int_1($sqlWhere);	// converts mac address to int
+			$this->sqlQuery($this->query_7, $this->int_1)
+		} elseif ($function == "iseTicket_1") {
 		  $this->iseTicket_1();
 	  }
+
   }
-	function existCheck($Mac) {
+	function existCheck($query, $mac) {
+
 
 	}
    function sqlquery($Query, $sqlWhere) {
