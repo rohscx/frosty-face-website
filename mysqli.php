@@ -2,18 +2,18 @@
 header('Content-Type: text/html; charset=utf-8');
 class mysqlquery {
 	protected $mac_1;
-  	protected $int_1;
+  protected $int_1;
 	protected $db_s_1 = 'sql'; 	// db server dns name
 	protected $db_su_1 = 'demoUser';	// db username
 	protected $db_sp_1 = 'demoPassword';	// db password
 	protected $db_sd_1 = 'MAB_TRACK';	// db database name
 	protected $serchtype_1 = "Valid_Until";
 	protected $searchterm_1;
-	protected $query_1 = "SELECT Mac_ID, Valid_From, Valid_Until, Aca_ID, User_ID , State 
-				FROM aca_mab 
+	protected $query_1 = "SELECT Mac_ID, Valid_From, Valid_Until, Aca_ID, User_ID , State
+				FROM aca_mab
 				WHERE Valid_Until = ?";		// used for testing
-	protected $query_2 = "SELECT Mac_ID, Valid_From, Valid_Until, Aca_ID, User_ID , State 
-				FROM aca_mab 
+	protected $query_2 = "SELECT Mac_ID, Valid_From, Valid_Until, Aca_ID, User_ID , State
+				FROM aca_mab
 				WHERE Valid_Until != ?";	// used for testing
 	protected $query_3 = "SELECT am.Mac_ID, au.Fname, au.Lname, a.ACA_Name, a.ACA_Bname, am.Valid_From, am.State, amm.Action, am.Ticket
 				FROM aca_mab as am
@@ -30,7 +30,7 @@ class mysqlquery {
 				JOIN aca_mab as am
 				USING (Mac_ID)
 				WHERE am.Valid_Until = '1000-01-01 00:00:00' AND amm.Mac_ID = ?
-				ORDER BY amm.Mac_ID ASC";
+				ORDER BY amm.Mac_ID ASC";	//search METADATA table DB by MAC Address
 	protected $query_5 = "SELECT am.Mac_ID, au.Fname, au.Lname, a.ACA_Name, a.ACA_Bname, am.Valid_From, am.State, amm.Action, am.Ticket
 				FROM aca_mab as am
 				JOIN aca_user as au
@@ -40,7 +40,7 @@ class mysqlquery {
 				JOIN aca_mab_metadata as amm
 				ON am.Mac_ID = amm.Mac_ID
 				WHERE am.Valid_Until = '1000-01-01 00:00:00' AND   CONCAT( Fname,  ' ', Lname ) LIKE  ?
-				ORDER BY am.Valid_From ASC";
+				ORDER BY am.Valid_From ASC";	//search MAB table DB by First or Last name
 	protected $query_6 = "SELECT am.Mac_ID, au.Fname, au.Lname, a.ACA_Name, a.ACA_Bname, am.Valid_From, am.State, amm.Action, am.Ticket
 				FROM aca_mab as am
 				JOIN aca_user as au
@@ -50,9 +50,9 @@ class mysqlquery {
 				JOIN aca_mab_metadata as amm
 				ON am.Mac_ID = amm.Mac_ID
 				WHERE am.Valid_Until = '1000-01-01 00:00:00' AND  am.Mac_ID LIKE  ?
-				ORDER BY am.Valid_From ASC";
+				ORDER BY am.Valid_From ASC";	// search MAB table DB by MAC Address
 	protected $results;
-	
+
   	function __construct($sqlQuery,$sqlWhere) {
 	  if ($sqlQuery == "query_1") {
 		  $this->sqlquery($this->query_1, $sqlWhere);
@@ -72,8 +72,11 @@ class mysqlquery {
 		  $this->sqlquery($this->query_6, $this->int_1);
 	  } elseif ($function == "iseTicket_1") {
 		  $this->iseTicket_1();
-	  }	
+	  }
   }
+	function existCheck($Mac) {
+
+	}
    function sqlquery($Query, $sqlWhere) {
 	  $this->searchterm_1 = $sqlWhere;
 	  $db = new mysqli($this->db_s_1, $this->db_su_1, $this->db_sp_1, $this->db_sd_1);
@@ -91,13 +94,13 @@ class mysqlquery {
 	  $parameters = array();
 	  while($field = $meta->fetch_field()) {
     		$parameters[] = &$row[$field->name];
-	  } 
+	  }
 	   //$stmt->bind_result(array_values($array));	// Bind the result to variables
 	   call_user_func_array(array($stmt, 'bind_result'), $parameters);
-	   while($stmt->fetch()) { 
+	   while($stmt->fetch()) {
 		   $x = array();
                    foreach($row as $key => $val ) {
-                        // This next line isn't necessary for your project. 
+                        // This next line isn't necessary for your project.
                         // It can be removed. I use it to ensure
                         // that the "excerpt" of the post doesn't end in the middle
                         // of a word.
@@ -114,11 +117,11 @@ class mysqlquery {
 			   $this->mac_1 = str_split($this->mac_1, 2);
 			   $this->mac_1 = implode(':', $this->mac_1);
 			   $this->mac_1 = strtoupper($this->mac_1);
-			   $this->results[$i]['Mac_ID'] = $this->mac_1;  
+			   $this->results[$i]['Mac_ID'] = $this->mac_1;
 		   }
 	   }
-	   //print_r ($this->results); 
-	   //return $results; 
+	   //print_r ($this->results);
+	   //return $results;
 	   $stmt->free_result();
 	   $stmt->close();
   }
@@ -135,7 +138,7 @@ class mysqlquery {
 	  //echo "THIS WAS PASSED    " . $int_1; //	debug
 	  $this->mac_1 =  base_convert($int_1, 10, 16);
 	  //echo "CONVERTED TO BASE 16     " . $this->mac_1;	// debug
-	  
+
   }
   function stmt_bind_assoc (&$stmt, &$out) {
     $data = mysqli_stmt_result_metadata($stmt);
