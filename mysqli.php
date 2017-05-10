@@ -81,7 +81,7 @@ class mysqlquery {
 	function existCheck($query, $mac) {
 		$this->sqlquery($this->query_6, $this->int_1);
 		//echo "existCheck result " . $this->results;
-		print "existCheck 9 result " . $this->results[0]['Mac_ID'];	// debug
+		print "existCheck 9 result " . $this->results[0]['State'];	// debug
 
 	}
    function sqlquery($Query, $sqlWhere) {
