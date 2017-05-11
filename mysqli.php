@@ -41,7 +41,7 @@ class mysqlquery {
 				ON am.Mac_ID = amm.Mac_ID
 				WHERE am.Valid_Until = '1000-01-01 00:00:00' AND   CONCAT( Fname,  ' ', Lname ) LIKE  ?
 				ORDER BY am.Valid_From ASC";	//search MAB table DB by First or Last name
-	protected $query_6 = "SELECT am.Mac_ID, au.Fname, au.Lname, a.ACA_Name, a.ACA_Bname, am.Valid_From, am.State, amm.Action, am.Ticket
+	protected $query_6 = "SELECT am.Mac_ID, au.User_ID, au.Fname, au.Lname, a.ACA_Name, a.ACA_Bname, am.Valid_From, am.State, amm.Action, am.Ticket
 				FROM aca_mab as am
 				JOIN aca_user as au
 				USING (User_ID)
@@ -84,6 +84,8 @@ class mysqlquery {
 		print "existCheck result " . $this->results[0]['State'] . "\n";	// debug
 		if (isset($this->results[0]['Fname']) && isset($this->results[0]['Lname'])) {
 			$this->sqlquery($this->query_6, $this->int_1);
+		} else {
+
 		}
 
 	}
