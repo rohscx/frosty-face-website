@@ -59,7 +59,7 @@ class mysqlquery {
 				ON a.Aca_ID = au.Aca_ID
 				JOIN aca_mab_metadata as amm
 				ON am.Mac_ID = amm.Mac_ID
-				WHERE am.Valid_Until = '1000-01-01 00:00:00' AND   CONCAT( Fname,  ' ', Lname ) =  ?
+				WHERE am.Valid_Until = '1000-01-01 00:00:00' AND   CONCAT( Fname,  ' ', Lname ) LIKE  ?
 				ORDER BY am.Valid_From ASC";	// search MAB table DB by First or Last name
 	protected $results;
 
