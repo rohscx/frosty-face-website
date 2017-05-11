@@ -86,12 +86,12 @@ class mysqlquery {
 	function existCheck($query, $mac) {
 		$this->sqlquery($this->query_4, $this->int_1);	// checks for MAC Address
 		//echo "existCheck result " . $this->results;
-		print "existCheck result " . $this->results[0]['State'] . "\r\n";	// debug
-		print "existCheck result " . $this->results[0]['Mac_ID'] . "\r\n";	// debug
+		print "existCheck result " . $this->results[0]['State'] . "<br />";	// debug
+		print "existCheck result " . $this->results[0]['Mac_ID'] . "<br />";	// debug
 		if (! isset($this->results[0]['Mac_ID'])) {
 			$this->sqlquery($this->query_7, "SAM ADAMS");
-			print "existCheck result " . $this->results[0]['User_ID'] . "\r\n";	// debug
-			print "existCheck result " . $this->results[0]['Fname'] . " " . $this->results[0]['Lname'] . "\r\n";
+			print "existCheck result " . $this->results[0]['User_ID'] . "<br />";	// debug
+			print "existCheck result " . $this->results[0]['Fname'] . " " . $this->results[0]['Lname'] . "<br />";
 		} else {
 
 		}
