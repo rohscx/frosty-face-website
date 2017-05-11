@@ -94,7 +94,7 @@ class mysqlquery {
 		print "existCheck result " . $this->results[0]['State'] . "\n";	// debug
 		print "existCheck result " . $this->results[0]['Mac_ID'] . "\n";	// debug
 		if (isset($this->results[0]['Fname']) && isset($this->results[0]['Lname'])) {
-			$this->sqlquery($this->query_6, $this->int_1);
+			//$this->sqlquery($this->query_6, $this->int_1);
 		} else {
 
 		}
