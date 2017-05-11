@@ -56,6 +56,7 @@ class mysqlquery {
 			  JOIN aca as a
 			  ON a.Aca_ID = au.Aca_ID
         WHERE CONCAT( Fname,  ' ', Lname ) = ?";	// detailed search user table by First or Last name
+  protected $procedure_1 = "CALL add_mac (?, ?, ?, ?, ?)";	// detailed search user table by First or Last name
 	protected $results;
 
   	function __construct($sqlQuery,$sqlWhere) {
