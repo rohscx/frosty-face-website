@@ -151,6 +151,12 @@ ON am.Mac_ID = amm.Mac_ID
 WHERE am.Valid_Until = '1000-01-01 00:00:00' AND  am.Mac_ID LIKE '%150244117114491%'
 ORDER BY am.Valid_From ASC;
 
+# GETS DETAILED INFORMATION ON USER NAME RETURNS A SINGLE ROW
+SELECT au.User_ID, au.Fname, au.Lname, a.Aca_ID, a.ACA_Name, a.ACA_Bname
+FROM aca_user as au
+JOIN aca as a
+ON a.Aca_ID = au.Aca_ID
+WHERE CONCAT( Fname,  ' ', Lname ) = "SAM ADAMS";
 
 # GETS A SINGLE NOTE BASES ON MAC ADDRESS
 SELECT amm.Mac_ID, amm.Note, amm.Action, am.Ticket
