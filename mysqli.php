@@ -88,8 +88,8 @@ class mysqlquery {
 		//echo "existCheck result " . $this->results;
 		print "existCheck result " . $this->results[0]['State'] . "\n";	// debug
 		print "existCheck result " . $this->results[0]['Mac_ID'] . "\n";	// debug
-		if (isset($this->results[0]['State']) && isset($this->results[0]['Mac_ID'])) {
-			//$this->sqlquery($this->query_6, $this->int_1);
+		if (! isset($this->results[0]['Mac_ID'])) {
+			$this->sqlquery($this->query_7, "SAM ADAMS");
 		} else {
 
 		}
