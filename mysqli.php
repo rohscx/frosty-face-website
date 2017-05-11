@@ -89,7 +89,7 @@ class mysqlquery {
 
   }
 	function existCheck($query, $mac) {
-		$this->sqlquery($this->query_7, $this->int_1);	// checks for username
+		$this->sqlquery($this->query_6, $this->int_1);	// checks for MAC Address
 		//echo "existCheck result " . $this->results;
 		print "existCheck result " . $this->results[0]['State'] . "\n";	// debug
 		if (isset($this->results[0]['Fname']) && isset($this->results[0]['Lname'])) {
