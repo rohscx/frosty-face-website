@@ -81,10 +81,10 @@ class mysqlquery {
 			$this->mac2int_1($this->a_bind_params[0]);
 			$this->a_bind_params[0] = '%' . $this->int_1 . '%';	// adds formating needed for sql searches
 		  $this->sqlquery($this->query_6);
-		} elseif ($sqlQuery == "query_7") {
+		} elseif ($sqlQuery == "procedure_1") {
 			$this->mac2int_1($this->a_bind_params[2]);
 			$this->a_bind_params[2] = $this->int_1;	// adds formating needed for sql searches
-			$this->existCheck($this->query_7);
+			$this->existCheck($this->procedure_1);
 		} elseif ($function == "iseTicket_1") {
 		  $this->iseTicket_1();
 	  }
