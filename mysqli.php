@@ -58,6 +58,16 @@ class mysqlquery {
 			  JOIN aca as a
 			  ON a.Aca_ID = au.Aca_ID
         WHERE CONCAT( Fname,  ' ', Lname ) = ?";	// detailed search user table by First or Last name
+ protected $query_8 = "SELECT am.Mac_ID, au.Fname, au.Lname, a.ACA_Name, a.ACA_Bname, am.Valid_From, am.State, amm.Action, am.Ticket
+				FROM aca_mab as am
+				JOIN aca_user as au
+				USING (User_ID)
+				JOIN aca as a
+				ON a.Aca_ID = au.Aca_ID
+				JOIN aca_mab_metadata as amm
+				ON am.Mac_ID = amm.Mac_ID
+				WHERE am.Valid_Until = '1000-01-01 00:00:00' AND  am.Mac_ID =  ?
+				ORDER BY am.Valid_From ASC";	// search MAB table DB by MAC Address and Returns sigle row
   protected $procedure_1 = "CALL add_mac (?, ?, ?, ?, ?)";	// adds new user to all needed tables
 	protected $results;
 
@@ -95,7 +105,7 @@ class mysqlquery {
 		$temp_bind = $this->a_bind_params;
 		$this->a_param_type = array($this->a_param_type[0]);
 		$this->a_bind_params = array($this->a_bind_params[2]);	// this is for testing
-		$this->sqlquery($this->$query_6);	// checks for MAC Address
+		$this->sqlquery($this->$query_8);	// checks for MAC Address
 
 		//echo "existCheck result " . $this->results;
 		print "existCheck result " . $this->results[0]['State'] . "<br />";	// debug
