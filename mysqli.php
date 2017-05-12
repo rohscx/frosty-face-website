@@ -209,7 +209,7 @@ if (isset($_GET['sqlQuery']) & isset($_GET['sqlWhere'])) {
 	$param_type = array();
 	$param_bind = array();
 	foreach ($param as $x) {
-		array_push($param_type, "?");
+		array_push($param_type, "s");
 		array_push($param_bind, $_GET['sqlWhere']);
 	}
 	print_r($param_type);
