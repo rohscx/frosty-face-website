@@ -91,15 +91,17 @@ class mysqlquery {
 
   }
 	function existCheck($Query) {
-		$temp = $this->a_bind_params;
+		$temp_type = $this->a_param_type;
+		$temp_bind = $this->a_bind_params;
+		$this->a_param_type = array("s");
 		$this->a_bind_params = $this->a_bind_params[2];	// this is for testing
 		$this->sqlquery($this->query_4);	// checks for MAC Address
 
 		//echo "existCheck result " . $this->results;
 		print "existCheck result " . $this->results[0]['State'] . "<br />";	// debug
 		print "existCheck result " . $this->results[0]['Mac_ID'] . "<br />";	// debug
-		print "existCheck result " . $a_param_type . "<br />";	// debug
-		print "existCheck result " . $a_bind_params . "<br />";	// debug
+		print "existCheck result " . $this->a_param_type . "<br />";	// debug
+		print "existCheck result " . $this->a_bind_params . "<br />";	// debug
 		if (! isset($this->results[0]['Mac_ID'])) {
 			$this->sqlquery($this->query_7, "SAM ADAMS");
 			print "existCheck result " . $this->results[0]['User_ID'] . "<br />";	// debug
