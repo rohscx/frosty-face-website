@@ -126,8 +126,9 @@ class mysqlquery {
 			print "existCheck result " . $this->results[0]['User_ID'] . "<br />";	// debug
 			print "existCheck result " . $this->results[0]['Fname'] . " " . $this->results[0]['Lname'] . "<br />";
 		} elseif (! isset($this->results[0]['Mac_ID'])) {
-
-			//$this->sqlquery($this->query_7);
+			$this->a_param_type = $temp_type;
+			$this->a_bind_params = $temp_bind;
+			$this->sqlquery($this->query_7);
 		}
 
 	}
