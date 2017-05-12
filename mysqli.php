@@ -91,7 +91,10 @@ class mysqlquery {
 
   }
 	function existCheck($Query) {
+		$temp = $this->a_bind_params;
+		$this->a_bind_params = $this->a_bind_params[2];	// this is for testing
 		$this->sqlquery($this->query_4);	// checks for MAC Address
+
 		//echo "existCheck result " . $this->results;
 		print "existCheck result " . $this->results[0]['State'] . "<br />";	// debug
 		print "existCheck result " . $this->results[0]['Mac_ID'] . "<br />";	// debug
