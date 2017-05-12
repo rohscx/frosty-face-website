@@ -116,13 +116,13 @@ class mysqlquery {
 
 		$a_params = array();
 		$param_type = '';
-		$n = count($a_param_type);
+		$n = count($this->a_param_type);
 		for($i = 0; $i < $n; $i++) {
-			$param_type .= $a_param_type[$i];
+			$param_type .= $this->a_param_type[$i];
 		}
 		$a_params[] = & $param_type;
 		for($i = 0; $i < $n; $i++) {
-			$a_params[] = & $a_bind_params[$i];
+			$a_params[] = & $this->a_bind_params[$i];
 		}
 		call_user_func_array(array($stmt, 'bind_param'), $a_params);
 
