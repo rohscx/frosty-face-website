@@ -128,19 +128,20 @@ class mysqlquery {
 		} elseif (! isset($this->results[0]['Mac_ID'])) {
 			$this->a_param_type = $temp_type;
 			$this->a_bind_params = $temp_bind;
+			print_r($this->a_param_type);
+			print "<br />";	// debug
+			print "existCheck result ";	// debug
+			print_r($this->a_bind_params);	// debug
+			print "<br />";	// debug
+			print "existCheck result ";
+			print_r($temp_type);
+			print "<br />";	// debug
+			print "existCheck result ";	// debug
+			print_r($temp_bind);	// debug
+			print "<br />";	// debug
 			$this->sqlquery($this->$procedure_1);
 		}
-		print_r($this->a_param_type);
-		print "<br />";	// debug
-		print "existCheck result ";	// debug
-		print_r($this->a_bind_params);	// debug
-		print "<br />";	// debug
-		print "existCheck result ";
-		print_r($temp_type);
-		print "<br />";	// debug
-		print "existCheck result ";	// debug
-		print_r($temp_bind);	// debug
-		print "<br />";	// debug
+
 
 	}
    function sqlquery($Query) {
