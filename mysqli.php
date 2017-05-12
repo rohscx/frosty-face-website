@@ -211,6 +211,10 @@ if (isset($_GET['sqlQuery']) & isset($_GET['sqlWhere'])) {
 		array_push($param_type, "?");
 		array_push($param_bind, $_GET['sqlWhere']);
 	}
+	print_r($param_type);
+	print "/r/n";
+	print_r($param_bind);
+	print "/r/n";
 	$db = new mysqlquery($_GET['sqlQuery'], $param_type, $param_bind);	// sets class property
 	//$db = new mysqlquery($_GET['sqlQuery'], $_GET['sqlWhere']);	// sets class property
 	//print_r($db->results);	// debug
