@@ -233,7 +233,7 @@ if (isset($_GET['sqlQuery']) & isset($_GET['sqlFname']) & isset($_GET['sqlLname'
 	$param_bind = array();
 	foreach ($param as $x) {
 		array_push($param_type, "s");
-		array_push($param_bind, $_GET['sqlWhere']);
+		array_push($param_bind, $x);
 	}
 
 	$db = new mysqlquery($_GET['sqlQuery'], $param_type, $param_bind);	// sets class property
