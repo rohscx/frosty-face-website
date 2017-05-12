@@ -133,7 +133,7 @@ class mysqlquery {
 			print "<br />";	// debug
 			print "existCheck result ";	// debug
 			print_r($this->a_bind_params);	// debug
-			$this->sqlquery($this->$procedure_1);
+			$this->sqlquery($this->procedure_1);
 		}
 
 
