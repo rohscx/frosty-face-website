@@ -110,8 +110,12 @@ class mysqlquery {
 		//echo "existCheck result " . $this->results;
 		print "existCheck result " . $this->results[0]['State'] . "<br />";	// debug
 		print "existCheck result " . $this->results[0]['Mac_ID'] . "<br />";	// debug
-		print "existCheck result " . $this->a_param_type . "<br />";	// debug
-		print "existCheck result " . $this->a_bind_params . "<br />";	// debug
+		print "existCheck result ";
+		print_r($this->a_param_type);
+		print "<br />";	// debug
+		print "existCheck result ";	// debug
+		print_r($this->a_bind_params);	// debug
+		print "<br />";	// debug
 		if (isset($this->results[0]['Mac_ID']) && $this->results[0]['State'] ==  "PASSIVE") {
 			//$this->sqlquery($this->query_7, "SAM ADAMS");
 			print "existCheck result " . $this->results[0]['User_ID'] . "<br />";	// debug
