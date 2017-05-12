@@ -108,6 +108,7 @@ class mysqlquery {
 		$this->sqlquery($this->query_8);	// checks for MAC Address
 
 		//echo "existCheck result " . $this->results;
+		/*
 		print "existCheck result " . $this->results[0]['State'] . "<br />";	// debug
 		print "existCheck result " . $this->results[0]['Mac_ID'] . "<br />";	// debug
 		print "existCheck result ";
@@ -122,17 +123,22 @@ class mysqlquery {
 		print "existCheck result ";	// debug
 		print_r($temp_bind);	// debug
 		print "<br />";	// debug
+		*/
 		if (isset($this->results[0]['Mac_ID']) && $this->results[0]['State'] ==  "PASSIVE") {
+			/*
 			print "existCheck result " . $this->results[0]['User_ID'] . "<br />";	// debug
 			print "existCheck result " . $this->results[0]['Fname'] . " " . $this->results[0]['Lname'] . "<br />";
+			*/
 		} elseif (! isset($this->results[0]['Mac_ID'])) {
 			$this->a_param_type = $temp_type;
 			$this->a_bind_params = $temp_bind;
+			/*
 			print "existCheck result ";	// debug
 			print_r($this->a_param_type);
 			print "<br />";	// debug
 			print "existCheck result ";	// debug
 			print_r($this->a_bind_params);	// debug
+			*/
 			$this->sqlquery($this->procedure_1);
 		}
 
@@ -156,7 +162,7 @@ class mysqlquery {
 		for($i = 0; $i < $n; $i++) {
 			$a_params[] = & $this->a_bind_params[$i];
 		}
-		print_r($a_params);	// debug
+		//print_r($a_params);	// debug
 		call_user_func_array(array($stmt, 'bind_param'), $a_params);
 
 
@@ -273,12 +279,12 @@ if (isset($_GET['sqlQuery']) & isset($_GET['sqlFname']) & isset($_GET['sqlLname'
 		}
 
 	}
-
+	/*
 	print_r($param_type);
 	print "<br />";
 	print_r($param_bind);
 	print "<br />";
-
+	*/
 	$db = new mysqlquery($_GET['sqlQuery'], $param_type, $param_bind);	// sets class property
 	echo json_encode($db->results);
 }
