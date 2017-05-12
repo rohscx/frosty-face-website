@@ -68,7 +68,7 @@ class mysqlquery {
 				ON am.Mac_ID = amm.Mac_ID
 				WHERE am.Valid_Until = '1000-01-01 00:00:00' AND  am.Mac_ID =  ?
 				ORDER BY am.Valid_From ASC";	// search MAB table DB by MAC Address and Returns sigle row
-  protected $procedure_1 = "CALL add_mac (? ? ? ? ?)";	// adds new user to all needed tables
+  protected $procedure_1 = "CALL add_mac (?, ?, ?, ?, ?)";	// adds new user to all needed tables
 	protected $results;
 
   	function __construct($sqlQuery,$param_type, $param_bind) {
