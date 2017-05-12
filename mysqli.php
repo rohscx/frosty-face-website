@@ -82,18 +82,21 @@ class mysqlquery {
 			$this->a_bind_params[0] = '%' . $this->int_1 . '%';	// adds formating needed for sql searches
 		  $this->sqlquery($this->query_6);
 		} elseif ($sqlQuery == "query_7") {
-			$this->mac2int_1($this->a_bind_params[0]);
-			$this->existCheck($this->query_7, $this->a_bind_params[0]);
+			$this->mac2int_1($this->a_bind_params[2]);
+			$this->a_bind_params[2] = $this->int_1;	// adds formating needed for sql searches
+			$this->existCheck($this->query_7);
 		} elseif ($function == "iseTicket_1") {
 		  $this->iseTicket_1();
 	  }
 
   }
-	function existCheck($query, $mac) {
-		$this->sqlquery($this->query_4, $this->int_1);	// checks for MAC Address
+	function existCheck($Query) {
+		$this->sqlquery($this->query_4);	// checks for MAC Address
 		//echo "existCheck result " . $this->results;
 		print "existCheck result " . $this->results[0]['State'] . "<br />";	// debug
 		print "existCheck result " . $this->results[0]['Mac_ID'] . "<br />";	// debug
+		print "existCheck result " . $a_param_type . "<br />";	// debug
+		print "existCheck result " . $a_bind_params . "<br />";	// debug
 		if (! isset($this->results[0]['Mac_ID'])) {
 			$this->sqlquery($this->query_7, "SAM ADAMS");
 			print "existCheck result " . $this->results[0]['User_ID'] . "<br />";	// debug
@@ -225,7 +228,7 @@ if (isset($_GET['sqlQuery']) & isset($_GET['sqlFname']) & isset($_GET['sqlLname'
 															& isset($_GET['sqlMAC']) & isset($_GET['sqlIncedent'])
 																& isset($_GET['sqlACA'])) {
 
-	$param = array($_GET['sqlWhere']);
+	$param = array(isset($_GET['sqlFname'], $_GET['sqlLname'], $_GET['sqlMAC'], isset($_GET['sqlIncedent'], $_GET['sqlACA']);
 	$param_type = array();
 	$param_bind = array();
 	foreach ($param as $x) {
