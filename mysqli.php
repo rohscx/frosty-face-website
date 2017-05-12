@@ -220,12 +220,12 @@ if (isset($_GET['sqlQuery']) & isset($_GET['sqlWhere'])) {
 	//print_r($db->results);	// debug
 	echo json_encode($db->results);
 }
-/*
+
 if (isset($_GET['sqlQuery']) & isset($_GET['sqlFname']) & isset($_GET['sqlLname'])
 															& isset($_GET['sqlMAC']) & isset($_GET['sqlIncedent'])
 																& isset($_GET['sqlACA'])) {
 	$db = new mysqlquery($_GET['sqlQuery'], $_GET['sqlFname'], $_GET['sqlLname'], $_GET['sqlMAC'], $_GET['sqlIncedent'], $_GET['sqlACA']);	// sets class property
 	//print_r($db->results);	// debug
 	echo json_encode($db->results);
-} */
+}
 ?>
