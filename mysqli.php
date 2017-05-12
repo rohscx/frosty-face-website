@@ -236,6 +236,11 @@ if (isset($_GET['sqlQuery']) & isset($_GET['sqlFname']) & isset($_GET['sqlLname'
 		array_push($param_bind, $x);
 	}
 
+	print_r($param_type);
+	print "<br />";
+	print_r($param_bind);
+	print "<br />";
+
 	$db = new mysqlquery($_GET['sqlQuery'], $param_type, $param_bind);	// sets class property
 	echo json_encode($db->results);
 }
