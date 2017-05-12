@@ -130,6 +130,17 @@ class mysqlquery {
 			$this->a_bind_params = $temp_bind;
 			$this->sqlquery($this->$procedure_1);
 		}
+		print_r($this->a_param_type);
+		print "<br />";	// debug
+		print "existCheck result ";	// debug
+		print_r($this->a_bind_params);	// debug
+		print "<br />";	// debug
+		print "existCheck result ";
+		print_r($temp_type);
+		print "<br />";	// debug
+		print "existCheck result ";	// debug
+		print_r($temp_bind);	// debug
+		print "<br />";	// debug
 
 	}
    function sqlquery($Query) {
