@@ -228,7 +228,7 @@ if (isset($_GET['sqlQuery']) & isset($_GET['sqlFname']) & isset($_GET['sqlLname'
 															& isset($_GET['sqlMAC']) & isset($_GET['sqlIncedent'])
 																& isset($_GET['sqlACA'])) {
 
-	$param = array(isset($_GET['sqlFname'], $_GET['sqlLname'], $_GET['sqlMAC'], isset($_GET['sqlIncedent'], $_GET['sqlACA']);
+	$param = array($_GET['sqlFname'], $_GET['sqlLname'], $_GET['sqlMAC'], $_GET['sqlIncedent'], $_GET['sqlACA']);
 	$param_type = array();
 	$param_bind = array();
 	foreach ($param as $x) {
