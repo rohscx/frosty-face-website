@@ -103,8 +103,8 @@ class mysqlquery {
 	function existCheck($Query) {
 		$temp_type = $this->a_param_type;
 		$temp_bind = $this->a_bind_params;
-		$this->a_param_type = array($this->a_param_type[0]);
-		$this->a_bind_params = array($this->a_bind_params[2]);	// this is for testing
+		$this->a_param_type = array($this->a_param_type[1]);
+		$this->a_bind_params = array($this->a_bind_params[3]);	// this is for testing
 		$this->sqlquery($this->query_8);	// checks for MAC Address
 
 		//echo "existCheck result " . $this->results;
