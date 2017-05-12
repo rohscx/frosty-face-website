@@ -75,7 +75,7 @@ class mysqlquery {
 			$this->a_bind_params[0] = $this->int_1;	// adds formating needed for sql searches
 		  $this->sqlquery($this->query_4);
 	  } elseif ($sqlQuery == "query_5") {
-			$this->a_bind_params[0] = '%' . $this->int_1 . '%';	// adds formating needed for sql searches
+			$this->a_bind_params[0] = $this->int_1;	// adds formating needed for sql searches
 		  $this->sqlquery($this->query_5, $sqlWhere);
 	  } elseif ($sqlQuery == "query_6") {
 			$this->mac2int_1($this->a_bind_params[0]);
