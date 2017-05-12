@@ -3,6 +3,8 @@ header('Content-Type: text/html; charset=utf-8');
 class mysqlquery {
 	protected $mac_1;
   protected $int_1;
+	protected $a_param_type = array ("s");	// stores the bind parameter Types: s : String, i : Integer, d : Double, b : Blob
+	protected $a_bind_params = array ("11:11:11:11:11:11");	// stores the bind parameter Values: basically there WHERE
 	protected $db_s_1 = 'sql'; 	// db server dns name
 	protected $db_su_1 = 'demoUser';	// db username
 	protected $db_sp_1 = 'demoPassword';	// db password
@@ -59,26 +61,32 @@ class mysqlquery {
   protected $procedure_1 = "CALL add_mac (?, ?, ?, ?, ?)";	// adds new user to all needed tables
 	protected $results;
 
-  	function __construct($sqlQuery,$sqlWhere) {
-	  if ($sqlQuery == "query_1") {
-		  $this->sqlquery($this->query_1, $sqlWhere);
+  	function __construct($sqlQuery,$param_type, $param_bind) {
+		 $this->a_param_type = $param_type;
+		 $this->a_bind_params = $param_bind;
+		 if ($sqlQuery == "query_1") {
+		   $this->sqlquery($this->query_1);
 	  } elseif ($sqlQuery == "query_2") {
-		  $this->sqlquery($this->query_2, $sqlWhere);
+		  $this->sqlquery($this->query_2);
 	  } elseif ($sqlQuery == "query_3") {
-		  $this->sqlquery($this->query_3, $sqlWhere);
+		  $this->sqlquery($this->query_3);
 	  } elseif ($sqlQuery == "query_4") {
 		  $this->mac2int_1($sqlWhere);
 		  $this->sqlquery($this->query_4, $this->int_1);
 	  } elseif ($sqlQuery == "query_5") {
-		  $sqlWhere = '%' . $sqlWhere . '%';	// adds formating needed for sql searches
+			$this->a_bind_params[0] = '%' . $this->a_bind_params[0] . '%';
+		  //$sqlWhere = '%' . $sqlWhere . '%';	// adds formating needed for sql searches
 		  $this->sqlquery($this->query_5, $sqlWhere);
 	  } elseif ($sqlQuery == "query_6") {
-		  $this->mac2int_1($sqlWhere);
-		  $this->int_1 = '%' . $this->int_1 . '%';	// adds formating needed for sql searches
-		  $this->sqlquery($this->query_6, $this->int_1);
+		  //$this->mac2int_1($sqlWhere);
+			$this->mac2int_1($this->a_bind_params[0]);
+			$this->a_bind_params[0] = '%' . $this->a_bind_params[0] . '%';
+		  //$this->int_1 = '%' . $this->int_1 . '%';	// adds formating needed for sql searches
+		  $this->sqlquery($this->query_6);
 		} elseif ($sqlQuery == "query_7") {
-		  $this->mac2int_1($sqlWhere);	// converts mac address to int
-			$this->existCheck($this->query_7, $this->int_1);
+		  //$this->mac2int_1($sqlWhere);	// converts mac address to int
+			$this->mac2int_1($this->a_bind_params[0]);
+			$this->existCheck($this->query_7, $this->a_bind_params[0]);
 		} elseif ($function == "iseTicket_1") {
 		  $this->iseTicket_1();
 	  }
@@ -98,11 +106,28 @@ class mysqlquery {
 		}
 
 	}
-   function sqlquery($Query, $sqlWhere) {
-	  $this->searchterm_1 = $sqlWhere;
+   function sqlquery($Query) {
+	  //$this->searchterm_1 = $sqlWhere;
+
+
+
 	  $db = new mysqli($this->db_s_1, $this->db_su_1, $this->db_sp_1, $this->db_sd_1);
  	  $stmt = $db->prepare($Query);
-	  $stmt->bind_param('s', $this->searchterm_1);
+
+		$a_params = array();
+		$param_type = '';
+		$n = count($a_param_type);
+		for($i = 0; $i < $n; $i++) {
+			$param_type .= $a_param_type[$i];
+		}
+		$a_params[] = & $param_type;
+		for($i = 0; $i < $n; $i++) {
+			$a_params[] = & $a_bind_params[$i];
+		}
+		call_user_func_array(array($stmt, 'bind_param'), $a_params);
+
+
+	  //$stmt->bind_param('s', $this->searchterm_1);
 	  $stmt->execute();
 	  $stmt->store_result();	// store the result (to get properties)
 	  $num_of_rows = $stmt->num_rows; // set the number of rows
@@ -179,7 +204,15 @@ class mysqlquery {
 
 //$db = new mysqlquery("1000-01-01 00:00:0");
 if (isset($_GET['sqlQuery']) & isset($_GET['sqlWhere'])) {
-	$db = new mysqlquery($_GET['sqlQuery'], $_GET['sqlWhere']);	// sets class property
+	$param = array($_GET['sqlWhere']);
+	$param_type = array();
+	$param_bind = array();
+	foreach ($param as $x) {
+		array_push($param_type, "?");
+		array_push($param_bind, $_GET['sqlWhere']);
+	}
+	$db = new mysqlquery($_GET['sqlQuery'], $param_type, $param_bind);	// sets class property
+	//$db = new mysqlquery($_GET['sqlQuery'], $_GET['sqlWhere']);	// sets class property
 	//print_r($db->results);	// debug
 	echo json_encode($db->results);
 }
