@@ -224,8 +224,16 @@ if (isset($_GET['sqlQuery']) & isset($_GET['sqlWhere'])) {
 if (isset($_GET['sqlQuery']) & isset($_GET['sqlFname']) & isset($_GET['sqlLname'])
 															& isset($_GET['sqlMAC']) & isset($_GET['sqlIncedent'])
 																& isset($_GET['sqlACA'])) {
-	$db = new mysqlquery($_GET['sqlQuery'], $_GET['sqlFname'], $_GET['sqlLname'], $_GET['sqlMAC'], $_GET['sqlIncedent'], $_GET['sqlACA']);	// sets class property
-	//print_r($db->results);	// debug
+
+	$param = array($_GET['sqlWhere']);
+	$param_type = array();
+	$param_bind = array();
+	foreach ($param as $x) {
+		array_push($param_type, "s");
+		array_push($param_bind, $_GET['sqlWhere']);
+	}
+
+	$db = new mysqlquery($_GET['sqlQuery'], $param_type, $param_bind);	// sets class property
 	echo json_encode($db->results);
 }
 ?>
