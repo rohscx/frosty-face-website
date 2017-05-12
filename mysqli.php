@@ -71,20 +71,17 @@ class mysqlquery {
 	  } elseif ($sqlQuery == "query_3") {
 		  $this->sqlquery($this->query_3);
 	  } elseif ($sqlQuery == "query_4") {
-		  $this->mac2int_1($sqlWhere);
-		  $this->sqlquery($this->query_4, $this->int_1);
+		  $this->mac2int_1($this->a_bind_params[0]);
+			$this->a_bind_params[0] = '%' . $this->int_1 . '%';	// adds formating needed for sql searches
+		  $this->sqlquery($this->query_4);
 	  } elseif ($sqlQuery == "query_5") {
-			$this->a_bind_params[0] = '%' . $this->int_1 . '%';
-		  //$sqlWhere = '%' . $sqlWhere . '%';	// adds formating needed for sql searches
+			$this->a_bind_params[0] = '%' . $this->int_1 . '%';	// adds formating needed for sql searches
 		  $this->sqlquery($this->query_5, $sqlWhere);
 	  } elseif ($sqlQuery == "query_6") {
-		  //$this->mac2int_1($sqlWhere);
 			$this->mac2int_1($this->a_bind_params[0]);
-			$this->a_bind_params[0] = '%' . $this->int_1 . '%';
-		  //$this->int_1 = '%' . $this->int_1 . '%';	// adds formating needed for sql searches
+			$this->a_bind_params[0] = '%' . $this->int_1 . '%';	// adds formating needed for sql searches
 		  $this->sqlquery($this->query_6);
 		} elseif ($sqlQuery == "query_7") {
-		  //$this->mac2int_1($sqlWhere);	// converts mac address to int
 			$this->mac2int_1($this->a_bind_params[0]);
 			$this->existCheck($this->query_7, $this->a_bind_params[0]);
 		} elseif ($function == "iseTicket_1") {
