@@ -124,6 +124,7 @@ class mysqlquery {
 		for($i = 0; $i < $n; $i++) {
 			$a_params[] = & $this->a_bind_params[$i];
 		}
+		print_r($a_params);	// debug
 		call_user_func_array(array($stmt, 'bind_param'), $a_params);
 
 
