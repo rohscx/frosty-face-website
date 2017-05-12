@@ -266,6 +266,7 @@ if (isset($_GET['sqlQuery']) & isset($_GET['sqlFname']) & isset($_GET['sqlLname'
 	foreach ($param as $x) {
 		if ($x == $param[0] || $x == $param[3]) {
 			array_push($param_type, "i");
+			array_push($param_bind, $x);
 		} else {
 			array_push($param_type, "s");
 			array_push($param_bind, $x);
