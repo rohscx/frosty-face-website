@@ -72,7 +72,7 @@
             document.getElementById(thediv).innerHTML = "MAC "+res;	// debug
             default_list('flex_div_1','mysqli.php','sqlQuery','query_6','sqlWhere',res);
           } else {
-            default_list('flex_div_1','mysqli.php','sqlQuery','query_3','sqlWhere',encodeURIComponent("1000-01-01 00:00:0"));
+            default_list('flex_div_1','mysqli.php','sqlQuery','query_3','sqlWhere',encodeURIComponent("1000-01-01 00:00:00"));
           }
         }
       }
@@ -93,7 +93,6 @@
             document.getElementById('spinner').style.display = "none";
             document.getElementById(thediv).innerHTML = myObj.Encoded;
             curlreturn_1(thediv, 'curlrest.php' , 'Type' , 'iseTicket_1' , 'curlAddress', myUrl , 'curlData' , myObj.Encoded , 'curlCustom' , 'GET' , 'curlPost' , '');
-
           } else if (myObj.Type == "IP") {
             var supported_1 = " MAC ";
             var supported_2 = " IP ";
@@ -155,7 +154,6 @@
       xmlhttp.open('GET', thefile+'?'+thekeyA_1+'='+thekeyB_1+'&'+thekeyA_2+'='+thekeyB_2, true);
       xmlhttp.send();
     }
-
     function get_notes(thediv, thefile, thekeyA_1, thekeyB_1, thekeyA_2, thekeyB_2) {
       if (window.XMLHttpRequest) {
         xmlhttp = new XMLHttpRequest();
@@ -181,16 +179,12 @@
             }
             document.getElementById("modal-body").innerHTML = "";	// clears a DIV
             curlreturn_1("modal-body", "curlrest.php"  , "Type" , "ouiLookup_1" , "curlAddress" , "http%3A%2F%2Fapi.macvendors.com%2F", "curlData", mac_encoded, "curlCustom" , "GET" , "curlPost" , "%22%22");
-
-
-
           }
         }
       }
       xmlhttp.open('GET', thefile+'?'+thekeyA_1+'='+thekeyB_1+'&'+thekeyA_2+'='+thekeyB_2, true);
       xmlhttp.send();
     }
-
     function restmodal(thediv, thefile , thekey) {
       //var addSpinner = document.getElementById("spinner");  //var used to add spinner
       document.getElementById('spinner').style.display = "block";
@@ -268,7 +262,6 @@
       border: 1px solid #ccc;
       box-sizing: border-box;
     }
-
     /* Set a style for all buttons */
     button {
       background-color: #4CAF50;
@@ -279,27 +272,18 @@
       cursor: pointer;
       width: 100%;
     }
-
     button:hover {
       opacity: 0.8;
     }
-
     /* Extra styles for the cancel button */
     .cancelbtn {
       width: auto;
       padding: 10px 18px;
       background-color: #f44336;
-
-
-
       </style>
       <body>
-
       <h2>MAB BYPASS FORM</h2>
-
       <button id="formid01" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">User MAB bypass</button>
-
-
       <div id="adiv"></div>
       <div id="testdiv"></div>
       <!-- The Modal -->
@@ -325,11 +309,6 @@
       </div>
       </div>
       </div>
-
-
-
-
-
       <script>
       // Get the modal
       var modal = document.getElementById('myModal');
@@ -342,7 +321,7 @@
       // When the user clicks the button, open the modal
       //var formvalue_1 = document.getElementById("uniqueID").value;
       // populates flex_div_1 on page load
-      default_list('flex_div_1','mysqli.php','sqlQuery','query_3','sqlWhere','1000-01-01 00%3A00%3A0');
+      default_list('flex_div_1','mysqli.php','sqlQuery','query_3','sqlWhere',encodeURIComponent("1000-01-01 00:00:00"));
       // Get the modal
       var form_1 = document.getElementById('formid01');
       /* not needed as their are no buttons and it stops the exection of the rest of the code.
@@ -376,37 +355,28 @@
     }
     form_1.onclick = function() {
       var form_1 = document.getElementById('adiv2');
-
       form_1.innerHTML = '';
-
       var form = form_1.appendChild(document.createElement('form'));
-
       form.name = 'input';
       form.action = 'html_form_action.asp';
       form.method = 'get';
-
       form.appendChild(document.createTextNode('Bypass User '));
-
       var input = form.appendChild(document.createElement('input'));
       input.type = 'text';
       input.name = 'fname_1';
       input.value = 'First Name...';
-
       var input = form.appendChild(document.createElement('input'));
       input.type = 'text';
       input.name = 'lname_1';
       input.value = 'Last Name...';
-
       var input = form.appendChild(document.createElement('input'));
       input.type = 'text';
       input.name = 'mac_1';
       input.value = 'MAC Address...';
-
       var input = form.appendChild(document.createElement('input'));
       input.type = 'text';
       input.name = 'incedent_1';
       input.value = 'Incenent Number...';
-
       var input = form.appendChild(document.createElement('select')); // creates select box
       var aca_list_1 = ["NULL","FPI","NWFCS","FCE"];  // lista all usable ACA's. NULL is a place holder so that the ACA number matches DB Value
       var aLen = aca_list_1.length; // gets the length of the array
