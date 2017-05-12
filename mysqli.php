@@ -95,7 +95,7 @@ class mysqlquery {
 		$temp_bind = $this->a_bind_params;
 		$this->a_param_type = array($this->a_param_type[0]);
 		$this->a_bind_params = array($this->a_bind_params[2]);	// this is for testing
-		$this->sqlquery($this->query_4);	// checks for MAC Address
+		$this->sqlquery($this->$query_6);	// checks for MAC Address
 
 		//echo "existCheck result " . $this->results;
 		print "existCheck result " . $this->results[0]['State'] . "<br />";	// debug
