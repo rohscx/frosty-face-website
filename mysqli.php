@@ -92,8 +92,8 @@ class mysqlquery {
 			$this->a_bind_params[0] = '%' . $this->int_1 . '%';	// adds formating needed for sql searches
 		  $this->sqlquery($this->query_6);
 		} elseif ($sqlQuery == "procedure_1") {
-			$this->mac2int_1($this->a_bind_params[2]);
-			$this->a_bind_params[2] = $this->int_1;	// adds formating needed for sql searches
+			$this->mac2int_1($this->a_bind_params[3]);
+			$this->a_bind_params[3] = $this->int_1;	// adds formating needed for sql searches
 			$this->existCheck($this->procedure_1);
 		} elseif ($function == "iseTicket_1") {
 		  $this->iseTicket_1();
@@ -260,7 +260,7 @@ if (isset($_GET['sqlQuery']) & isset($_GET['sqlFname']) & isset($_GET['sqlLname'
 															& isset($_GET['sqlMAC']) & isset($_GET['sqlIncedent'])
 																& isset($_GET['sqlACA'])) {
 
-	$param = array($_GET['sqlFname'], $_GET['sqlLname'], $_GET['sqlMAC'], $_GET['sqlIncedent'], $_GET['sqlACA']);
+	$param = array($_GET['sqlACA'], $_GET['sqlFname'], $_GET['sqlLname'], $_GET['sqlMAC'], $_GET['sqlIncedent']);
 	$param_type = array();
 	$param_bind = array();
 	foreach ($param as $x) {
