@@ -128,7 +128,7 @@ class mysqlquery {
 		} elseif (! isset($this->results[0]['Mac_ID'])) {
 			$this->a_param_type = $temp_type;
 			$this->a_bind_params = $temp_bind;
-			$this->sqlquery($this->query_7);
+			$this->sqlquery($this->$procedure_1);
 		}
 
 	}
