@@ -106,41 +106,13 @@ class mysqlquery {
 		$temp_bind = $this->a_bind_params;	// copies bind data to a temp array
 		$this->a_param_type = array($this->a_param_type[0]); // leaves only one "i" in the type array
 		$this->a_bind_params = array($this->a_bind_params[3]);	// leaves the MAC in the params array
-		if (!$this->sqlquery($this->query_8)){
-			print "Cats";
-		} else {
-			if (isset($this->results[0]['Mac_ID']) && $this->results[0]['State'] ==  "PASSIVE") {
-				$this->a_param_type = $temp_type;
-				$this->a_bind_params = $temp_bind;
-				$this->sqlquery($this->procedure_2);	// adds a new user to the user table and updates all other tables
-
-				/*
-				print "existCheck result " . $this->results[0]['User_ID'] . "<br />";	// debug
-				print "existCheck result " . $this->results[0]['Fname'] . " " . $this->results[0]['Lname'] . "<br />";
-				*/
-				/*
-				print "IF Statment 1" . :"<br />";
-				print "existCheck result ";	// debug
-				print_r($this->a_param_type);	// debug
-				print "<br />";	// debug
-				print "existCheck result ";	// debug
-				print_r($this->a_bind_params);	// debug
-				*/
-			} elseif (! isset($this->results[0]['Mac_ID'])) {
-				$this->a_param_type = $temp_type;
-				$this->a_bind_params = $temp_bind;
-
-				print "IF Statment 2" . "<br />";
-				print "existCheck result ";	// debug
-				print_r($this->a_param_type);	// debug
-				print "<br />";	// debug
-				print "existCheck result ";	// debug
-				print_r($this->a_bind_params);	// debug
-
-				$this->sqlquery($this->procedure_1);	// add a new user to all tables
-			}
+		// error handler function.
+		function customError($errno, $errstr) {
+			echo "<b>Error:</b> [$errno] $errstr";
 		}
-		//$this->sqlquery($this->query_8);	// checks for MAC Address
+		// set error handler
+		set_error_handler("customError");
+		$this->sqlquery($this->query_8);	// checks for MAC Address
 
 		//echo "existCheck result " . $this->results;
 
@@ -159,7 +131,36 @@ class mysqlquery {
 		print_r($temp_bind);	// debug
 		print "<br />";	// debug
 
+		if (isset($this->results[0]['Mac_ID']) && $this->results[0]['State'] ==  "PASSIVE") {
+			$this->a_param_type = $temp_type;
+			$this->a_bind_params = $temp_bind;
+			$this->sqlquery($this->procedure_2);	// adds a new user to the user table and updates all other tables
 
+			/*
+			print "existCheck result " . $this->results[0]['User_ID'] . "<br />";	// debug
+			print "existCheck result " . $this->results[0]['Fname'] . " " . $this->results[0]['Lname'] . "<br />";
+			*/
+			/*
+			print "IF Statment 1" . :"<br />";
+			print "existCheck result ";	// debug
+			print_r($this->a_param_type);	// debug
+			print "<br />";	// debug
+			print "existCheck result ";	// debug
+			print_r($this->a_bind_params);	// debug
+			*/
+		} elseif (! isset($this->results[0]['Mac_ID'])) {
+			$this->a_param_type = $temp_type;
+			$this->a_bind_params = $temp_bind;
+
+			print "IF Statment 2" . "<br />";
+			print "existCheck result ";	// debug
+			print_r($this->a_param_type);	// debug
+			print "<br />";	// debug
+			print "existCheck result ";	// debug
+			print_r($this->a_bind_params);	// debug
+
+			$this->sqlquery($this->procedure_1);	// add a new user to all tables
+		}
 	}
   function sqlquery($Query) {
 	  //$this->searchterm_1 = $sqlWhere;
