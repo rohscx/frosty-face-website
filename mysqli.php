@@ -109,7 +109,7 @@ class mysqlquery {
 		$this->sqlquery($this->query_8);	// checks for MAC Address
 
 		//echo "existCheck result " . $this->results;
-		/*
+		
 		print "existCheck result " . $this->results[0]['State'] . "<br />";	// debug
 		print "existCheck result " . $this->results[0]['Mac_ID'] . "<br />";	// debug
 		print "existCheck result ";	// debug
@@ -124,7 +124,7 @@ class mysqlquery {
 		print "existCheck result ";	// debug
 		print_r($temp_bind);	// debug
 		print "<br />";	// debug
-		*/
+
 		if (isset($this->results[0]['Mac_ID']) && $this->results[0]['State'] ==  "PASSIVE") {
 			$this->a_param_type = $temp_type;
 			$this->a_bind_params = $temp_bind;
