@@ -101,24 +101,24 @@ class mysqlquery {
 
   }
 	function existCheck($Query) {
-		$temp_type = $this->a_param_type;
-		$temp_bind = $this->a_bind_params;
-		$this->a_param_type = array($this->a_param_type[1]);
-		$this->a_bind_params = array($this->a_bind_params[3]);	// this is for testing
+		$temp_type = $this->a_param_type;	// copies type data to a temp array
+		$temp_bind = $this->a_bind_params;	// copies bind data to a temp array
+		$this->a_param_type = array($this->a_param_type[1]); // leaves only one "i" in the type array
+		$this->a_bind_params = array($this->a_bind_params[3]);	// leaves the MAC in the params array
 		$this->sqlquery($this->query_8);	// checks for MAC Address
 
 		//echo "existCheck result " . $this->results;
 		/*
 		print "existCheck result " . $this->results[0]['State'] . "<br />";	// debug
 		print "existCheck result " . $this->results[0]['Mac_ID'] . "<br />";	// debug
-		print "existCheck result ";
-		print_r($this->a_param_type);
+		print "existCheck result ";	// debug
+		print_r($this->a_param_type);	// debug
 		print "<br />";	// debug
 		print "existCheck result ";	// debug
 		print_r($this->a_bind_params);	// debug
 		print "<br />";	// debug
-		print "existCheck result ";
-		print_r($temp_type);
+		print "existCheck result ";	// debug
+		print_r($temp_type);	// debug
 		print "<br />";	// debug
 		print "existCheck result ";	// debug
 		print_r($temp_bind);	// debug
@@ -134,7 +134,7 @@ class mysqlquery {
 			$this->a_bind_params = $temp_bind;
 			/*
 			print "existCheck result ";	// debug
-			print_r($this->a_param_type);
+			print_r($this->a_param_type);	// debug
 			print "<br />";	// debug
 			print "existCheck result ";	// debug
 			print_r($this->a_bind_params);	// debug
