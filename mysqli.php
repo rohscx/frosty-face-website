@@ -106,15 +106,9 @@ class mysqlquery {
 		$temp_bind = $this->a_bind_params;	// copies bind data to a temp array
 		$this->a_param_type = array($this->a_param_type[0]); // leaves only one "i" in the type array
 		$this->a_bind_params = array($this->a_bind_params[3]);	// leaves the MAC in the params array
-		// error handler function.
-		function customError($errno, $errstr) {
-			echo "<b>Error:</b> [$errno] $errstr";	// debug
-			//$this->results = array('NullReturn'=>"No SQLi Return");
-			restore_error_handler();
-		}
-		// set error handler
-		set_error_handler("customError");
-		$this->sqlquery($this->query_8);	// checks for MAC Address
+
+
+		@$this->sqlquery($this->query_8);	// checks for MAC Address
 
 		//echo "existCheck result " . $this->results;
 
