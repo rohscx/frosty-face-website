@@ -215,6 +215,8 @@ while($field = $meta->fetch_field()) {
 			   $this->results[$i]['Mac_ID'] = $this->mac_1;
 		   }
 	   }
+} else {
+	$this->results = $sqli array('NullReturn'=>"No SQLi Return");
 }
 	   //print_r ($this->results);
 	   //return $results;
