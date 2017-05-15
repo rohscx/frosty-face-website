@@ -106,10 +106,7 @@ class mysqlquery {
 		$temp_bind = $this->a_bind_params;	// copies bind data to a temp array
 		$this->a_param_type = array($this->a_param_type[0]); // leaves only one "i" in the type array
 		$this->a_bind_params = array($this->a_bind_params[3]);	// leaves the MAC in the params array
-
-
-		@$this->sqlquery($this->query_8);	// checks for MAC Address
-
+		@$this->sqlquery($this->query_8);	// checks for MAC Address warning have been silences because it will through one. Least creative solution =(
 		//echo "existCheck result " . $this->results;
 		/*
 		print "existCheck result " . $this->results[0]['State'] . "<br />";	// debug
@@ -131,7 +128,6 @@ class mysqlquery {
 			$this->a_param_type = $temp_type;
 			$this->a_bind_params = $temp_bind;
 			$this->sqlquery($this->procedure_2);	// adds a new user to the user table and updates all other tables
-
 			/*
 			print "existCheck result " . $this->results[0]['User_ID'] . "<br />";	// debug
 			print "existCheck result " . $this->results[0]['Fname'] . " " . $this->results[0]['Lname'] . "<br />";
@@ -160,12 +156,8 @@ class mysqlquery {
 	}
   function sqlquery($Query) {
 	  //$this->searchterm_1 = $sqlWhere;
-
-
-
 	  $db = new mysqli($this->db_s_1, $this->db_su_1, $this->db_sp_1, $this->db_sd_1);
  	  $stmt = $db->prepare($Query);
-
 		$a_params = array();
 		$param_type = '';
 		$n = count($this->a_param_type);
@@ -178,8 +170,6 @@ class mysqlquery {
 		}
 		//print_r($a_params);	// debug
 		call_user_func_array(array($stmt, 'bind_param'), $a_params);
-
-
 	  //$stmt->bind_param('s', $this->searchterm_1);
 	  $stmt->execute();
 	  $stmt->store_result();	// store the result (to get properties)
