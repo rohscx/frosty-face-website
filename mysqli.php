@@ -125,7 +125,7 @@ class mysqlquery {
 		print_r($temp_bind);	// debug
 		print "<br />";	// debug
 		*/
-		if (isset($this->results[0]['Mac_ID']) && $this->results[0]['State'] ==  "PASSIVE")) {
+		if (isset($this->results[0]['Mac_ID']) && $this->results[0]['State'] ==  "PASSIVE") {
 			$this->a_param_type = $temp_type;
 			$this->a_bind_params = $temp_bind;
 			$this->sqlquery($this->procedure_2);	// adds a new user to the user table and updates all other tables
