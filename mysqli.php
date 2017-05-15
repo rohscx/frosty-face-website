@@ -145,14 +145,14 @@ class mysqlquery {
 		} elseif (! isset($this->results[0]['Mac_ID'])) {
 			$this->a_param_type = $temp_type;
 			$this->a_bind_params = $temp_bind;
-			/*
+
 			print "IF Statment 2" . "<br />";
 			print "existCheck result ";	// debug
 			print_r($this->a_param_type);	// debug
 			print "<br />";	// debug
 			print "existCheck result ";	// debug
 			print_r($this->a_bind_params);	// debug
-			*/
+			
 			$this->sqlquery($this->procedure_1);	// add a new user to all tables
 		}
 	}
