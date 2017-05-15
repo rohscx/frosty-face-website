@@ -58,7 +58,7 @@ class mysqlquery {
 			  JOIN aca as a
 			  ON a.Aca_ID = au.Aca_ID
         WHERE CONCAT( Fname,  ' ', Lname ) = ?";	// detailed search user table by First or Last name
- protected $query_8 = "SELECT am.Mac_ID, au.Fname, au.Lname, a.ACA_Name, a.ACA_Bname, am.Valid_From, am.State, amm.Action, am.Ticket
+ protected $query_8 = "SELECT am.Mac_ID, au.Fname, au.Lname, a.ACA_Name, a.ACA_Bname, am.Valid_From, am.Valid_Until, am.State, amm.Action, am.Ticket
 				FROM aca_mab as am
 				JOIN aca_user as au
 				USING (User_ID)
