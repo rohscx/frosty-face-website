@@ -58,7 +58,7 @@ class mysqlquery {
 			  JOIN aca as a
 			  ON a.Aca_ID = au.Aca_ID
         WHERE CONCAT( Fname,  ' ', Lname ) = ?";	// detailed search user table by First or Last name
- protected $query_8 = "SELECT am.Mac_ID, au.Fname, au.Lname, a.ACA_Name, a.ACA_Bname, am.Valid_From, am.Valid_Until, am.State, amm.Action, am.Ticket
+ protected $query_8 = "SELECT am.Mac_ID, au.Fname, au.Lname, a.ACA_Name, a.ACA_Bname, am.Valid_From, am.State, amm.Action, am.Ticket
 				FROM aca_mab as am
 				JOIN aca_user as au
 				USING (User_ID)
@@ -68,7 +68,8 @@ class mysqlquery {
 				ON am.Mac_ID = amm.Mac_ID
 				WHERE am.Valid_Until = '1000-01-01 00:00:00' AND  am.Mac_ID =  ?
 				ORDER BY am.Valid_From ASC";	// search MAB table DB by MAC Address and Returns sigle row
-  protected $procedure_1 = "CALL add_mac (?, ?, ?, ?, ?)";	// adds new user to all needed tables
+  protected $procedure_1 = "CALL add_mac (?, ?, ?, ?, ?)";	// adds new user to ALL needed tables
+	protected $procedure_2 = "CALL add_user_update_mac (?, ?, ?, ?, ?)";	// adds new user and UPDATES all tables
 	protected $results;
 
   	function __construct($sqlQuery,$param_type, $param_bind) {
@@ -124,7 +125,10 @@ class mysqlquery {
 		print_r($temp_bind);	// debug
 		print "<br />";	// debug
 		*/
-		if (isset($this->results[0]['Mac_ID']) && $this->results[0]['State'] ==  "PASSIVE") {
+		if (isset($this->results[0]['Mac_ID']) && $this->results[0]['State'] ==  "PASSIVE")) {
+			$this->a_param_type = $temp_type;
+			$this->a_bind_params = $temp_bind;
+			$this->sqlquery($this->procedure_2);	// adds a new user to the user table and updates all other tables
 			/*
 			print "existCheck result " . $this->results[0]['User_ID'] . "<br />";	// debug
 			print "existCheck result " . $this->results[0]['Fname'] . " " . $this->results[0]['Lname'] . "<br />";
@@ -139,10 +143,8 @@ class mysqlquery {
 			print "existCheck result ";	// debug
 			print_r($this->a_bind_params);	// debug
 			*/
-			$this->sqlquery($this->procedure_1);
+			$this->sqlquery($this->procedure_1);	// add a new user to all tables
 		}
-
-
 	}
    function sqlquery($Query) {
 	  //$this->searchterm_1 = $sqlWhere;
