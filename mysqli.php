@@ -189,7 +189,7 @@ class mysqlquery {
 	  $x = 0;
 	  $meta = $stmt->result_metadata();
 	  $parameters = array();
-  if (null !== $meta->fetch_field()) {
+  if ($meta) {
 		while($field = $meta->fetch_field()) {
     	$parameters[] = &$row[$field->name];
 		}
