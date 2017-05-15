@@ -202,7 +202,7 @@ DECLARE PROC_Action  INT(100);
 SET PROC_Type = 'CUSTOMER';
 SET PROC_State = 'ACTIVE';
 SET PROC_Note = 'GENERIC PROCEDURAL NOTE';
-SET PROC_Action = 0;
+SET PROC_Action = 1;
 INSERT INTO aca_user (Aca_ID, Fname, Lname, Type) VALUES (PROC_Aca_ID, PROC_Fname, PROC_Lname, PROC_Type);
 SELECT User_ID INTO PROC_User_ID FROM aca_user WHERE Aca_ID = PROC_Aca_ID AND Fname = PROC_Fname AND Lname = PROC_Lname AND Type = PROC_Type;
 UPDATE aca_mab SET Valid_Until = now() WHERE Mac_ID = PROC_Mac_ID;
