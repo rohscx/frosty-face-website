@@ -156,7 +156,7 @@ class mysqlquery {
 			$this->sqlquery($this->procedure_1);	// add a new user to all tables
 		}
 	}
-   function sqlquery($Query) {
+  function sqlquery($Query) {
 	  //$this->searchterm_1 = $sqlWhere;
 
 
@@ -189,23 +189,23 @@ class mysqlquery {
 	  $x = 0;
 	  $meta = $stmt->result_metadata();
 	  $parameters = array();
-    if ($meta) {
-	while($field = $meta->fetch_field()) {
+  if (isset($meta)) {
+		while($field = $meta->fetch_field()) {
     	$parameters[] = &$row[$field->name];
-	}
-	//$stmt->bind_result(array_values($array));	// Bind the result to variables
-	call_user_func_array(array($stmt, 'bind_result'), $parameters);
-	while($stmt->fetch()) {
-		$x = array();
-        foreach($row as $key => $val ) {
-            // This next line isn't necessary for your project.
-            // It can be removed. I use it to ensure
-            // that the "excerpt" of the post doesn't end in the middle
-            // of a word.
-            if ( $key === 'excerpt') $val = $this->cleanExcerpt($row[$key]);
-			$x[$key] = $val;
 		}
-        $this->results[] = $x;
+		//$stmt->bind_result(array_values($array));	// Bind the result to variables
+		call_user_func_array(array($stmt, 'bind_result'), $parameters);
+		while($stmt->fetch()) {
+			$x = array();
+        foreach($row as $key => $val ) {
+          // This next line isn't necessary for your project.
+          // It can be removed. I use it to ensure
+          // that the "excerpt" of the post doesn't end in the middle
+          // of a word.
+          if ( $key === 'excerpt') $val = $this->cleanExcerpt($row[$key]);
+					$x[$key] = $val;
+				}
+      $this->results[] = $x;
 	}
 	foreach($this->results as $i => $item) {
 		if ($this->results[$i]['Mac_ID']) {
@@ -216,9 +216,9 @@ class mysqlquery {
 			$this->results[$i]['Mac_ID'] = $this->mac_1;
 		}
 	}
-    } else {
+} else {
     	 $this->results = array('NullReturn'=>"No SQLi Return");
-    }
+}
 //print_r ($this->results);
 //return $results;
 $stmt->free_result();
