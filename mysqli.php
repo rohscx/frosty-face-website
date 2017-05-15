@@ -216,8 +216,8 @@ class mysqlquery {
 		}
 	}
     } else {
-	$sqli array('NullReturn'=>"No SQLi Return");
-	$this->results = $sqli;
+	$nullreturn array("NullReturn"=>"No SQLi Return");
+	$this->results = $nullreturn;
 }
 	   //print_r ($this->results);
 	   //return $results;
