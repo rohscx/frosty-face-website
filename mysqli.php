@@ -215,8 +215,9 @@ class mysqlquery {
 			$this->results[$i]['Mac_ID'] = $this->mac_1;
 		}
 	}
-} else {
-	$this->results = $sqli array('NullReturn'=>"No SQLi Return");
+    } else {
+	$sqli array('NullReturn'=>"No SQLi Return");
+	$this->results = $sqli;
 }
 	   //print_r ($this->results);
 	   //return $results;
