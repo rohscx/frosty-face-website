@@ -128,7 +128,7 @@ class mysqlquery {
 		if (isset($this->results[0]['Mac_ID']) && $this->results[0]['State'] ==  "PASSIVE") {
 			$this->a_param_type = $temp_type;
 			$this->a_bind_params = $temp_bind;
-			//$this->sqlquery($this->procedure_2);	// adds a new user to the user table and updates all other tables
+			$this->sqlquery($this->procedure_2);	// adds a new user to the user table and updates all other tables
 
 			/*
 			print "existCheck result " . $this->results[0]['User_ID'] . "<br />";	// debug
