@@ -108,8 +108,8 @@ class mysqlquery {
 		$this->a_bind_params = array($this->a_bind_params[3]);	// leaves the MAC in the params array
 		// error handler function.
 		function customError($errno, $errstr) {
-			//echo "<b>Error:</b> [$errno] $errstr";	// debug
-			$this->results = array('NullReturn'=>"No SQLi Return");
+			echo "<b>Error:</b> [$errno] $errstr";	// debug
+			//$this->results = array('NullReturn'=>"No SQLi Return");
 			restore_error_handler();
 		}
 		// set error handler
