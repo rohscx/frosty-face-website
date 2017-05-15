@@ -216,7 +216,7 @@ while($field = $meta->fetch_field()) {
 		   }
 	   }
 } else {
-	$this->results = $sqli array('NullReturn'=>"No SQLi Return");
+	$this->results = array('NullReturn'=>"No SQLi Return");
 }
 	   //print_r ($this->results);
 	   //return $results;
