@@ -92,7 +92,7 @@ class mysqlquery {
 			$this->mac2int_1($this->a_bind_params[0]);
 			$this->a_bind_params[0] = '%' . $this->int_1 . '%';	// adds formating needed for sql searches
 		  $this->sqlquery($this->query_6);
-		} elseif ($sqlQuery == "procedure_1") {
+		} elseif ($sqlQuery == "insert_1") {
 			$this->mac2int_1($this->a_bind_params[3]);
 			$this->a_bind_params[3] = $this->int_1;	// adds formating needed for sql searches
 			$this->existCheck($this->procedure_1);
@@ -109,7 +109,7 @@ class mysqlquery {
 		$this->sqlquery($this->query_8);	// checks for MAC Address
 
 		//echo "existCheck result " . $this->results;
-
+		/*
 		print "existCheck result " . $this->results[0]['State'] . "<br />";	// debug
 		print "existCheck result " . $this->results[0]['Mac_ID'] . "<br />";	// debug
 		print "existCheck result ";	// debug
@@ -124,7 +124,7 @@ class mysqlquery {
 		print "existCheck result ";	// debug
 		print_r($temp_bind);	// debug
 		print "<br />";	// debug
-
+		*/
 		if (isset($this->results[0]['Mac_ID']) && $this->results[0]['State'] ==  "PASSIVE") {
 			$this->a_param_type = $temp_type;
 			$this->a_bind_params = $temp_bind;
@@ -145,13 +145,14 @@ class mysqlquery {
 		} elseif (! isset($this->results[0]['Mac_ID'])) {
 			$this->a_param_type = $temp_type;
 			$this->a_bind_params = $temp_bind;
+			/*
 			print "IF Statment 2" . "<br />";
 			print "existCheck result ";	// debug
 			print_r($this->a_param_type);	// debug
 			print "<br />";	// debug
 			print "existCheck result ";	// debug
 			print_r($this->a_bind_params);	// debug
-
+			*/
 			//$this->sqlquery($this->procedure_1);	// add a new user to all tables
 		}
 	}
