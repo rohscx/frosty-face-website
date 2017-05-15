@@ -107,7 +107,7 @@ class mysqlquery {
 		$this->a_param_type = array($this->a_param_type[0]); // leaves only one "i" in the type array
 		$this->a_bind_params = array($this->a_bind_params[3]);	// leaves the MAC in the params array
 		if (!$this->sqlquery($this->query_8)){
-			echo "Cats";
+			print "Cats";
 		} else {
 			if (isset($this->results[0]['Mac_ID']) && $this->results[0]['State'] ==  "PASSIVE") {
 				$this->a_param_type = $temp_type;
