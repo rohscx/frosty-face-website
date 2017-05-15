@@ -129,13 +129,22 @@ class mysqlquery {
 			$this->a_param_type = $temp_type;
 			$this->a_bind_params = $temp_bind;
 			$this->sqlquery($this->procedure_2);	// adds a new user to the user table and updates all other tables
+			print "IF Statment 1";
 			/*
 			print "existCheck result " . $this->results[0]['User_ID'] . "<br />";	// debug
 			print "existCheck result " . $this->results[0]['Fname'] . " " . $this->results[0]['Lname'] . "<br />";
 			*/
+			/*
+			print "existCheck result ";	// debug
+			print_r($this->a_param_type);	// debug
+			print "<br />";	// debug
+			print "existCheck result ";	// debug
+			print_r($this->a_bind_params);	// debug
+			*/
 		} elseif (! isset($this->results[0]['Mac_ID'])) {
 			$this->a_param_type = $temp_type;
 			$this->a_bind_params = $temp_bind;
+			print "IF Statment 2";
 			/*
 			print "existCheck result ";	// debug
 			print_r($this->a_param_type);	// debug
