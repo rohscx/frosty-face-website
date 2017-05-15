@@ -153,7 +153,7 @@ class mysqlquery {
 			print "existCheck result ";	// debug
 			print_r($this->a_bind_params);	// debug
 			*/
-			//$this->sqlquery($this->procedure_1);	// add a new user to all tables
+			$this->sqlquery($this->procedure_1);	// add a new user to all tables
 		}
 	}
    function sqlquery($Query) {
