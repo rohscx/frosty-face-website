@@ -188,34 +188,36 @@ class mysqlquery {
 	  $x = 0;
 	  $meta = $stmt->result_metadata();
 	  $parameters = array();
-	  while($field = $meta->fetch_field()) {
-    		$parameters[] = &$row[$field->name];
+    if (isset($meta)) {
+	while($field = $meta->fetch_field()) {
+    	$parameters[] = &$row[$field->name];
 	  }
-	   //$stmt->bind_result(array_values($array));	// Bind the result to variables
-	   call_user_func_array(array($stmt, 'bind_result'), $parameters);
-	   while($stmt->fetch()) {
-		   $x = array();
-                   foreach($row as $key => $val ) {
-                        // This next line isn't necessary for your project.
-                        // It can be removed. I use it to ensure
-                        // that the "excerpt" of the post doesn't end in the middle
-                        // of a word.
-                        if ( $key === 'excerpt') $val = $this->cleanExcerpt($row[$key]);
-
-			   $x[$key] = $val;
-		    }
-                    $this->results[] = $x;
-
-	   }
-	   foreach($this->results as $i => $item) {
-		   if ($this->results[$i]['Mac_ID']) {
-			   $this->int2mac_1($this->results[$i]['Mac_ID']);
-			   $this->mac_1 = str_split($this->mac_1, 2);
-			   $this->mac_1 = implode(':', $this->mac_1);
-			   $this->mac_1 = strtoupper($this->mac_1);
-			   $this->results[$i]['Mac_ID'] = $this->mac_1;
-		   }
-	   }
+	//$stmt->bind_result(array_values($array));	// Bind the result to variables
+	call_user_func_array(array($stmt, 'bind_result'), $parameters);
+	while($stmt->fetch()) {
+		$x = array();
+        foreach($row as $key => $val ) {
+			// This next line isn't necessary for your project.
+			// It can be removed. I use it to ensure
+			// that the "excerpt" of the post doesn't end in the middle
+			// of a word.
+			if ( $key === 'excerpt') $val = $this->cleanExcerpt($row[$key]);
+			$x[$key] = $val;
+		}
+        $this->results[] = $x;
+	}
+	foreach($this->results as $i => $item) {
+		if ($this->results[$i]['Mac_ID']) {
+			$this->int2mac_1($this->results[$i]['Mac_ID']);
+			$this->mac_1 = str_split($this->mac_1, 2);
+			$this->mac_1 = implode(':', $this->mac_1);
+			$this->mac_1 = strtoupper($this->mac_1);
+			$this->results[$i]['Mac_ID'] = $this->mac_1;
+		}
+	}
+} else {
+	$this->results = $sqli array('NullReturn'=>"No SQLi Return");
+}
 	   //print_r ($this->results);
 	   //return $results;
 	   $stmt->free_result();
