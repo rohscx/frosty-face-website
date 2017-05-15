@@ -68,8 +68,8 @@ class mysqlquery {
 				ON am.Mac_ID = amm.Mac_ID
 				WHERE am.Valid_Until = '1000-01-01 00:00:00' AND  am.Mac_ID =  ?
 				ORDER BY am.Valid_From ASC";	// search MAB table DB by MAC Address and Returns sigle row
-  protected $procedure_1 = "CALL add_mac (?, ?, ?, ?, ?)";	// adds new user to ALL needed tables
-	protected $procedure_2 = "CALL add_user_update_mac (?, ?, ?, ?, ?)";	// adds new user and UPDATES all tables
+  protected $procedure_1 = "CALL add_user_all_tables (?, ?, ?, ?, ?)";	// adds new user to ALL needed tables
+	protected $procedure_2 = "CALL add_user_update_all_tables (?, ?, ?, ?, ?)";	// adds new user and UPDATES all tables
 	protected $results;
 
   	function __construct($sqlQuery,$param_type, $param_bind) {
@@ -109,7 +109,7 @@ class mysqlquery {
 		$this->sqlquery($this->query_8);	// checks for MAC Address
 
 		//echo "existCheck result " . $this->results;
-		
+
 		print "existCheck result " . $this->results[0]['State'] . "<br />";	// debug
 		print "existCheck result " . $this->results[0]['Mac_ID'] . "<br />";	// debug
 		print "existCheck result ";	// debug
