@@ -152,7 +152,7 @@ class mysqlquery {
 			print "<br />";	// debug
 			print "existCheck result ";	// debug
 			print_r($this->a_bind_params);	// debug
-			
+
 			$this->sqlquery($this->procedure_1);	// add a new user to all tables
 		}
 	}
@@ -174,7 +174,7 @@ class mysqlquery {
 		for($i = 0; $i < $n; $i++) {
 			$a_params[] = & $this->a_bind_params[$i];
 		}
-		//print_r($a_params);	// debug
+		print_r($a_params);	// debug
 		call_user_func_array(array($stmt, 'bind_param'), $a_params);
 
 
