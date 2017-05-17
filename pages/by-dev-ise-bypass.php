@@ -417,7 +417,7 @@
       document.getElementById('spinner').style.display = "none";
       input = form.appendChild(document.createElement('button'));
       input.type = 'button';
-      input.value = 'Submit';
+      input.innerHTML = 'Submit';
       modal.style.display = "block";
     }
     </script>
