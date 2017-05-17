@@ -302,4 +302,8 @@ SHOW EVENTS;
 SHOW WARNINGS\G
 DROP EVENT mab_passive_e_day;
 
+MySQL command line
 
+$ mysqldump -u [uname] -p[pass] db_name > db_backup.sql
+mysql> use db_name;
+mysql> source backup-file.sql;
