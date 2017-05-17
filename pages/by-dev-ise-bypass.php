@@ -62,7 +62,7 @@
                 document.getElementById(thediv).innerHTML =  myObj.Type.fontcolor("green")  + " : " + myObj.Normalized + "<br>" + myObj.Encoded;
             }
         }
-    xmlhttp.open('GET', thefile+'?'+thekey+'='+document.search.data_text.value, true);
+    xmlhttp.open('GET', thefile+'?'+thekey+'='+document.form_1.mac_1.value, true);
     xmlhttp.send();
     }
     function dbsearch_1(thediv, thefile, thekey) {
@@ -407,6 +407,7 @@
     form.name = 'input';
     form.action = 'html_form_action.asp';
     form.method = 'get';
+    form.id = "form_1";
     form.appendChild(document.createTextNode('Bypass User '));
     var input = form.appendChild(document.createElement('input'));
     input.type = 'text';
