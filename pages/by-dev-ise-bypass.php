@@ -60,9 +60,11 @@
             if (this.readyState == 4 && this.status == 200) {
                 myObj = JSON.parse(this.responseText);
                 document.getElementById(thediv).innerHTML =  myObj.Type.fontcolor("green")  + " : " + myObj.Normalized + "<br>" + myObj.Encoded;
+/*
                 if (myObj.Type == "MAC") {
                   document.getElementById('mac_1').value =  myObj.Normalized;
                 }
+                */
             }
         }
     xmlhttp.open('GET', thefile+'?'+thekey+'='+document.form_1.mac_1.value, true);
