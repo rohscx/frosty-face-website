@@ -243,7 +243,7 @@
       xmlhttp.open('GET', thefile+'?'+thetype+'='+thetypeval+'&'+thekey_1+'='+theval_1+'&'+thekey_2+'='+theval_2+'&'+thekey_3+'='+theval_3+'&'+thekey_4+'='+theval_4, true);
       xmlhttp.send();
     }
-    function curlreturn_2(thediv, thefile, thekeyA_1, thekeyB_1, thekeyA_2, thekeyB_2, 
+    function curlreturn_2(thediv, thefile, thekeyA_1, thekeyB_1, thekeyA_2, thekeyB_2,
                           thekeyA_3, thekeyB_3, thekeyA_4, thekeyB_4, thekeyA_5,
                           thekeyB_5, thekeyA_6, thekeyB_6) {
       document.getElementById('spinner').style.display = "block";
@@ -434,7 +434,9 @@
     modal.style.display = "block";  // stops the spinner from being displayed
     var btn_1 = document.getElementById("myBtn_1");
     btn_1.onclick = function() {
-      curlreturn_2('spinner','curlauth.php','data_2');
+      var iseurl = "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint";
+
+      curlreturn_2('spinner','curlauth.php','iseTicket_1',iseurl,);
       //alert("THIS BUTTON WORKS"); // debug
     }
   }
