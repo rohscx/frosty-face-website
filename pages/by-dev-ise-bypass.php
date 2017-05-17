@@ -407,9 +407,16 @@
         opt.innerHTML = aca_list_1[i];  // pulls from array and creates named option for the list
         input.appendChild(opt); // appends worked on items to select
       }
+      /* saving this because I will forget how it works and I think i'll use it later
       document.getElementById('spinner').style.display = "none";
       input = form.appendChild(document.createElement('input'));
       input.type = 'submit';
+      input.value = 'Submit';
+      modal.style.display = "block";
+      */
+      document.getElementById('spinner').style.display = "none";
+      input = form.appendChild(document.createElement('input'));
+      input.type = 'button';
       input.value = 'Submit';
       modal.style.display = "block";
     }
