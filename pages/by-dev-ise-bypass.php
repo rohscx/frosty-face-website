@@ -49,7 +49,6 @@
     <li>PHP backend refactored Now Object oriented</li>
   </ul>
   <head>
-
     <script type="text/javascript">
     function dbsearch_1(thediv, thefile, thekey) {
       if (window.XMLHttpRequest) {
@@ -244,6 +243,27 @@
       xmlhttp.open('GET', thefile+'?'+thetype+'='+thetypeval+'&'+thekey_1+'='+theval_1+'&'+thekey_2+'='+theval_2+'&'+thekey_3+'='+theval_3+'&'+thekey_4+'='+theval_4, true);
       xmlhttp.send();
     }
+    function curlreturn_2(thediv, thefile, thekeyA_1, thekeyB_1, thekeyA_2, thekeyB_2, thekeyA_3, thekeyB_3) {
+      document.getElementById('spinner').style.display = "block";
+      if (window.XMLHttpRequest) {
+        xmlhttp = new XMLHttpRequest();
+      } else {
+        xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
+      }
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById('spinner').style.display = "none";
+          if (thediv == "modal-body") {
+            document.getElementById(thediv).innerHTML = '<p>'+"OUI : "+xmlhttp.responseText+'</p>';
+          } else {
+            document.getElementById(thediv).innerHTML = xmlhttp.responseText;
+          }
+        }
+      }
+      //xmlhttp.open('GET', thefile+'?'+thekeyA_1+'='+thekeyB_1+'&'+thekeyA_2+'='+thekeyB_2+'&'+thekeyA_3+'='+thekeyB_3, true);
+      xmlhttp.open('GET', thefile+'?'+thekeyA_1+'='+thekeyB_1+'&'+thekeyA_2+'='+thekeyB_2, true);
+      xmlhttp.send();
+    }
     </script>
   </head>
   <body>
@@ -364,19 +384,19 @@
       var input = form.appendChild(document.createElement('input'));
       input.type = 'text';
       input.name = 'fname_1';
-      input.value = 'First Name...';
+      input.placeholder = 'First Name...';
       var input = form.appendChild(document.createElement('input'));
       input.type = 'text';
       input.name = 'lname_1';
-      input.value = 'Last Name...';
+      input.placeholder = 'Last Name...';
       var input = form.appendChild(document.createElement('input'));
       input.type = 'text';
       input.name = 'mac_1';
-      input.value = 'MAC Address...';
+      input.placeholder = 'MAC Address...';
       var input = form.appendChild(document.createElement('input'));
       input.type = 'text';
       input.name = 'incedent_1';
-      input.value = 'Incenent Number...';
+      input.placeholder = 'Incenent Number...';
       var input = form.appendChild(document.createElement('select')); // creates select box
       var aca_list_1 = ["NULL","FPI","NWFCS","FCE"];  // lista all usable ACA's. NULL is a place holder so that the ACA number matches DB Value
       var aLen = aca_list_1.length; // gets the length of the array
