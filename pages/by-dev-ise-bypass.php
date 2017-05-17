@@ -420,7 +420,7 @@
     input.type = 'text';
     input.name = 'mac_1';
     input.placeholder = 'MAC Address...';
-    input.onkeydown= if (event.keyCode == 13) {return false;};
+    input.onkeydown= function() {if (event.keyCode == 13) {return false;}};
     input.onkeyup= if (event.keyCode == 13) {return false;}else{findformat('adiv','functions.php','data')};
     var input = form.appendChild(document.createElement('input'));
     input.type = 'text';
