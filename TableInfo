@@ -268,4 +268,5 @@ SHOW CREATE PROCEDURE add_user_all_tables;
 DROP PROCEDURE add_user_all_tables;
 
 SHOW EVENTS;
+SHOW WARNINGS\G
 DROP EVENT mab_passive_e_day;
