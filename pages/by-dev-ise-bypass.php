@@ -331,99 +331,103 @@
                     </div>
                     </div>
                     <script>
-                    
-      // Get the modal
-      var modal = document.getElementById('myModal');
-      // Get the button that opens the modal
-      var btn = document.getElementById("myBtn");
-      // Get the button in the modal that will submit the form
-      var btn_1 = document.getElementById("myBtn_1");
-      // Get the <span> element that closes the modal
-      var span = document.getElementsByClassName("close")[0];
-      // When presses resets a div
-      var rst = document.getElementById("myRst");
-      // When the user clicks the button, open the modal
-      //var formvalue_1 = document.getElementById("uniqueID").value;
-      // populates flex_div_1 on page load
-      default_list('flex_div_1','mysqli.php','sqlQuery','query_3','sqlWhere',encodeURIComponent("1000-01-01 00:00:00"));
-      // Get the modal
-      var form_1 = document.getElementById('formid01');
-      /* not needed as their are no buttons and it stops the exection of the rest of the code.
-      btn.onclick = function() {
-      //document.getElementById("adiv2").innerHTML = b('flex_div_1','mysqli.php','sqlQuery','query_3','sqlWhere',cats);
-      //document.getElementById("adiv2").innerHTML = restmodal('adiv2','restAuth.php','get_ticket');
-      document.getElementById("adiv2").innerHTML = encoded_1('adiv2','functions.php','data_2');
-      //document.getElementById("adiv2").innerHTML = document.getElementById("uniqueID").value;
-      //document.getElementById("adiv2").innerHTML = input_1;
-      modal.style.display = "block";
-    }
-    // When the user clicks the button, reset adiv
-    rst.onclick = function() {
+
+  // Get the modal
+  var modal = document.getElementById('myModal');
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn");
+  // Get the button in the modal that will submit the form
+  var btn_1 = document.getElementById("myBtn_1");
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+  // When presses resets a div
+  var rst = document.getElementById("myRst");
+  // When the user clicks the button, open the modal
+  //var formvalue_1 = document.getElementById("uniqueID").value;
+  // populates flex_div_1 on page load
+  default_list('flex_div_1','mysqli.php','sqlQuery','query_3','sqlWhere',encodeURIComponent("1000-01-01 00:00:00"));
+  // Get the modal
+  var form_1 = document.getElementById('formid01');
+  /* not needed as their are no buttons and it stops the exection of the rest of the code.
+  btn.onclick = function() {
+    //document.getElementById("adiv2").innerHTML = b('flex_div_1','mysqli.php','sqlQuery','query_3','sqlWhere',cats);
+    //document.getElementById("adiv2").innerHTML = restmodal('adiv2','restAuth.php','get_ticket');
+    document.getElementById("adiv2").innerHTML = encoded_1('adiv2','functions.php','data_2');
+    //document.getElementById("adiv2").innerHTML = document.getElementById("uniqueID").value;
+    //document.getElementById("adiv2").innerHTML = input_1;
+    modal.style.display = "block";
+  }
+  // When the user clicks the button, reset adiv
+  rst.onclick = function() {
     document.getElementById('adiv').innerHTML = "";
-    }*/
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
+  }*/
+  btn_1.onclick = function() {
+    //document.getElementById("adiv2").innerHTML = encoded_1('adiv2','functions.php','data_2');
+
+  }
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+  // When the user clicks anywhere outside of the modal, close it
+  document.onclick = function(event) {
+    if (event.target == modal) {
       modal.style.display = "none";
     }
-    // When the user clicks anywhere outside of the modal, close it
-    document.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
+  }
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
     }
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
+  }
+  form_1.onclick = function() {
+    var form_1 = document.getElementById('adiv2');
+    form_1.innerHTML = '';
+    var form = form_1.appendChild(document.createElement('form'));
+    form.name = 'input';
+    form.action = 'html_form_action.asp';
+    form.method = 'get';
+    form.appendChild(document.createTextNode('Bypass User '));
+    var input = form.appendChild(document.createElement('input'));
+    input.type = 'text';
+    input.name = 'fname_1';
+    input.placeholder = 'First Name...';
+    var input = form.appendChild(document.createElement('input'));
+    input.type = 'text';
+    input.name = 'lname_1';
+    input.placeholder = 'Last Name...';
+    var input = form.appendChild(document.createElement('input'));
+    input.type = 'text';
+    input.name = 'mac_1';
+    input.placeholder = 'MAC Address...';
+    var input = form.appendChild(document.createElement('input'));
+    input.type = 'text';
+    input.name = 'incedent_1';
+    input.placeholder = 'Incenent Number...';
+    var input = form.appendChild(document.createElement('select')); // creates select box
+    var aca_list_1 = ["NULL","FPI","NWFCS","FCE"];  // lista all usable ACA's. NULL is a place holder so that the ACA number matches DB Value
+    var aLen = aca_list_1.length; // gets the length of the array
+    input.name = 'ACA'; // creates name to be passed
+    for (i = 1; i< aLen; i++){
+      var opt = document.createElement('option'); // creates options for select box
+      opt.value = i;  // POST or GET value
+      opt.innerHTML = aca_list_1[i];  // pulls from array and creates named option for the list
+      input.appendChild(opt); // appends worked on items to select
     }
-    form_1.onclick = function() {
-      var form_1 = document.getElementById('adiv2');
-      form_1.innerHTML = '';
-      var form = form_1.appendChild(document.createElement('form'));
-      form.name = 'input';
-      form.action = 'html_form_action.asp';
-      form.method = 'get';
-      form.appendChild(document.createTextNode('Bypass User '));
-      var input = form.appendChild(document.createElement('input'));
-      input.type = 'text';
-      input.name = 'fname_1';
-      input.placeholder = 'First Name...';
-      var input = form.appendChild(document.createElement('input'));
-      input.type = 'text';
-      input.name = 'lname_1';
-      input.placeholder = 'Last Name...';
-      var input = form.appendChild(document.createElement('input'));
-      input.type = 'text';
-      input.name = 'mac_1';
-      input.placeholder = 'MAC Address...';
-      var input = form.appendChild(document.createElement('input'));
-      input.type = 'text';
-      input.name = 'incedent_1';
-      input.placeholder = 'Incenent Number...';
-      var input = form.appendChild(document.createElement('select')); // creates select box
-      var aca_list_1 = ["NULL","FPI","NWFCS","FCE"];  // lista all usable ACA's. NULL is a place holder so that the ACA number matches DB Value
-      var aLen = aca_list_1.length; // gets the length of the array
-      input.name = 'ACA'; // creates name to be passed
-      for (i = 1; i< aLen; i++){
-        var opt = document.createElement('option'); // creates options for select box
-        opt.value = i;  // POST or GET value
-        opt.innerHTML = aca_list_1[i];  // pulls from array and creates named option for the list
-        input.appendChild(opt); // appends worked on items to select
-      }
-      /* saving this because I will forget how it works and I think i'll use it later
-      document.getElementById('spinner').style.display = "none";
-      input = form.appendChild(document.createElement('input'));
-      input.type = 'submit';
-      input.value = 'Submit';
-      modal.style.display = "block";
-      */
-      document.getElementById('spinner').style.display = "none";
-      input = form.appendChild(document.createElement('button'));
-      input.type = 'button';
-      input.id = 'myBtn_1';
-      input.innerHTML = 'Submit'; // buttons use innerHTLM to display text, kinda kool...
-      modal.style.display = "block";  // stops the spinner from being displayed
-    }
-    </script>
-    <?php endif; ?>
+    /* saving this because I will forget how it works and I think i'll use it later
+    document.getElementById('spinner').style.display = "none";
+    input = form.appendChild(document.createElement('input'));
+    input.type = 'submit';
+    input.value = 'Submit';
+    modal.style.display = "block";
+    */
+    document.getElementById('spinner').style.display = "none";
+    input = form.appendChild(document.createElement('button'));
+    input.type = 'button';
+    input.id = 'myBtn_1';
+    input.innerHTML = 'Submit'; // buttons use innerHTLM to display text, kinda kool...
+    modal.style.display = "block";  // stops the spinner from being displayed
+  }
+  </script>
+<?php endif; ?>
