@@ -435,7 +435,8 @@
       if (event.keyCode == 13) {
         return false;
       } else {
-        var y = findformat_1('adiv','functions.php','data');
+          findformat_1('adiv','functions.php','data');
+        }
     };
     input.id = 'mac_1';
     var input = form.appendChild(document.createElement('input'));
