@@ -114,7 +114,7 @@ END //
 DELIMITER ;
 
 
-# PROCEDURE TO ADD A User AND update MAC tables
+# PROCEDURE TO ADD User AND update MAC tables
 DELIMITER //
 CREATE PROCEDURE add_user_update_all_tables
 (IN PROC_Aca_ID INT, IN PROC_Fname CHAR(50), IN PROC_Lname CHAR(50), IN PROC_Mac_ID BIGINT, IN PROC_Ticket VARCHAR(20))
@@ -166,37 +166,13 @@ END //
 DELIMITER ;
 
 
-# CREATES AN EVENT TO EXECUTE PROCEDURE TO MARK ALL MAB ITEMS AS PASSIVE
-DELIMITER //
+# CREATES AN EVENT TO EXECUTE PROCEDURE TO MARK ALL MAB ITEMS AS PASSIVE (THE DATA CANNOT BE IN THE PAST)
 CREATE EVENT mab_passive_e_day
 ON SCHEDULE
 EVERY 1 DAY 
-STARTS '2017-05-16 05:00:00' ON COMPLETION PRESERVE ENABLE 
-COMMENT 'checks the time stamp results of the mab table, if they are over a day old the are set to passive'
+STARTS '2017-05-18 05:00:00' ON COMPLETION PRESERVE ENABLE 
 DO
-BEGIN
-DECLARE event_State set('ACTIVE','PASSIVE');
-DECLARE n INT DEFAULT 0;
-DECLARE i INT DEFAULT 0;
-SET event_State = 'PASSIVE';
-UPDATE aca_mab as am 
-SET Valid_Until = now() 
-WHERE am.Valid_Until = '1000-01-01 00:00:00' AND NOW() >= Valid_From AND State = 'ACTIVE';
-SELECT COUNT(*) 
-FROM aca_mab as am
-WHERE am.Valid_Until != '1000-01-01 00:00:00' AND am.Valid_Until >= DATE_SUB(NOW(), INTERVAL 90 SECOND) AND am.State = 'ACTIVE'
-INTO n;
-SET i=0;
-WHILE i<n DO 
-INSERT INTO aca_mab (Mac_ID, Aca_ID, User_ID, State, Ticket) 
-SELECT aca_mab.Mac_ID, aca_mab.Aca_ID, aca_mab.User_ID, event_State, aca_mab.Ticket
-FROM aca_mab
-WHERE aca_mab.Valid_Until != '1000-01-01 00:00:00' AND aca_mab.State = 'ACTIVE'
-LIMIT i,1;
-SET i = i + 1;
-END WHILE;
-END //
-DELIMITER ;
+CALL mark_all_passive();
 
 
 
@@ -292,19 +268,31 @@ CALL add_mac (1,'CAT','DOG','88888888',999999999)
 
 DELETE FROM aca_user WHERE Fname = 'CAT';
 
+# LISTS ALL PROCEDURES
 SHOW PROCEDURE STATUS;
+# SHOWS SPECIFIC PROCEDURE
 SHOW CREATE PROCEDURE add_user_all_tables;
+# DROPS SPECIFIC PROCEDURE
 DROP PROCEDURE add_user_all_tables;
 
+# LISTS ENABLED PROCESSES (LOOK FOR THE SCHEDULER, IF LISTED IT IS ENABLED)
 SHOW PROCESSLIST\G
+# ENABLES EVENT_SCHEDULER
 SET GLOBAL event_scheduler = ON;
+
+# LISTS SCHEDULED EVENTS
 SHOW EVENTS;
+# IF EVENT FAILS IT IS NOT SHOWN IN CONSOLE, THIS IS DISPLAY THE FAILURE REASON
 SHOW WARNINGS\G
+# DROPS SPECIFIC EVENT
 DROP EVENT mab_passive_e_day;
 
 MySQL command line
 
+# BACKUP THE DB FROM LINUX CLI
 $ mysqldump -u [uname] -p[pass] db_name > db_backup.sql
+# RESTORE THE DB FROM LINUX CLI
 $ mysql -u [uname] -p[pass] db_name < db_backup.sql
+# RESTORE THE DB FROM SQL
 mysql> use db_name;
 mysql> source backup-file.sql;
