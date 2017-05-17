@@ -337,7 +337,7 @@
   // Get the button that opens the modal
   var btn = document.getElementById("myBtn");
   // Get the button in the modal that will submit the form
-  var btn_1 = document.getElementById("myBtn_1");
+  //var btn_1 = document.getElementById("myBtn_1");
   // Get the <span> element that closes the modal
   var span = document.getElementsByClassName("close")[0];
   // When presses resets a div
@@ -361,10 +361,12 @@
   rst.onclick = function() {
     document.getElementById('adiv').innerHTML = "";
   }*/
+  /*
   btn_1.onclick = function() {
     //document.getElementById("adiv2").innerHTML = encoded_1('adiv2','functions.php','data_2');
     alert("THIS BUTTON WORKS");
   }
+  */
   // When the user clicks on <span> (x), close the modal
   span.onclick = function() {
     modal.style.display = "none";
@@ -428,6 +430,11 @@
     input.id = 'myBtn_1';
     input.innerHTML = 'Submit'; // buttons use innerHTLM to display text, kinda kool...
     modal.style.display = "block";  // stops the spinner from being displayed
+    var btn_1 = document.getElementById("myBtn_1");
+    btn_1.onclick = function() {
+      //document.getElementById("adiv2").innerHTML = encoded_1('adiv2','functions.php','data_2');
+      alert("THIS BUTTON WORKS");
+    }
   }
   </script>
 <?php endif; ?>
