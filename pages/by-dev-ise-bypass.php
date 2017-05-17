@@ -433,7 +433,7 @@
       if (event.keyCode == 13) {
         return false;
       } else {
-          findformat_1('adiv','functions.php','data');
+          findformat_1('adiv','functions.php','data_2');
         }
     };
     input.id = 'mac_1';
