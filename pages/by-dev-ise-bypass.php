@@ -363,7 +363,7 @@
   }*/
   btn_1.onclick = function() {
     //document.getElementById("adiv2").innerHTML = encoded_1('adiv2','functions.php','data_2');
-
+    alert("THIS BUTTON WORKS");
   }
   // When the user clicks on <span> (x), close the modal
   span.onclick = function() {
