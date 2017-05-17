@@ -404,7 +404,7 @@
     var form_1 = document.getElementById('adiv2');
     form_1.innerHTML = '';
     var form = form_1.appendChild(document.createElement('form'));
-    form.name = 'input';
+    form.name = 'form_1';
     form.action = 'html_form_action.asp';
     form.method = 'get';
     form.id = "form_1";
