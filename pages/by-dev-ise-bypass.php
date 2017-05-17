@@ -50,7 +50,7 @@
   </ul>
   <head>
     <script type="text/javascript">
-    function findformat(thediv, thefile, thekey) {
+    function findformat_1(thediv, thefile, thekey) {
         if (window.XMLHttpRequest) {
             xmlhttp = new XMLHttpRequest();
         } else {
@@ -60,7 +60,9 @@
             if (this.readyState == 4 && this.status == 200) {
                 myObj = JSON.parse(this.responseText);
                 document.getElementById(thediv).innerHTML =  myObj.Type.fontcolor("green")  + " : " + myObj.Normalized + "<br>" + myObj.Encoded;
-                return myObj;
+                if (myObj.Type == "MAC") {
+                  document.getElementById('mac_1').value =  myObj.Normalized;
+                }
             }
         }
     xmlhttp.open('GET', thefile+'?'+thekey+'='+document.form_1.mac_1.value, true);
@@ -431,12 +433,7 @@
       if (event.keyCode == 13) {
         return false;
       } else {
-        var y = findformat('adiv','functions.php','data');
-        var x = document.getElementById("mac_1");
-        if (y) {
-          document.getElementById(thediv).innerHTML = "IT WORKS!!!";
-        }
-      }
+        var y = findformat_1('adiv','functions.php','data');
     };
     input.id = 'mac_1';
     var input = form.appendChild(document.createElement('input'));
