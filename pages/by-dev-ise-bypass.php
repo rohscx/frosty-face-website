@@ -433,7 +433,7 @@
       } else {
         var y = findformat('adiv','functions.php','data');
         var x = document.getElementById("mac_1");
-        if (y.Type) {
+        if (y) {
           document.getElementById(thediv).innerHTML = "IT WORKS!!!";
         }
       }
