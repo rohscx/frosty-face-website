@@ -300,40 +300,44 @@
       width: auto;
       padding: 10px 18px;
       background-color: #f44336;
-      </style>
-      <body>
+    }
+    </style>
+    <body>
       <h2>MAB BYPASS FORM</h2>
       <button id="formid01" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">User MAB bypass</button>
       <div id="adiv"></div>
       <div id="testdiv"></div>
       <!-- The Modal -->
       <div id="myModal" class="modal">
-      <!-- Modal content -->
-      <div class="modal-content">
-      <div class="modal-header">
-      <span class="close">&times;</span>
-      <h2><center>RESULT</center></h2>
-      </div>
-      <div class="modal-body" align="center">
-      <p>Details</p>
-      <div id="modal-body"></div>
-      <div id="spinner" align="center" class="spinner"></div>
-      <div style="text-align: center;">
-      <div id="adiv2" class="apicdata" style="display: inline-block; text-align: left">
-      Content<br /> style="font-size:20px">
-      </div>
-      </div>
-      <div id="test1" class="teest12"></div>
-      <div class="modal-footer">
-      <h3><center>___\__-_-__/___</center></h3>
-      </div>
-      </div>
-      </div>
-      <script>
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2><center>RESULT</center></h2>
+            </div>
+            <div class="modal-body" align="center">
+              <p>Details</p>
+              <div id="modal-body"></div>
+              <div id="spinner" align="center" class="spinner"></div>
+              <div style="text-align: center;">
+                <div id="adiv2" class="apicdata" style="display: inline-block; text-align: left">
+                  Content<br /> style="font-size:20px">
+                  </div>
+                  </div>
+                  <div id="test1" class="teest12"></div>
+                  <div class="modal-footer">
+                    <h3><center>___\__-_-__/___</center></h3>
+                    </div>
+                    </div>
+                    </div>
+                    <script>
+                    
       // Get the modal
       var modal = document.getElementById('myModal');
       // Get the button that opens the modal
       var btn = document.getElementById("myBtn");
+      // Get the button in the modal that will submit the form
+      var btn_1 = document.getElementById("myBtn_1");
       // Get the <span> element that closes the modal
       var span = document.getElementsByClassName("close")[0];
       // When presses resets a div
@@ -417,8 +421,9 @@
       document.getElementById('spinner').style.display = "none";
       input = form.appendChild(document.createElement('button'));
       input.type = 'button';
-      input.innerHTML = 'Submit';
-      modal.style.display = "block";
+      input.id = 'myBtn_1';
+      input.innerHTML = 'Submit'; // buttons use innerHTLM to display text, kinda kool...
+      modal.style.display = "block";  // stops the spinner from being displayed
     }
     </script>
     <?php endif; ?>
