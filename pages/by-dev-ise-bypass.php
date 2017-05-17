@@ -56,6 +56,21 @@
       } else {
         xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
       }
+      function findformat(thediv, thefile, thekey) {
+          if (window.XMLHttpRequest) {
+              xmlhttp = new XMLHttpRequest();
+          } else {
+              xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
+          }
+          xmlhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                  myObj = JSON.parse(this.responseText);
+                  document.getElementById(thediv).innerHTML =  myObj.Type.fontcolor("green")  + " : " + myObj.Normalized + "<br>" + myObj.Encoded;
+              }
+          }
+      xmlhttp.open('GET', thefile+'?'+thekey+'='+document.search.data_text.value, true);
+      xmlhttp.send();
+      }
       xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
           myObj = JSON.parse(this.responseText);
@@ -405,6 +420,8 @@
     input.type = 'text';
     input.name = 'mac_1';
     input.placeholder = 'MAC Address...';
+    input.onkeydown="if (event.keyCode == 13) {return false;}";
+    input.onkeyup="if (event.keyCode == 13) {return false;}else{findformat('adiv','functions.php','data')}";
     var input = form.appendChild(document.createElement('input'));
     input.type = 'text';
     input.name = 'incedent_1';
