@@ -243,7 +243,9 @@
       xmlhttp.open('GET', thefile+'?'+thetype+'='+thetypeval+'&'+thekey_1+'='+theval_1+'&'+thekey_2+'='+theval_2+'&'+thekey_3+'='+theval_3+'&'+thekey_4+'='+theval_4, true);
       xmlhttp.send();
     }
-    function curlreturn_2(thediv, thefile, thekeyA_1, thekeyB_1, thekeyA_2, thekeyB_2, thekeyA_3, thekeyB_3) {
+    function curlreturn_2(thediv, thefile, thekeyA_1, thekeyB_1, thekeyA_2, thekeyB_2, 
+                          thekeyA_3, thekeyB_3, thekeyA_4, thekeyB_4, thekeyA_5,
+                          thekeyB_5, thekeyA_6, thekeyB_6) {
       document.getElementById('spinner').style.display = "block";
       if (window.XMLHttpRequest) {
         xmlhttp = new XMLHttpRequest();
@@ -261,7 +263,9 @@
         }
       }
       //xmlhttp.open('GET', thefile+'?'+thekeyA_1+'='+thekeyB_1+'&'+thekeyA_2+'='+thekeyB_2+'&'+thekeyA_3+'='+thekeyB_3, true);
-      xmlhttp.open('GET', thefile+'?'+thekeyA_1+'='+thekeyB_1+'&'+thekeyA_2+'='+thekeyB_2, true);
+      xmlhttp.open('GET', thefile+'?'+thekeyA_1+'='+thekeyB_1+'&'+thekeyA_2+
+                    '='+thekeyB_2+'&'+thekeyA_3+'='+thekeyB_3+'&'+thekeyA_4+
+                    '='+thekeyB_4+'&'+thekeyA_5+'='+thekeyB_5+'&'+thekeyA_6+'='+thekeyB_6, true);
       xmlhttp.send();
     }
     </script>
@@ -269,8 +273,6 @@
   <body>
     <h2>ISE REST Request</h2>
     <!-- This DIV returns the users input after proccessing it through the php file -->
-
-
 
     <style>
     /* Full-width input fields */
@@ -432,8 +434,8 @@
     modal.style.display = "block";  // stops the spinner from being displayed
     var btn_1 = document.getElementById("myBtn_1");
     btn_1.onclick = function() {
-      //document.getElementById("adiv2").innerHTML = encoded_1('adiv2','functions.php','data_2');
-      alert("THIS BUTTON WORKS");
+      curlreturn_2('spinner','curlauth.php','data_2');
+      //alert("THIS BUTTON WORKS"); // debug
     }
   }
   </script>
