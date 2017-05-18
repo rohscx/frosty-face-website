@@ -261,7 +261,7 @@
       xmlhttp.open('GET', thefile+'?'+thetype+'='+thetypeval+'&'+thekey_1+'='+theval_1+'&'+thekey_2+'='+theval_2+'&'+thekey_3+'='+theval_3+'&'+thekey_4+'='+theval_4, true);
       xmlhttp.send();
     }
-    function curlreturn_2(thediv, thefile, theurl, thedata) {
+    function curlreturn_2(thediv, thefile, theticket, thedata_1, thedata_2) {
       document.getElementById('spinner').style.display = "block";
       if (window.XMLHttpRequest) {
         xmlhttp = new XMLHttpRequest();
@@ -279,9 +279,7 @@
         }
       }
       //xmlhttp.open('GET', thefile+'?'+thekeyA_1+'='+thekeyB_1+'&'+thekeyA_2+'='+thekeyB_2+'&'+thekeyA_3+'='+thekeyB_3, true);
-      xmlhttp.open('GET', thefile+'?'+thekeyA_1+'='+thekeyB_1+'&'+thekeyA_2+
-                    '='+thekeyB_2+'&'+thekeyA_3+'='+thekeyB_3+'&'+thekeyA_4+
-                    '='+thekeyB_4+'&'+thekeyA_5+'='+thekeyB_5+'&'+thekeyA_6+'='+thekeyB_6, true);
+      xmlhttp.open('GET', thefile+'?'+thedata_2, true);
       xmlhttp.send();
     }
     </script>
@@ -473,9 +471,26 @@
       var input_3 = document.getElementById('mac_1').value;  // gets the value this value has already been preformated
       var input_4 = document.getElementById('incedent_1').value.toUpperCase(); // gets the value and makes text uppercase
       //alert(input_1); // debug
-      var data = {curlFname:input_1,curlLname:input_2,curlMac:input_3,curlIncedent:input_4};
+      var arraydata_1 = {curlFname:input_1,curlLname:input_2,curlMac:input_3,curlIncedent:input_4};
       //alert(data["curlFname"]); // debug
-      curlreturn_2('spinner','curlauth.php','iseTicket_1',iseurl_1,data);
+      var arraydata_2 = {curlAddress:iseurl_1,curlMac:input_3};
+      var data_1 = arraydata_1;  // stores preformated post information
+      var data_2 = "";  // stores preformated post information
+      
+
+      var datalength = Object.keys(arraydata_2).length;
+      var i = 1;
+      for (var key in arraydata_2) {
+        if (i == datalength) {
+          data_2 += key + "=" + arraydata_2[key];
+        } else if ((i/2)%1  === 0) {
+          data_2 += key + "=" + arraydata_2[key] + "&";
+        } else { 
+          data_2 += key + "=" + arraydata_2[key] + "&"; 
+        }
+        i++  
+      }
+      curlreturn_2('spinner','curlauth.php','iseTicket_1',data_1,data_2);
       //alert("THIS BUTTON WORKS"); // debug
     }
   }
