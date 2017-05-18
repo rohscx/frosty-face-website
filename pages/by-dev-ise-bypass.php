@@ -416,10 +416,12 @@
     input.type = 'text';
     input.name = 'fname_1';
     input.placeholder = 'First Name...';
+    input.id = 'fname_1';
     var input = form.appendChild(document.createElement('input'));
     input.type = 'text';
     input.name = 'lname_1';
     input.placeholder = 'Last Name...';
+    input.id = 'lname_1';
     var input = form.appendChild(document.createElement('input'));
     input.type = 'text';
     input.name = 'mac_1';
@@ -441,6 +443,7 @@
     input.type = 'text';
     input.name = 'incedent_1';
     input.placeholder = 'Incenent Number...';
+    input.id = 'incedent_1';
     var input = form.appendChild(document.createElement('select')); // creates select box
     var aca_list_1 = ["NULL","FPI","NWFCS","FCE"];  // lista all usable ACA's. NULL is a place holder so that the ACA number matches DB Value
     var aLen = aca_list_1.length; // gets the length of the array
