@@ -39,7 +39,7 @@ class curlauth {
 	//echo "curlPost myCurl  ::" .   $this->curlPost . "<br>";	// debug
 	//echo "curlHTTP myCurl  ::" .   print_r($this->curlHTTP) . "<br>";	// debug
 	//echo "FULLLcurlAddress myCurl  ::" .   $this->curlAddress . $this->curlData . "<br>"; // debug
-	$curl = curl_init();    
+	$curl = curl_init();
 	curl_setopt_array($curl, array(
 		CURLOPT_SSL_VERIFYPEER => false,    // disables ssl server cert verify check
         	CURLOPT_SSL_VERIFYHOST => false,    // disables ssk host cert verify check
@@ -60,8 +60,8 @@ class curlauth {
         echo "cURL Error #:" . $err;
     } else {
 	    //echo "RESPONSE   " .  $response;	// debug
-	    return $response;    
-    } 
+	    return $response;
+    }
   }
 function myTime($format,$offset) {
 	//echo date('Y-m-d') . "<br />";	// debug data output
@@ -84,7 +84,7 @@ function apicCurl_1() {
 			       "Inventory :"=>'inventoryStatusDetail',"MAC :"=>'macAddress',
 			       "Role :"=>'role',"MgmT :"=>'managementIpAddress',
 			       "Platform :"=>'platformId',"Reachablity :"=>'reachabilityStatus',
-			       "HostName :"=>'hostname');	    	
+			       "HostName :"=>'hostname');
 	for ($i1 = 0; $i1 < 1; $i1++) {
 	for ($i = 0; $i < count($json['response']); $i++) {
 		//Debug
@@ -93,10 +93,10 @@ function apicCurl_1() {
 		echo "Record Number: " . $i . "<br>";
 		echo "<br>";
 		foreach ($match as $x => $item) {
-			echo $x ."  " . $json['response'][$i][$item] . "<br>";		
-		}		
+			echo $x ."  " . $json['response'][$i][$item] . "<br>";
+		}
 	}
-    }  
+    }
 }}
 function iseCurl_1() {
    $response = $this->myCurl();
@@ -121,14 +121,14 @@ function iseCurl_1() {
                         "EndPoint Auth Method :"=>'authentication_method',"EndPoint Auth Protocol :"=>'authentication_protocol',
                         "EndPoint Idendity Group :"=>'identity_group',"EndPoint IP :"=>'framed_ip_address',
                         "EndPoint Location :"=>'location',"EndPoint Type :"=>'device_type',
-			"EndPoint Auth(Z) :"=>'selected_azn_profiles',"EndPoint SGT :"=>'cts_security_group',     
-			"NAS IP :" => 'nas_ip_address',"NAS Name :"=>'network_device_name');	    	
+			"EndPoint Auth(Z) :"=>'selected_azn_profiles',"EndPoint SGT :"=>'cts_security_group',
+			"NAS IP :" => 'nas_ip_address',"NAS Name :"=>'network_device_name');
 	    for ($i1 = 0; $i1 < 1; $i1++) {
 				foreach ($match as $x => $item) {
 				 echo "<b>" . $x . "</b>" . "  " . $array[$item] . "<br>";
-				}    
+				}
 	    }
-    }  
+    }
   }
   function primeCurl_1() {
 	  $response = $this->myCurl();
@@ -141,7 +141,7 @@ function iseCurl_1() {
       //echo $json['vlanId']['associationTime']; // debug
       $match = array("NAS Interface :"=>'clientInterface',"NAS Connection Type :"=>'connectionType',
                      "NAS IP :"=>'deviceIpAddress',"NAS Name :"=>'deviceName',
-                     "EndPoint Type :"=>'deviceType',"EndPoint IP :"=>'ipAddress',                      
+                     "EndPoint Type :"=>'deviceType',"EndPoint IP :"=>'ipAddress',
                      "EndPoint MAC :"=>'macAddress',"EndPoint NAC :"=>'securityPolicyStatus',
                      "EndPoint OUI :"=>'vendor',"EndPoint VLAN:"=>'vlan');
       //echo $json['queryResponse']['entity']['0']['clientsDTO']['securityPolicyStatus'] . "\r\n";   // debug
@@ -150,18 +150,18 @@ function iseCurl_1() {
         for ($i = 0; $i < count($json['queryResponse']['entity']); $i++) {
           //echo "How many response: " . count($json['response']) . "<br>";	// debug
           echo "<br>";
-          echo "Record Number: " . $i . "<br>";  
-          echo "<br>";    
+          echo "Record Number: " . $i . "<br>";
+          echo "<br>";
           foreach ($match as $x => $item) {
-            echo "<b>" . $x . "</b>" . "  " . $json['queryResponse']['entity']['0']['clientsDTO'][$item] . "<br>"; 
+            echo "<b>" . $x . "</b>" . "  " . $json['queryResponse']['entity']['0']['clientsDTO'][$item] . "<br>";
           }
         }
         echo "<p>" . "</p>" . "<p>" . "</p>";
       } else {
           echo "Unable to locate record for : " . "<font color=\"red\">" . $this->curlData . "</font>";
           echo "<p>" . "</p>" . "<p>" . "</p>";
-      }  
-    }  
+      }
+    }
   }
 	function iseTicket_1(){
    		$auth_1 ="B3_3@5y"; 	// populate with a ticket
@@ -202,12 +202,12 @@ function iseCurl_1() {
 		$this->curlCustom = "POST";
 		$this->curlPost = "{\"username\":\"devnetuser\",\n\"password\":\"Cisco123!\"\n}";
 		$this->curlHTTP = array(
-        		"cache-control: no-cache",	
+        		"cache-control: no-cache",
         		"content-type: application/json");
     		$response = $this->myCurl();
 		$json = json_decode($response, true);
 		//print_r($json);	// debug
-		$arr = array('serviceTicket' => $json['response']['serviceTicket'], 'idleTimeout' => $json['response']['idleTimeout'], 
+		$arr = array('serviceTicket' => $json['response']['serviceTicket'], 'idleTimeout' => $json['response']['idleTimeout'],
 								 'sessionTimeout' => $json['response']['sessionTimeout'], 'sessionVersion' => $json['version']);	// create array for JSON
 		//echo json_encode($arr);		// return JSON
 				// debug
@@ -220,7 +220,7 @@ function iseCurl_1() {
 		//print_r($this->ticket);	// debug
 		//$this->ticket = json_decode($this->ticket,true);	// debug
 		//print_r($this->ticket);	// debug
-		
+
 	}
 }
 
@@ -231,7 +231,7 @@ function iseCurl_1() {
 //print_r($a->ticket);
 //print_r($b->ticket);
 
-if (isset($_GET['Type']) & isset($_GET['curlAddress']) & isset($_GET['curlData']) 
+if (isset($_GET['Type']) & isset($_GET['curlAddress']) & isset($_GET['curlData'])
     & isset($_GET['curlCustom']) & isset($_GET['curlPost'])) {
 	$a = new curlauth($_GET['Type']);	// sets class property
 	//echo $_GET['Type'] . "<br />";	// debug
@@ -255,7 +255,6 @@ if (isset($_GET['Type']) & isset($_GET['curlAddress']) & isset($_GET['curlData']
 		$a->curlData = urlencode($_GET['curlData']);	// formats user input
 		$response = $a->myCurl();	// calls the correct function based on the GET tpe
 		echo $response;
-	}		
+	}
 }
 ?>
-
