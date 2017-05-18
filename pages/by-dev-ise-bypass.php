@@ -466,17 +466,23 @@
     var btn_1 = document.getElementById("myBtn_1");
     btn_1.onclick = function() {
       var iseurl_1 = "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint";  // URL needed for te submit the form
+      var post_data_1 = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n<ns3:endpoint name=\"name\" 
+      id=\"id\" description=\"description\"\r\nxmlns:ns2=\"ers.ise.cisco.com\" xmlns:ns3=\"identity.ers.ise.cisco.com\"
+      >\r\n<groupId>c07b4190-247b-11e7-b9de-00505698708f</groupId>\r\n<identityStore></identityStore>\r\n<identityStoreId>
+      </identityStoreId>\r\n<mac>"+input_3+"</mac>\r\n<portalUser></portalUser>\r\n<profileId></profileId>\r\n
+      <staticGroupAssignment>true</staticGroupAssignment>\r\n<staticProfileAssignment>false</staticProfileAssignment>\r\n</ns3:endpoint>\r\n";
       var input_1 = document.getElementById('fname_1').value.toUpperCase();  // gets the value and makes text uppercase
       var input_2 = document.getElementById('lname_1').value.toUpperCase();  // gets the value and makes text uppercase
       var input_3 = document.getElementById('mac_1').value;  // gets the value this value has already been preformated
       var input_4 = document.getElementById('incedent_1').value.toUpperCase(); // gets the value and makes text uppercase
-      //alert(input_1); // debug
+      
+      alert(post_data_1); // debug
       var arraydata_1 = {curlFname:input_1,curlLname:input_2,curlMac:input_3,curlIncedent:input_4};
       //alert(data["curlFname"]); // debug
       var arraydata_2 = {curlAddress:iseurl_1,curlMac:input_3};
       var data_1 = arraydata_1;  // stores preformated post information
       var data_2 = "";  // stores preformated post information
-      
+
 
       var datalength = Object.keys(arraydata_2).length;
       var i = 1;
