@@ -476,8 +476,8 @@
       var input_4 = document.getElementById('incedent_1').value.toUpperCase(); // gets the value and makes text uppercase
       //alert(input_1); // debug
       var curldata = {curlFname:input_1,curlLname:input_2,curlMac:input_3,curlIncedent:input_4};
-      alert(curldata["curlFname"]); // debug
-      curlreturn_2('spinner','curlauth.php','iseTicket_1',iseurl_1,input_1,input_2,input_3,input_4);
+      //alert(curldata["curlFname"]); // debug
+      curlreturn_2('spinner','curlauth.php','iseTicket_1',iseurl_1,curldata);
       //alert("THIS BUTTON WORKS"); // debug
     }
   }
