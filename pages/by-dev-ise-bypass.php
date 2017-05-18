@@ -350,8 +350,8 @@
                     </div>
                     </div>
                     </div>
-                    <script>
 
+ <script>
   // Get the modal
   var modal = document.getElementById('myModal');
   // Get the button that opens the modal
@@ -467,6 +467,11 @@
     var btn_1 = document.getElementById("myBtn_1");
     btn_1.onclick = function() {
       var iseurl = "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint";
+      var val1 = document.getElementById('fname_1').value;
+      var val2 = document.getElementById('lname_1').value;
+      var val3 = document.getElementById('mac_1').value;
+      var val4 = document.getElementById('incedent_1').value;
+      alert(val1);
 
       curlreturn_2('spinner','curlauth.php','iseTicket_1',iseurl,);
       //alert("THIS BUTTON WORKS"); // debug
