@@ -470,7 +470,7 @@
       var input_2 = document.getElementById('lname_1').value.toUpperCase();  // gets the value and makes text uppercase
       var input_3 = document.getElementById('mac_1').value;  // gets the value this value has already been preformated
       var input_4 = document.getElementById('incedent_1').value.toUpperCase(); // gets the value and makes text uppercase
-      
+      var data = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n<ns3:endpoint name=\"name\" id=\"id\" description=\"description\"\r\nxmlns:ns2=\"ers.ise.cisco.com\" xmlns:ns3=\"identity.ers.ise.cisco.com\">\r\n<groupId>c07b4190-247b-11e7-b9de-00505698708f</groupId>\r\n<identityStore></identityStore>\r\n<identityStoreId></identityStoreId>\r\n<mac>1D:1A:7E:44:3A:9A</mac>\r\n<portalUser></portalUser>\r\n<profileId></profileId>\r\n<staticGroupAssignment>true</staticGroupAssignment>\r\n<staticProfileAssignment>false</staticProfileAssignment>\r
       alert(post_data_1); // debug
       var arraydata_1 = {curlFname:input_1,curlLname:input_2,curlMac:input_3,curlIncedent:input_4};
       //alert(data["curlFname"]); // debug
