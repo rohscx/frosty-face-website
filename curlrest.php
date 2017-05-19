@@ -184,7 +184,7 @@ function iseCurl_1() {
 		foreach($arr as $x => $x_value) {
 			array_push($this->curlHTTP, $x_value);
 		}
-		$this->curlHTTP = array($arr['serviceTicket']);
+		//$this->curlHTTP = array($arr['serviceTicket']);
 		//print_r($arr);	// debug
 		print_r($this->curlHTTP);	// debug
 	}
@@ -281,6 +281,7 @@ if (isset($_GET['Type']) & isset($_GET['curlAddress']) & isset($_GET['curlData']
 	} elseif ($_GET['Type'] == "iseTicket_1") {
 		if (strpos($_GET['curlAddress'], "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint") !== false) {
 			$a->curlData = "";	// formats user input
+			$a->iseTicket_1();
 			$a->iseCurl_1();	// calls the correct function based on the GET Type
 		} else {
 			$a->curlData = $_GET['curlData'];	// formats user input
