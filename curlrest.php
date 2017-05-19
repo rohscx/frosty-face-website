@@ -64,7 +64,7 @@ class curlauth {
     if ($err) {
         echo "cURL Error #:" . $err;
     } else {
-	    echo "RESPONSE   " .  $response;	// debug
+	    //echo "RESPONSE   " .  $response;	// debug
 	    return $response;
     }
   }
@@ -105,7 +105,7 @@ function apicCurl_1() {
 }}
 function iseCurl_1() {
    $response = $this->myCurl();
-    //echo $response;	// debug
+    print "iseCurl_1 RESPONSE:   " . $response;	// debug
     $xml = new SimpleXMLElement($response);
     //echo $xml->asXML();	// debug
     $dom = new DOMDocument('1.0');
