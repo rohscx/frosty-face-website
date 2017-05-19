@@ -68,7 +68,7 @@ class curlauth {
         echo "cURL Error #:" . $err;
 	//echo "RESPONSE HTTP STATUS CODES  " . print_r( $response_info) . "<br />";	// debug
 	return $response_info;
-    } else if ($response_info['http_code'] == 500) {
+    } else if ($response_info['http_code'] == 500 || $response_info['http_code'] == 201 ) {
 	    //echo "RESPONSE HTTP STATUS CODES  " . print_r( $response_info) . "<br />";	// debug
 	    return $response_info;
     } else {
