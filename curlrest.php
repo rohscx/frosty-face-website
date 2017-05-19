@@ -276,7 +276,7 @@ if (isset($_GET['Type']) & isset($_GET['curlAddress']) & isset($_GET['curlData']
 		$a->primeCurl_1();	// calls the correct function based on the GET type
 	} elseif ($_GET['Type'] == "iseTicket_1") {
 		if (strpos($_GET['curlAddress'], "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/") !== false) {
-			$a->curlData = "endpoint";	// formats user input
+			$a->curlData = "endpoint\"";	// formats user input
 			$a->iseCurl_1();	// calls the correct function based on the GET Type
 		} else {
 			$a->curlData = $_GET['curlData'];	// formats user input
