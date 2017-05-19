@@ -468,7 +468,7 @@
       var iseurl_1 = "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint";  // URL needed for te submit the form
       var input_1 = document.getElementById('fname_1').value.toUpperCase();  // gets the value and makes text uppercase
       var input_2 = document.getElementById('lname_1').value.toUpperCase();  // gets the value and makes text uppercase
-      var input_3 = document.getElementById('mac_1').value;  // gets the value this value has already been preformated
+      var input_3 = encodeURIComponent(document.getElementById('mac_1').value);  // gets the value this value has already been preformated
       var input_4 = document.getElementById('incedent_1').value.toUpperCase(); // gets the value and makes text uppercase
 
       alert(input_4); // debug
@@ -491,8 +491,6 @@
         }
         i++
       }
-      data_1 = encodeURIComponent(data_1);
-      data_2 = encodeURIComponent(data_2);
       curlreturn_2('spinner','curlauth.php','iseTicket_1',data_1,data_2);
       alert(data_2); // debug
     }
