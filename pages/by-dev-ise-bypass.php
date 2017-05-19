@@ -271,8 +271,10 @@
       xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
           document.getElementById('spinner').style.display = "none";
+          myObj = JSON.parse(this.responseText);
           if (thediv == "modal-body") {
             document.getElementById(thediv).innerHTML = '<p>'+"OUI : "+xmlhttp.responseText+'</p>';
+            alert(myObj);
           } else {
             document.getElementById(thediv).innerHTML = xmlhttp.responseText;
           }
@@ -491,7 +493,7 @@
         }
         i++
       }
-      curlreturn_2('spinner','curlauth.php','iseTicket_1',data_1,data_2);
+      curlreturn_2('spinner','curlrest.php','iseTicket_1',data_1,data_2);
       alert(data_2); // debug
     }
   }
