@@ -241,7 +241,20 @@ if (isset($_GET['Type']) & isset($_GET['curlAddress']) & isset($_GET['curlData']
 	if (strpos($_GET['curlAddress'], "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint") !== false) {
     		$a->curlPost = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n<ns3:endpoint name=\"name\" id=\"id\" description=\"description\"\r\nxmlns:ns2=\"ers.ise.cisco.com\" xmlns:ns3=\"identity.ers.ise.cisco.com\">\r\n<groupId>c07b4190-247b-11e7-b9de-00505698708f</groupId>\r\n<identityStore></identityStore>\r\n<identityStoreId></identityStoreId>\r\n<mac>" . $_GET['curlData'] . "</mac>\r\n<portalUser></portalUser>\r\n<profileId></profileId>\r\n<staticGroupAssignment>true</staticGroupAssignment>\r\n<staticProfileAssignment>false</staticProfileAssignment>\r\n</ns3:endpoint>\r\n";
 		print "curlPost  " . $a->curlPost . "<br />";
-		print "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n<ns3:endpoint name=\"name\" id=\"id\" description=\"description\"\r\nxmlns:ns2=\"ers.ise.cisco.com\" xmlns:ns3=\"identity.ers.ise.cisco.com\">\r\n<groupId>c07b4190-247b-11e7-b9de-00505698708f</groupId>\r\n<identityStore></identityStore>\r\n<identityStoreId></identityStoreId>\r\n<mac>1D:1A:7E:44:3A:9A</mac>\r\n<portalUser></portalUser>\r\n<profileId></profileId>\r\n<staticGroupAssignment>true</staticGroupAssignment>\r\n<staticProfileAssignment>false</staticProfileAssignment>\r\n</ns3:endpoint>\r\n";
+		$a3=  addslashes('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+					<ns3:endpoint name="name" id="id" description="description"
+					xmlns:ns2="ers.ise.cisco.com" xmlns:ns3="identity.ers.ise.cisco.com">
+					<groupId>c07b4190-247b-11e7-b9de-00505698708f</groupId>
+					<identityStore></identityStore>
+					<identityStoreId></identityStoreId>
+					<mac>'.$_GET['curlData'].'</mac>
+					<portalUser></portalUser>
+					<profileId></profileId>
+					<staticGroupAssignment>true</staticGroupAssignment>
+					<staticProfileAssignment>false</staticProfileAssignment>
+					</ns3:endpoint>');
+	print "TEST :   " $a3 . "<br />";
+		
 	} else {
 		$a->curlPost = $_GET['curlPost'];
 	}
