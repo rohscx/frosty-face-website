@@ -166,15 +166,25 @@ function iseCurl_1() {
     }
   }
 	function iseTicket_1(){
-   		$auth_1 ="B3_3@5y"; 	// populate with a ticket
-		$cache_1 ="cache-control: no-cache"; 	// populate with needed information
-    		$arr = array('serviceTicket' => $auth_1, 'serviceCache' => $cache_1);	// create array for JSON
+		$auth_1 ="B3_3@5y"; 	// populate with a ticket
+		$cache_1;
+		$arr;
+		if ($this->$curlAddress, "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint") !== false) {
+			$cache_1 ="cache-control: no-cache";
+			$cache_2 ="content-type: application/vnd.com.cisco.ise.identity.endpoint.1.0+xml; charset=utf-8";
+			$arr = array('serviceTicket' => $auth_1, 'serviceCache' => $cache_1, 'serviceCache_2' => $cache_2);	// create array for JSON
+		} else {
+			$cache_1 ="cache-control: no-cache"; 	// populate with needed information
+    			$arr = array('serviceTicket' => $auth_1, 'serviceCache' => $cache_1);	// create array for JSON
+		}
+   		
+
     		//return json_encode($arr);		// return JSON
 		$arr = json_encode($arr);	// encode as JSON
 		$arr = json_decode($arr,true);	// decode as jSON
 		$this->curlHTTP = array($arr['serviceTicket']);
 		//print_r($arr);	// debug
-		//print_r($this->curlHTTP);	// debug
+		print_r($this->curlHTTP);	// debug
 	}
 	function primeTicket_1(){
    		$auth_1 ="B1@ck_Sn@k3_M0@n"; 	// populate with a ticket
