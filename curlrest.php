@@ -284,7 +284,7 @@ if (isset($_GET['Type']) & isset($_GET['curlAddress']) & isset($_GET['curlData']
 		$a->curlPost = $post;
 		$a->curlPort = "9060";
 		$a->iseTicket_1();
-		print "curlPost  " . $a->curlPost . "<br />";
+		//print "curlPost  " . $a->curlPost . "<br />";	//debug
 		
 	} else {
 		$a->curlPost = $_GET['curlPost'];
