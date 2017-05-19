@@ -35,7 +35,7 @@ class curlauth {
     return $this->$name = $value;
   }	// used to set properties
   function myCurl() {
-	
+	/*
     	echo "curlAddress myCurl  ::" . $this->curlAddress . "<br>";	// debug
 	echo "curlPort myCurl  ::" . $this->curlPort . "<br>";	// debug
 	echo "curlData myCurl  ::" .  $this->curlData . "<br>";	// debug
@@ -43,7 +43,7 @@ class curlauth {
 	echo "curlPost myCurl  ::" .   $this->curlPost . "<br>";	// debug
 	echo "curlHTTP myCurl  ::" .   print_r($this->curlHTTP) . "<br>";	// debug
 	echo "FULLLcurlAddress myCurl  ::" .   $this->curlAddress . $this->curlData . "<br>"; // debug
-	
+	*/
 	$curl = curl_init();
 	curl_setopt_array($curl, array(
 		CURLOPT_SSL_VERIFYPEER => false,    // disables ssl server cert verify check
@@ -116,7 +116,7 @@ function apicCurl_1() {
 function iseCurl_1() {
    $response = $this->myCurl();
     //print "iseCurl_1 RESPONSE:   " . $response . "<br />";	// debug
-    echo "RESPONSE HTTP STATUS CODES  " . print_r( $response) . "<br />";	// debug
+    //echo "RESPONSE HTTP STATUS CODES  " . print_r( $response) . "<br />";	// debug
     if ($response['http_code'] == 201) {
 	    print_r($response);	// 201 means the POST was successful
     } else if ($response['http_code'] == 500) {
@@ -300,7 +300,6 @@ if (isset($_GET['Type']) & isset($_GET['curlAddress']) & isset($_GET['curlData']
 		if (strpos($_GET['curlAddress'], "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint") !== false) {
 			$a->curlData = "";	// formats user input
 			$a->iseCurl_1();	// calls the correct function based on the GET Type
-			print "ECHOMAN";
 		} else {
 			$a->curlData = $_GET['curlData'];	// formats user input
 			$a->iseCurl_1();	// calls the correct function based on the GET Type
