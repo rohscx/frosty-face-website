@@ -172,7 +172,7 @@ function iseCurl_1() {
 		$auth_1 ="B3_3@5y"; 	// populate with a ticket
 		$cache_1;
 		$arr;
-		if (strpos($this->curlAddress, "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint") !== false) {
+		if (strpos($this->curlAddress, "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/") !== false) {
 			$cache_1 ="cache-control: no-cache";
 			$cache_2 ="content-type: 1application/vnd.com.cisco.ise.identity.endpoint.1.0+xml; charset=utf-8";
 			$arr = array('serviceTicket' => $auth_1, 'serviceCache_1' => $cache_1, 'serviceCache_2' => $cache_2);	// create array for JSON
@@ -255,7 +255,7 @@ if (isset($_GET['Type']) & isset($_GET['curlAddress']) & isset($_GET['curlData']
 	$a->curlAddress = $_GET['curlAddress'];	// sets class property
 	//echo $_GET['curlAddress'] . "<br />";	// debug
 	//echo $_GET['curlData'] . "<br />";	// debug
-	if (strpos($_GET['curlAddress'], "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint") !== false) {
+	if (strpos($_GET['curlAddress'], "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/") !== false) {
 		$post =  addcslashes('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\r\n<ns3:endpoint name="name" id="id" description="description"\r\nxmlns:ns2="ers.ise.cisco.com" xmlns:ns3="identity.ers.ise.cisco.com">\r\n<groupId>c07b4190-247b-11e7-b9de-00505698708f</groupId>\r\n<identityStore></identityStore>\r\n<identityStoreId></identityStoreId>\r\n<mac>'.$_GET['curlData'].'</mac>\r\n<portalUser></portalUser>\r\n<profileId></profileId>\r\n<staticGroupAssignment>true</staticGroupAssignment>\r\n<staticProfileAssignment>false</staticProfileAssignment>\r\n</ns3:endpoint>\r\n','"');
 		$a->curlPost = htmlspecialchars($post, ENT_QUOTES);
 		$a->curlPort = "9060";
@@ -273,8 +273,8 @@ if (isset($_GET['Type']) & isset($_GET['curlAddress']) & isset($_GET['curlData']
 		$a->curlData = "(" . $_GET['curlData'] . ")";	// formats user input
 		$a->primeCurl_1();	// calls the correct function based on the GET type
 	} elseif ($_GET['Type'] == "iseTicket_1") {
-		if (strpos($_GET['curlAddress'], "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint") !== false) {
-			$a->curlData = "";	// formats user input
+		if (strpos($_GET['curlAddress'], "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/") !== false) {
+			$a->curlData = "endpoint";	// formats user input
 			$a->iseCurl_1();	// calls the correct function based on the GET Type
 		} else {
 			$a->curlData = $_GET['curlData'];	// formats user input
