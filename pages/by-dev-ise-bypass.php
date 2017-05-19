@@ -272,13 +272,13 @@
         if (this.readyState == 4 && this.status == 200) {
           document.getElementById('spinner').style.display = "none";
           myObj = JSON.parse(this.responseText);
-          if (myObj.http_code == 500) {
+          if (myObj.http_code == 201) {
             //document.getElementById(thediv).innerHTML = '<p>'+"OUI : "+xmlhttp.responseText+'</p>';
-            alert(JSON.stringify(myObj)); // turns JSON int string so it can be displayed
+            //alert(JSON.stringify(myObj)); // debug turns JSON int string so it can be displayed
             alert("casts");
-          } else {
+          } else if (myObj.http_code == 500) {
             //document.getElementById(thediv).innerHTML = xmlhttp.responseText;
-            alert(JSON.stringify(myObj)); // turns JSON int string so it can be displayed
+            //alert(JSON.stringify(myObj)); // debug turns JSON int string so it can be displayed
             alert("dogs");
           }
         }
