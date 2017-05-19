@@ -116,10 +116,10 @@ function apicCurl_1() {
 function iseCurl_1() {
    $response = $this->myCurl();
     //print "iseCurl_1 RESPONSE:   " . $response . "<br />";	// debug
-    if ($this->response_info['http_code'] == 201) {
-	    print_r($this->response_info);
-    } else if ($this->response_info['http_code'] == 500) {
-	    print_r($this->response_info);
+    if ($response['http_code'] == 201) {
+	    print_r($response);
+    } else if ($response['http_code'] == 500) {
+	    print_r($response);
     } else {
 	$xml = new SimpleXMLElement($response);
 	//echo $xml->asXML();	// debug
