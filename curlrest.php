@@ -3,6 +3,7 @@ class curlauth {
 	protected $attribute1;
 	protected $attribute2;
 	protected $curlAddress;
+	protected $curlPort;
 	protected $curlData;
 	protected $curlCustom;
 	protected $curlPost;
@@ -45,7 +46,8 @@ class curlauth {
 	curl_setopt_array($curl, array(
 		CURLOPT_SSL_VERIFYPEER => false,    // disables ssl server cert verify check
         	CURLOPT_SSL_VERIFYHOST => false,    // disables ssk host cert verify check
-        	CURLOPT_URL => $this->curlAddress . $this->curlData,
+        	CURLOPT_PORT => $this->curlPort,
+		CURLOPT_URL => $this->curlAddress . $this->curlData,
         	CURLOPT_RETURNTRANSFER => true,
         	CURLOPT_ENCODING => "",
         	CURLOPT_MAXREDIRS => 10,
@@ -266,6 +268,8 @@ if (isset($_GET['Type']) & isset($_GET['curlAddress']) & isset($_GET['curlData']
 					<staticProfileAssignment>false</staticProfileAssignment>
 					</ns3:endpoint>');
 		$a->curlPost = htmlspecialchars($post, ENT_QUOTES);
+		$a->curlPort = "9060";
+		$a->iseTicket_1();
 		print "curlPost  " . $a->curlPost . "<br />";
 		
 	} else {
@@ -281,7 +285,6 @@ if (isset($_GET['Type']) & isset($_GET['curlAddress']) & isset($_GET['curlData']
 	} elseif ($_GET['Type'] == "iseTicket_1") {
 		if (strpos($_GET['curlAddress'], "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint") !== false) {
 			$a->curlData = "";	// formats user input
-			$a->iseTicket_1();
 			$a->iseCurl_1();	// calls the correct function based on the GET Type
 		} else {
 			$a->curlData = $_GET['curlData'];	// formats user input
