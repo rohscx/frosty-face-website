@@ -175,9 +175,10 @@ function iseCurl_1() {
 		$cache_1;
 		$arr;
 		if (strpos($this->curlAddress, "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/") !== false) {
-			$cache_1 ="cache-control: no-cache";
-			$cache_2 ="content-type: application/vnd.com.cisco.ise.identity.endpoint.1.0+xml; charset=utf-8";
-			$arr = array('serviceTicket' => $auth_1, 'serviceCache_2' => $cache_2);	// create array for JSON
+			$cache_1 = "cache-control: no-cache";
+			$cache_2 = "content-type: application/vnd.com.cisco.ise.identity.endpoint.1.0+xml; charset=utf-8";
+			$token = "postman-token: 73848290-3b9d-e474-cb6c-adec0023bb89";
+			$arr = array('serviceTicket' => $auth_1, 'serviceCache_1' => $cache_1, 'serviceCache_2' => $cache_2, 'serviceCache_2' => $token);	// create array for JSON
 		} else {
 			$cache_1 ="cache-control: no-cache"; 	// populate with needed information
     			$arr = array('serviceTicket' => $auth_1, 'serviceCache_1' => $cache_1);	// create array for JSON
