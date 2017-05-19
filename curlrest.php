@@ -60,13 +60,14 @@ class curlauth {
     	));
     $response = curl_exec($curl);
     $err = curl_error($curl);
+    $aaa=curl_getinfo($curl);
+	    
     curl_close($curl);
     if ($err) {
         echo "cURL Error #:" . $err;
     } else {
 	    //echo "RESPONSE   " .  $response;	// debug
-	    $aaa=curl_getinfo($curl);
-	    echo "RESPONSE   " .  $aaa["Created"];	// debug
+	    echo "RESPONSE HTTP STATUS CODE  " .  $aaa["Created"] . "<br />";	// debug
 	    return $response;
 	    
     }
