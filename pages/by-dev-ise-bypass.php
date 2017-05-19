@@ -275,9 +275,11 @@
           if (thediv == "modal-body") {
             //document.getElementById(thediv).innerHTML = '<p>'+"OUI : "+xmlhttp.responseText+'</p>';
             alert(JSON.stringify(myObj)); // turns JSON int string so it can be displayed
+            alert("casts");
           } else {
             //document.getElementById(thediv).innerHTML = xmlhttp.responseText;
             alert(JSON.stringify(myObj)); // turns JSON int string so it can be displayed
+            alert("dogs");
           }
         }
       }
