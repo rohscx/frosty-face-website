@@ -36,6 +36,7 @@ class curlauth {
   function myCurl() {
 	
     	echo "curlAddress myCurl  ::" . $this->curlAddress . "<br>";	// debug
+	echo "curlPort myCurl  ::" . $this->curlPort . "<br>";	// debug
 	echo "curlData myCurl  ::" .  $this->curlData . "<br>";	// debug
 	echo "curlCustom myCurl  ::" .  $this->curlCustom . "<br>";	// debug
 	echo "curlPost myCurl  ::" .   $this->curlPost . "<br>";	// debug
