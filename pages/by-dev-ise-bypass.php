@@ -470,7 +470,7 @@
       var input_2 = document.getElementById('lname_1').value.toUpperCase();  // gets the value and makes text uppercase
       var input_3 = document.getElementById('mac_1').value;  // gets the value this value has already been preformated
       var input_4 = document.getElementById('incedent_1').value.toUpperCase(); // gets the value and makes text uppercase
-      
+
       alert(post_data_1); // debug
       var arraydata_1 = {curlFname:input_1,curlLname:input_2,curlMac:input_3,curlIncedent:input_4};
       //alert(data["curlFname"]); // debug
@@ -492,7 +492,7 @@
         i++
       }
       curlreturn_2('spinner','curlauth.php','iseTicket_1',data_1,data_2);
-      //alert("THIS BUTTON WORKS"); // debug
+      alert(data_2); // debug
     }
   }
   </script>
