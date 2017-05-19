@@ -65,8 +65,6 @@ class curlauth {
         echo "cURL Error #:" . $err;
     } else {
 	    //echo "RESPONSE   " .  $response;	// debug
-	    
-	    echo "RESPONSE   " .  print_r(curl_setopt_array) . "<br />";	// debug 
 	    return $response;
     }
   }
