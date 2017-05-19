@@ -172,17 +172,18 @@ function iseCurl_1() {
 		if (strpos($this->curlAddress, "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint") !== false) {
 			$cache_1 ="cache-control: no-cache";
 			$cache_2 ="content-type: application/vnd.com.cisco.ise.identity.endpoint.1.0+xml; charset=utf-8";
-			$arr = array('serviceTicket' => $auth_1, 'serviceCache' => $cache_1, 'serviceCache_2' => $cache_2);	// create array for JSON
+			$arr = array('serviceTicket' => $auth_1, 'serviceCache_1' => $cache_1, 'serviceCache_2' => $cache_2);	// create array for JSON
 		} else {
 			$cache_1 ="cache-control: no-cache"; 	// populate with needed information
-    			$arr = array('serviceTicket' => $auth_1, 'serviceCache' => $cache_1);	// create array for JSON
+    			$arr = array('serviceTicket' => $auth_1, 'serviceCache_1' => $cache_1);	// create array for JSON
 		}
-   		
-
     		//return json_encode($arr);		// return JSON
 		$arr = json_encode($arr);	// encode as JSON
 		$arr = json_decode($arr,true);	// decode as jSON
-		$this->curlHTTP = array($arr);
+		foreach($arr as $x => $x_value) {
+			array_push($this->curlHTTP, $x_value);
+		}
+		//$this->curlHTTP = array($arr['serviceTicket']);
 		//print_r($arr);	// debug
 		print_r($this->curlHTTP);	// debug
 	}
