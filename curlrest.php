@@ -67,7 +67,8 @@ class curlauth {
         echo "cURL Error #:" . $err;
     } else {
 	    //echo "RESPONSE   " .  $response;	// debug
-	    echo "RESPONSE HTTP STATUS CODE  " .  $aaa["Created"] . "<br />";	// debug
+	    echo "RESPONSE HTTP STATUS CODE  " . "<br />";	// debug
+	    print_r( $aaa);
 	    return $response;
 	    
     }
