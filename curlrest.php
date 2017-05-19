@@ -267,7 +267,7 @@ if (isset($_GET['Type']) & isset($_GET['curlAddress']) & isset($_GET['curlData']
 					<profileId></profileId>\r\n
 					<staticGroupAssignment>true</staticGroupAssignment>\r\n
 					<staticProfileAssignment>false</staticProfileAssignment>\r\n
-					</ns3:endpoint>\r\n');
+					</ns3:endpoint>\r\n','"');
 		$a->curlPost = htmlspecialchars($post, ENT_QUOTES);
 		$a->curlPort = "9060";
 		$a->iseTicket_1();
