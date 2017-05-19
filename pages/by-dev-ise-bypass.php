@@ -274,9 +274,10 @@
           myObj = JSON.parse(this.responseText);
           if (thediv == "modal-body") {
             //document.getElementById(thediv).innerHTML = '<p>'+"OUI : "+xmlhttp.responseText+'</p>';
-            alert(JSON.stringify(myObj));
+            alert(JSON.stringify(myObj)); // turns JSON int string so it can be displayed
           } else {
-            document.getElementById(thediv).innerHTML = xmlhttp.responseText;
+            //document.getElementById(thediv).innerHTML = xmlhttp.responseText;
+            alert(JSON.stringify(myObj)); // turns JSON int string so it can be displayed
           }
         }
       }
