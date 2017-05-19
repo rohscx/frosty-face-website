@@ -66,9 +66,11 @@ class curlauth {
     print $response_info['http_code'];
     if ($err) {
         echo "cURL Error #:" . $err;
-	echo "RESPONSE HTTP STATUS CODES  " . print_r( $aaa) . "<br />";	// debug
+	//echo "RESPONSE HTTP STATUS CODES  " . print_r( $response_info) . "<br />";	// debug
+	return $response_info;
     } else if ($response_info['http_code'] == 500) {
-	    echo "RESPONSE HTTP STATUS CODES  " . print_r( $aaa) . "<br />";	// debug
+	    //echo "RESPONSE HTTP STATUS CODES  " . print_r( $response_info) . "<br />";	// debug
+	    return $response_info;
     } else {
 	    //echo "RESPONSE   " .  $response . "<br />";	// debug
 	    //echo "RESPONSE HTTP STATUS CODES  " . print_r( $aaa) . "<br />";	// debug
@@ -115,7 +117,9 @@ function iseCurl_1() {
    $response = $this->myCurl();
     //print "iseCurl_1 RESPONSE:   " . $response . "<br />";	// debug
     if ($this->response_info['http_code'] == 201) {
-	    print "Cats";
+	    print_r($this->response_info);
+    } else if ($this->response_info['http_code'] == 500) {
+	    print_r($this->response_info);
     } else {
 	$xml = new SimpleXMLElement($response);
 	//echo $xml->asXML();	// debug
