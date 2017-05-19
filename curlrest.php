@@ -65,7 +65,8 @@ class curlauth {
         echo "cURL Error #:" . $err;
     } else {
 	    //echo "RESPONSE   " .  $response;	// debug
-	    echo "RESPONSE   " .  curl_getinfo($response);	// debug
+	    $aaa=curl_getinfo($curl);
+	    echo "RESPONSE   " .  $aaa["Created"];	// debug
 	    return $response;
 	    
     }
