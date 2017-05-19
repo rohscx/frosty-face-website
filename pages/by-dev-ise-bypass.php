@@ -273,7 +273,7 @@
           document.getElementById('spinner').style.display = "none";
           myObj = JSON.parse(this.responseText);
           if (thediv == "modal-body") {
-            document.getElementById(thediv).innerHTML = '<p>'+"OUI : "+xmlhttp.responseText+'</p>';
+            //document.getElementById(thediv).innerHTML = '<p>'+"OUI : "+xmlhttp.responseText+'</p>';
             alert(myObj);
           } else {
             document.getElementById(thediv).innerHTML = xmlhttp.responseText;
