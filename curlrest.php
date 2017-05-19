@@ -63,7 +63,7 @@ class curlauth {
     $response_info=curl_getinfo($curl);
     $err = curl_error($curl);	    
     curl_close($curl);
-    print $response_info['http_code'];
+    //print $response_info['http_code'];	// debug
     if ($err) {
         echo "cURL Error #:" . $err;
 	//echo "RESPONSE HTTP STATUS CODES  " . print_r( $response_info) . "<br />";	// debug
