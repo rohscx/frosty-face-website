@@ -272,7 +272,7 @@
         if (this.readyState == 4 && this.status == 200) {
           document.getElementById('spinner').style.display = "none";
           myObj = JSON.parse(this.responseText);
-          if (myObj[0].http_code == 500) {
+          if (myObj.http_code == 500) {
             //document.getElementById(thediv).innerHTML = '<p>'+"OUI : "+xmlhttp.responseText+'</p>';
             alert(JSON.stringify(myObj)); // turns JSON int string so it can be displayed
             alert("casts");
