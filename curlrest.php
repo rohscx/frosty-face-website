@@ -73,7 +73,7 @@ class curlauth {
 	    return $response_info;
     } else {
 	    //echo "RESPONSE   " .  $response . "<br />";	// debug
-	    //echo "RESPONSE HTTP STATUS CODES  " . print_r( $aaa) . "<br />";	// debug
+	    //echo "RESPONSE HTTP STATUS CODES  " . print_r($response_info) . "<br />";	// debug
 	    return $response;
 	    
     }
@@ -116,6 +116,7 @@ function apicCurl_1() {
 function iseCurl_1() {
    $response = $this->myCurl();
     //print "iseCurl_1 RESPONSE:   " . $response . "<br />";	// debug
+    echo "RESPONSE HTTP STATUS CODES  " . print_r( $response) . "<br />";	// debug
     if ($response['http_code'] == 201) {
 	    print_r($response);	// 201 means the POST was successful
     } else if ($response['http_code'] == 500) {
