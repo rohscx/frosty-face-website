@@ -174,7 +174,7 @@ function iseCurl_1() {
 		$arr;
 		if (strpos($this->curlAddress, "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint") !== false) {
 			$cache_1 ="cache-control: no-cache";
-			$cache_2 ="content-type: application/vnd.com.cisco.ise.identity.endpoint.1.0+xml; charset=utf-8";
+			$cache_2 ="content-type: 1application/vnd.com.cisco.ise.identity.endpoint.1.0+xml; charset=utf-8";
 			$arr = array('serviceTicket' => $auth_1, 'serviceCache_1' => $cache_1, 'serviceCache_2' => $cache_2);	// create array for JSON
 		} else {
 			$cache_1 ="cache-control: no-cache"; 	// populate with needed information
