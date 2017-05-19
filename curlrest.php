@@ -180,6 +180,7 @@ function iseCurl_1() {
     		//return json_encode($arr);		// return JSON
 		$arr = json_encode($arr);	// encode as JSON
 		$arr = json_decode($arr,true);	// decode as jSON
+		$this->curlHTTP = array();
 		foreach($arr as $x => $x_value) {
 			array_push($this->curlHTTP, $x_value);
 		}
