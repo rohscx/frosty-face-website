@@ -181,8 +181,8 @@ function iseCurl_1() {
     			$arr = array('serviceTicket' => $auth_1, 'serviceCache_1' => $cache_1);	// create array for JSON
 		}
     		//return json_encode($arr);		// return JSON
-		$arr = json_encode($arr);	// encode as JSON
-		$arr = json_decode($arr,true);	// decode as jSON
+		//$arr = json_encode($arr);	// encode as JSON
+		//$arr = json_decode($arr,true);	// decode as jSON
 		$this->curlHTTP = array();
 		foreach($arr as $x => $x_value) {
 			array_push($this->curlHTTP, $x_value);
