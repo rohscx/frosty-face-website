@@ -253,7 +253,7 @@ if (isset($_GET['Type']) & isset($_GET['curlAddress']) & isset($_GET['curlData']
 					<staticGroupAssignment>true</staticGroupAssignment>
 					<staticProfileAssignment>false</staticProfileAssignment>
 					</ns3:endpoint>');
-	print "TEST :   " . $a3 . "<br />";
+	print "TEST :   " . htmlspecialchars($a3, ENT_QUOTES) . "<br />";
 		
 	} else {
 		$a->curlPost = $_GET['curlPost'];
