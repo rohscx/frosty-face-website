@@ -491,6 +491,8 @@
         }
         i++
       }
+      data_1 = encodeURIComponent(data_1);
+      data_2 = encodeURIComponent(data_2);
       curlreturn_2('spinner','curlauth.php','iseTicket_1',data_1,data_2);
       alert(data_2); // debug
     }
