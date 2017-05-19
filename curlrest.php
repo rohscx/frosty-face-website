@@ -65,7 +65,10 @@ class curlauth {
         echo "cURL Error #:" . $err;
     } else {
 	    //echo "RESPONSE   " .  $response;	// debug
+	    echo "RESPONSE   " .  curl_getinfo($response);	// debug
+	    curl_getinfo()
 	    return $response;
+	    
     }
   }
 function myTime($format,$offset) {
