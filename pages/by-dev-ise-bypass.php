@@ -471,7 +471,7 @@
       var input_3 = document.getElementById('mac_1').value;  // gets the value this value has already been preformated
       var input_4 = document.getElementById('incedent_1').value.toUpperCase(); // gets the value and makes text uppercase
 
-      alert(post_data_1); // debug
+      alert(input_4); // debug
       var arraydata_1 = {curlFname:input_1,curlLname:input_2,curlMac:input_3,curlIncedent:input_4};
       //alert(data["curlFname"]); // debug
       var arraydata_2 = {Type:"iseTicket_1",curlAddress:iseurl_1,curlData:input_3,curlCustom:"POST",curlPost:""};
