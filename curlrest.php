@@ -105,7 +105,7 @@ function apicCurl_1() {
 }}
 function iseCurl_1() {
    $response = $this->myCurl();
-    print "iseCurl_1 RESPONSE:   " . $response;	// debug
+    print "iseCurl_1 RESPONSE:   " . $response . "<br />";	// debug
     $xml = new SimpleXMLElement($response);
     //echo $xml->asXML();	// debug
     $dom = new DOMDocument('1.0');
