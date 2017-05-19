@@ -182,7 +182,7 @@ function iseCurl_1() {
     		//return json_encode($arr);		// return JSON
 		$arr = json_encode($arr);	// encode as JSON
 		$arr = json_decode($arr,true);	// decode as jSON
-		$this->curlHTTP = array($arr['serviceTicket']);
+		$this->curlHTTP = array($arr);
 		//print_r($arr);	// debug
 		print_r($this->curlHTTP);	// debug
 	}
