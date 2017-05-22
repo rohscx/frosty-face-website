@@ -510,7 +510,7 @@
       var input_5 = document.getElementById('ACA').value.toUpperCase(); // gets the ACA value
 
       //alert(input_4); // debug
-      var arraydata_1 = {sqlQuery:"insert_1",sqlFname:input_1,sqlLname:input_2,sqlMac:input_3,sqlIncedent:input_4,sqlACA:input_5};
+      var arraydata_1 = {sqlQuery:"insert_1",sqlFname:input_1,sqlLname:input_2,sqlMAC:input_3,sqlIncedent:input_4,sqlACA:input_5};
       //alert(data["curlFname"]); // debug
       var arraydata_2 = {Type:"iseTicket_1",curlAddress:iseurl_1,curlData:input_3,curlCustom:"POST",curlPost:""};
       //var data_1 = arraydata_1;  // stores preformated post information
