@@ -27,10 +27,12 @@ class mysqlquery {
 				ON am.Mac_ID = amm.Mac_ID
 				WHERE am.Valid_Until = ?
 				ORDER BY am.Valid_From ASC";	// general lookup
-	protected $query_4 = "SELECT amm.Mac_ID, amm.Note, am.Ticket, amm.Action
+	protected $query_4 = "SELECT amm.Mac_ID, amm.Note, am.Ticket, amm.Action, a.ACA_Name
 				FROM aca_mab_metadata as amm
 				JOIN aca_mab as am
 				USING (Mac_ID)
+				JOIN aca as a
+				USING (Aca_ID)
 				WHERE am.Valid_Until = '1000-01-01 00:00:00' AND amm.Mac_ID = ?
 				ORDER BY amm.Mac_ID ASC";	//search METADATA table DB by MAC Address
 	protected $query_5 = "SELECT am.Mac_ID, au.Fname, au.Lname, a.ACA_Name, a.ACA_Bname, am.Valid_From, am.State, amm.Action, am.Ticket
