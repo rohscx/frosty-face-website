@@ -511,7 +511,8 @@
       var arraydata_1 = {curlFname:input_1,curlLname:input_2,curlMac:input_3,curlIncedent:input_4};
       //alert(data["curlFname"]); // debug
       var arraydata_2 = {Type:"iseTicket_1",curlAddress:iseurl_1,curlData:input_3,curlCustom:"POST",curlPost:""};
-      var data_1 = arraydata_1;  // stores preformated post information
+      //var data_1 = arraydata_1;  // stores preformated post information
+      var data_1 = "";  // stores preformated post information
       var data_2 = "";  // stores preformated post information
 
 
