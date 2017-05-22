@@ -158,10 +158,9 @@
               newdiv.onclick = function () {
                 modal.style.display = "block";
                 var str = this.textContent.split(" ", 1);
-                var aca = myObj[0].ACA_Name;
                 str = encodeURIComponent(str);
                 document.getElementById("adiv2").innerHTML = str;
-                get_notes('adiv2','mysqli.php','sqlQuery','query_4','sqlWhere',str,aca);
+                get_notes('adiv2','mysqli.php','sqlQuery','query_4','sqlWhere',str);
               }
               newdiv.innerHTML = myObj[i1].Mac_ID+' '+myObj[i1].Fname+' '+myObj[i1].Lname+' '+myObj[i1].Valid_From+' '+myObj[i1].State;
               document.getElementById(thediv).appendChild(newdiv);
@@ -172,7 +171,7 @@
       xmlhttp.open('GET', thefile+'?'+thekeyA_1+'='+thekeyB_1+'&'+thekeyA_2+'='+thekeyB_2, true);
       xmlhttp.send();
     }
-    function get_notes(thediv, thefile, thekeyA_1, thekeyB_1, thekeyA_2, thekeyB_2 , theACA) {
+    function get_notes(thediv, thefile, thekeyA_1, thekeyB_1, thekeyA_2, thekeyB_2) {
       if (window.XMLHttpRequest) {
         xmlhttp = new XMLHttpRequest();
       } else {
@@ -188,7 +187,7 @@
             var window = " target=\"_blank\"";
             var ticket = "<a href="+url+myObj[0].Ticket+window+">"+myObj[0].Ticket+"</a>";
             var mac_encoded = encodeURIComponent(myObj[0].Mac_ID);
-            var aca = theACA;
+            var aca = myObj[0].ACA_Name;
             if (myObj[0].Action > 5) {
               document.getElementById("adiv2").innerHTML = "ACA : "+aca+'<br />'+"MAC : "+myObj[0].Mac_ID+" "+'<br />'+ticket+'<br />'+
               '<p>'+"BYPASS count : "+'<font color="red">'+myObj[0].Action+'</font>'+'</p>';
