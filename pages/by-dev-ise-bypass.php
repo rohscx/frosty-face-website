@@ -530,13 +530,14 @@
         }
         i++
       }
+      var datalength = Object.keys(arraydata_1).length;
       for (var key in arraydata_1) {
         if (i == datalength) {
           data_1 += key + "=" + arraydata_1[key];
         } else if ((i/2)%1  === 0) {
           data_1 += key + "=" + arraydata_1[key] + "&";
         } else {
-          data_1 += key + "=" + arraydata_1[key];
+          data_1 += key + "=" + arraydata_1[key] + "&";
         }
         i++
       }
