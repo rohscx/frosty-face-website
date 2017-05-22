@@ -516,9 +516,10 @@
       //var data_1 = arraydata_1;  // stores preformated post information
       //var data_1 = "";  // stores preformated post information
       var data_1 = datamaker_1(arraydata_1);
-      var data_2 = "";  // stores preformated post information
+      var data_2 = datamaker_1(arraydata_2);  // stores preformated post information
 
-
+      // Can Probably be deleted as it is now a function
+      /*
       var datalength = Object.keys(arraydata_2).length;
       var i = 1;
       for (var key in arraydata_2) {
@@ -531,7 +532,7 @@
         }
         i++
       }
-      /*
+
       var datalength = Object.keys(arraydata_1).length;
       var i = 1;
       for (var key in arraydata_1) {
