@@ -545,7 +545,7 @@
         i++
       }
       */
-      fuction datamaker_1(arraydata) {
+      function datamaker_1(arraydata) {
         var datalength = Object.keys(arraydata).length;
         var data = "";
         var i = 1;
