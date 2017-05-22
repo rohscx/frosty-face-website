@@ -486,6 +486,7 @@
       opt.innerHTML = aca_list_1[i];  // pulls from array and creates named option for the list
       input.appendChild(opt); // appends worked on items to select
     }
+    input.id = 'ACA';
     /* saving this because I will forget how it works and I think i'll use it later
     document.getElementById('spinner').style.display = "none";
     input = form.appendChild(document.createElement('input'));
@@ -506,9 +507,10 @@
       var input_2 = document.getElementById('lname_1').value.toUpperCase();  // gets the value and makes text uppercase
       var input_3 = encodeURIComponent(document.getElementById('mac_1').value);  // gets the value this value has already been preformated
       var input_4 = document.getElementById('incedent_1').value.toUpperCase(); // gets the value and makes text uppercase
+      var input_5 = document.getElementById('ACA').value.toUpperCase(); // gets the value and makes text uppercase
 
       //alert(input_4); // debug
-      var arraydata_1 = {curlFname:input_1,curlLname:input_2,curlMac:input_3,curlIncedent:input_4};
+      var arraydata_1 = {sqlACA:input_5,sqlFname:input_1,sqlLname:input_2,sqlMac:input_3,sqlIncedent:input_4};
       //alert(data["curlFname"]); // debug
       var arraydata_2 = {Type:"iseTicket_1",curlAddress:iseurl_1,curlData:input_3,curlCustom:"POST",curlPost:""};
       //var data_1 = arraydata_1;  // stores preformated post information
@@ -534,7 +536,7 @@
         } else if ((i/2)%1  === 0) {
           data_1 += key + "=" + arraydata_1[key] + "&";
         } else {
-          data_1 += key + "=" + arraydata_1[key] + "&";
+          data_1 += key + "=" + arraydata_1[key];
         }
         i++
       }
