@@ -531,6 +531,7 @@
         i++
       }
       var datalength = Object.keys(arraydata_1).length;
+      var i = 1;
       for (var key in arraydata_1) {
         if (i == datalength) {
           data_1 += key + "=" + arraydata_1[key];
