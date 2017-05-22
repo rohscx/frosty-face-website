@@ -275,11 +275,11 @@
           if (myObj.http_code == 201) {
             //document.getElementById(thediv).innerHTML = '<p>'+"OUI : "+xmlhttp.responseText+'</p>';
             //alert(JSON.stringify(myObj)); // debug turns JSON int string so it can be displayed
-            alert("casts");
+            alert("201");
           } else if (myObj.http_code == 500) {
             //document.getElementById(thediv).innerHTML = xmlhttp.responseText;
             //alert(JSON.stringify(myObj)); // debug turns JSON int string so it can be displayed
-            alert("dogs");
+            alert("500");
           }
         }
       }
