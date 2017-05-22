@@ -514,7 +514,8 @@
       //alert(data["curlFname"]); // debug
       var arraydata_2 = {Type:"iseTicket_1",curlAddress:iseurl_1,curlData:input_3,curlCustom:"POST",curlPost:""};
       //var data_1 = arraydata_1;  // stores preformated post information
-      var data_1 = "";  // stores preformated post information
+      //var data_1 = "";  // stores preformated post information
+      var data_1 = datamaker_1(arraydata_1);
       var data_2 = "";  // stores preformated post information
 
 
@@ -530,6 +531,7 @@
         }
         i++
       }
+      /*
       var datalength = Object.keys(arraydata_1).length;
       var i = 1;
       for (var key in arraydata_1) {
@@ -541,6 +543,23 @@
           data_1 += key + "=" + arraydata_1[key] + "&";
         }
         i++
+      }
+      */
+      fuction datamaker_1(arraydata) {
+        var datalength = Object.keys(arraydata).length;
+        var data = "";
+        var i = 1;
+        for (var key in arraydata) {
+          if (i == datalength) {
+            data += key + "=" + arraydata[key];
+          } else if ((i/2)%1  === 0) {
+            data += key + "=" + arraydata[key] + "&";
+          } else {
+            data += key + "=" + arraydata[key] + "&";
+          }
+          i++
+        }
+        return data;
       }
       curlreturn_2('spinner','curlrest.php','iseTicket_1',data_1,data_2);
       alert(data_1); // debug
