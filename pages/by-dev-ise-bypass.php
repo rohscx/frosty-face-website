@@ -538,7 +538,7 @@
         i++
       }
       curlreturn_2('spinner','curlrest.php','iseTicket_1',data_1,data_2);
-      //alert(data_1); // debug
+      alert(data_1); // debug
     }
   }
   </script>
