@@ -246,11 +246,13 @@ ON a.Aca_ID = au.Aca_ID
 WHERE CONCAT( Fname,  ' ', Lname ) = "SAM ADAMS";
 
 # GETS A SINGLE NOTE BASES ON MAC ADDRESS
-SELECT amm.Mac_ID, amm.Note, amm.Action, am.Ticket
+SELECT amm.Mac_ID, amm.Note, am.Ticket, amm.Action , a.ACA_Name
 FROM aca_mab_metadata as amm
 JOIN aca_mab as am
 USING (Mac_ID)
-WHERE am.Valid_Until = '1000-01-01 00:00:00' AND amm.Mac_ID = 18764998447377
+JOIN aca as a
+USING (Aca_ID)
+WHERE am.Valid_Until = '1000-01-01 00:00:00' AND amm.Mac_ID = 35490518732683
 ORDER BY amm.Mac_ID ASC;
 
 
