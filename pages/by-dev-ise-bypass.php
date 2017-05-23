@@ -204,10 +204,12 @@
             }
             //document.getElementById("modal-body").innerHTML = "";	// clears a DIV
             curlreturn_1("modal-body", "curlrest.php"  , "Type" , "ouiLookup_1" , "curlAddress" , "http%3A%2F%2Fapi.macvendors.com%2F", "curlData", mac_encoded, "curlCustom" , "GET" , "curlPost" , "%22%22");
+            /*
             var btn_3 = div_1.appendChild(document.createElement('button'));
             btn_3.type = 'button';
             btn_3.id = 'myBtn_3';
             btn_3.innerHTML = 'Remove'; // buttons use innerHTLM to display text, kinda kool...
+            */
             /*
             btn_3.onclick = function() {
               var iseurl_1 = "";  // URL needed for te submit the form . NOT YET USED. SHOULD BE USED TO REMOVE FROM ISE
