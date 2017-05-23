@@ -188,15 +188,15 @@
             var ticket = "<a href="+url+myObj[0].Ticket+window+">"+myObj[0].Ticket+"</a>";
             var mac_encoded = encodeURIComponent(myObj[0].Mac_ID);
             var aca = myObj[0].ACA_Name;
+            var div_1 = document.getElementById('adiv2');
             if (myObj[0].Action > 5) {
               document.getElementById("adiv2").innerHTML = "ACA : "+aca+'<br />'+"MAC : "+myObj[0].Mac_ID+" "+'<br />'+ticket+'<br />'+
               '<p>'+"BYPASS count : "+'<font color="red">'+myObj[0].Action+'</font>'+'</p>';
               if (myObj[0].State = "Passive") {
-                var div_1 = document.getElementById('adiv2');
                 var button_1 = div_1.appendChild(document.createElement('button'));
                 button_1.type = 'button';
                 button_1.id = 'myBtn_2';
-                button_1.innerHTML = 'Submit'; // buttons use innerHTLM to display text, kinda kool...
+                button_1.innerHTML = 'Bypass'; // buttons use innerHTLM to display text, kinda kool...
               }
             } else {
               document.getElementById("adiv2").innerHTML = "ACA : "+aca+'<br />'+"MAC : "+myObj[0].Mac_ID+" "+'<br />'+ticket+'<br />'+
@@ -204,6 +204,10 @@
             }
             document.getElementById("modal-body").innerHTML = "";	// clears a DIV
             curlreturn_1("modal-body", "curlrest.php"  , "Type" , "ouiLookup_1" , "curlAddress" , "http%3A%2F%2Fapi.macvendors.com%2F", "curlData", mac_encoded, "curlCustom" , "GET" , "curlPost" , "%22%22");
+            var button_2 = div_1.document.createElement('button');
+            button_2.type = 'button';
+            button_2.id = 'myBtn_3';
+            button_2.innerHTML = 'Remove'; // buttons use innerHTLM to display text, kinda kool...
           }
         }
       }
