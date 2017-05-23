@@ -204,7 +204,7 @@
             }
             document.getElementById("modal-body").innerHTML = "";	// clears a DIV
             curlreturn_1("modal-body", "curlrest.php"  , "Type" , "ouiLookup_1" , "curlAddress" , "http%3A%2F%2Fapi.macvendors.com%2F", "curlData", mac_encoded, "curlCustom" , "GET" , "curlPost" , "%22%22");
-            var button_2 = div_1.document.createElement('button');
+            var button_2 = div_1.createElement('button');
             button_2.type = 'button';
             button_2.id = 'myBtn_3';
             button_2.innerHTML = 'Remove'; // buttons use innerHTLM to display text, kinda kool...
