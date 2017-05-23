@@ -73,6 +73,7 @@ class mysqlquery {
   protected $procedure_1 = "CALL add_user_all_tables (?, ?, ?, ?, ?)";	// adds new user to ALL needed tables
 	protected $procedure_2 = "CALL add_user_update_all_tables (?, ?, ?, ?, ?)";	// adds new user and UPDATES all tables
 	protected $procedure_3 = "CALL disable_mac (?)";	// adds new user and UPDATES all tables
+	protected $procedure_4 = "CALL enable_mac (?)";	// adds new user and UPDATES all tables
 	protected $results;
 
   	function __construct($sqlQuery,$param_type, $param_bind) {
@@ -103,6 +104,10 @@ class mysqlquery {
 			$this->mac2int_1($this->a_bind_params[0]);
 			$this->a_bind_params[0] = $this->int_1;	// adds formating needed for sql searches
 			$this->sqlquery($this->procedure_3);
+		} elseif ($sqlQuery == "update_2") {
+			$this->mac2int_1($this->a_bind_params[0]);
+			$this->a_bind_params[0] = $this->int_1;	// adds formating needed for sql searches
+			$this->sqlquery($this->procedure_4);
 		} elseif ($function == "iseTicket_1") {
 		  $this->iseTicket_1();
 	  }
