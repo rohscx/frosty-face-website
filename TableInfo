@@ -246,7 +246,7 @@ ON a.Aca_ID = au.Aca_ID
 WHERE CONCAT( Fname,  ' ', Lname ) = "SAM ADAMS";
 
 # GETS A SINGLE NOTE BASES ON MAC ADDRESS
-SELECT amm.Mac_ID, amm.Note, am.Ticket, amm.Action , a.ACA_Name
+SELECT amm.Mac_ID, amm.Note, am.Ticket, amm.Action , a.ACA_Name , am.State
 FROM aca_mab_metadata as amm
 JOIN aca_mab as am
 USING (Mac_ID)
