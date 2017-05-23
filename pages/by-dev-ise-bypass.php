@@ -207,24 +207,20 @@
             }
             //document.getElementById("modal-body").innerHTML = "";	// clears a DIV
             curlreturn_1("modal-body", "curlrest.php"  , "Type" , "ouiLookup_1" , "curlAddress" , "http%3A%2F%2Fapi.macvendors.com%2F", "curlData", mac_encoded, "curlCustom" , "GET" , "curlPost" , "%22%22");
-            /*
             var btn_3 = div_1.appendChild(document.createElement('button'));
             btn_3.type = 'button';
             btn_3.id = 'myBtn_3';
             btn_3.innerHTML = 'Remove'; // buttons use innerHTLM to display text, kinda kool...
-            */
-            /*
             btn_3.onclick = function() {
               var iseurl_1 = "";  // URL needed for te submit the form . NOT YET USED. SHOULD BE USED TO REMOVE FROM ISE
               var input_1 = "";  // gets the value and makes text uppercase
               var input_2 = "";  // gets the value and makes text uppercase
               var input_3 = mac_encoded;  // gets the value this value has already been preformated
-              var arraydata_1 = {sqlQuery:"update_1",sqlMAC:input_3};
+              var arraydata_1 = {sqlQuery:"update_1",sqlWhere:input_3};
               var ticket = "cats";  // CAN BE DELETED ONCE ticket VAR IS REMOVED AS IT IS NOT NEEDED... MAYBE...
               var data_1 = datamaker_1(arraydata_1);
               curlreturn_3(thediv, "mysqli.php", ticket, data_1);
             }
-            */
           }
         }
       }
