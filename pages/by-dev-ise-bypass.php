@@ -207,7 +207,7 @@
             var button_2 = div_1.appendChild(document.createElement('button'));
             button_2.type = 'button';
             button_2.id = 'myBtn_3';
-            button_2.innerHTML = 'Bypass'; // buttons use innerHTLM to display text, kinda kool...
+            button_2.innerHTML = 'Remove'; // buttons use innerHTLM to display text, kinda kool...
           }
         }
       }
