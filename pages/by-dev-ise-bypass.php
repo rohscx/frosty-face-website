@@ -189,6 +189,15 @@
             var mac_encoded = encodeURIComponent(myObj[0].Mac_ID);
             var aca = myObj[0].ACA_Name;
             var div_1 = document.getElementById('adiv2');
+            var iseurl_1 = "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint";  // URL needed for te submit the form . NOT YET USED. SHOULD BE USED TO REMOVE FROM ISE
+            var input_1 = "";  // gets the value and makes text uppercase
+            var input_2 = "";  // gets the value and makes text uppercase
+            var input_3 = mac_encoded;  // gets the value this value has already been preformated
+            var arraydata_1 = {sqlQuery:"update_2",sqlWhere:input_3};
+            var arraydata_2 = {Type:"iseTicket_1",curlAddress:iseurl_1,curlData:input_3,curlCustom:"POST",curlPost:""};
+            var ticket = "cats";  // CAN BE DELETED ONCE ticket VAR IS REMOVED AS IT IS NOT NEEDED... MAYBE...
+            var data_1 = datamaker_1(arraydata_1);
+            var data_2 =  datamaker_1(arraydata_2);
             if (myObj[0].State = "Passive") {
               if (myObj[0].Action > 5) {
                 document.getElementById("adiv2").innerHTML = "ACA : "+aca+'<br />'+"MAC : "+myObj[0].Mac_ID+" "+'<br />'+ticket+'<br />'+
@@ -201,6 +210,9 @@
               btn_2.type = 'button';
               btn_2.id = 'myBtn_2';
               btn_2.innerHTML = 'Bypass'; // buttons use innerHTLM to display text, kinda kool...
+              btn_3.onclick = function() {
+                curlreturn_2('spinner','curlrest.php','iseTicket_1',data_1,data_2);
+              }
             } else {
               document.getElementById("adiv2").innerHTML = "ACA : "+aca+'<br />'+"MAC : "+myObj[0].Mac_ID+" "+'<br />'+ticket+'<br />'+
               '<p>'+"BYPASS count : "+myObj[0].Action+'</p>';
@@ -212,13 +224,6 @@
             btn_3.id = 'myBtn_3';
             btn_3.innerHTML = 'Remove'; // buttons use innerHTLM to display text, kinda kool...
             btn_3.onclick = function() {
-              var iseurl_1 = "";  // URL needed for te submit the form . NOT YET USED. SHOULD BE USED TO REMOVE FROM ISE
-              var input_1 = "";  // gets the value and makes text uppercase
-              var input_2 = "";  // gets the value and makes text uppercase
-              var input_3 = mac_encoded;  // gets the value this value has already been preformated
-              var arraydata_1 = {sqlQuery:"update_1",sqlWhere:input_3};
-              var ticket = "cats";  // CAN BE DELETED ONCE ticket VAR IS REMOVED AS IT IS NOT NEEDED... MAYBE...
-              var data_1 = datamaker_1(arraydata_1);
               curlreturn_3(thediv, "mysqli.php", ticket, data_1);
             }
           }
@@ -588,7 +593,7 @@
       }
       */
       curlreturn_2('spinner','curlrest.php','iseTicket_1',data_1,data_2);
-      alert(data_1); // debug
+      //alert(data_1); // debug
     }
   }
   </script>
