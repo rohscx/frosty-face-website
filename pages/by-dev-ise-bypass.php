@@ -197,6 +197,11 @@
                 button_1.type = 'button';
                 button_1.id = 'myBtn_2';
                 button_1.innerHTML = 'Bypass'; // buttons use innerHTLM to display text, kinda kool...
+                var button_2 = document.createElement('button');
+                button_1.type = 'button';
+                button_1.id = 'myBtn_3';
+                button_1.innerHTML = 'Remove'; // buttons use innerHTLM to display text, kinda kool...
+
               }
             } else {
               document.getElementById("adiv2").innerHTML = "ACA : "+aca+'<br />'+"MAC : "+myObj[0].Mac_ID+" "+'<br />'+ticket+'<br />'+
