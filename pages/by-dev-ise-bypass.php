@@ -210,7 +210,7 @@
               btn_2.type = 'button';
               btn_2.id = 'myBtn_2';
               btn_2.innerHTML = 'Bypass'; // buttons use innerHTLM to display text, kinda kool...
-              btn_3.onclick = function() {
+              btn_2.onclick = function() {
                 curlreturn_2('spinner','curlrest.php','iseTicket_1',data_1,data_2);
               }
             } else {
