@@ -340,6 +340,22 @@
       xmlhttp.open('GET', thefile+'?'+thedata_1, true);
       xmlhttp.send();
     }
+    function datamaker_1(arraydata) {
+      var datalength = Object.keys(arraydata).length;
+      var data = "";
+      var i = 1;
+      for (var key in arraydata) {
+        if (i == datalength) {
+          data += key + "=" + arraydata[key];
+        } else if ((i/2)%1  === 0) {
+          data += key + "=" + arraydata[key] + "&";
+        } else {
+          data += key + "=" + arraydata[key] + "&";
+        }
+        i++
+      }
+      return data;
+    }
     </script>
   </head>
   <body>
@@ -568,22 +584,6 @@
         i++
       }
       */
-      function datamaker_1(arraydata) {
-        var datalength = Object.keys(arraydata).length;
-        var data = "";
-        var i = 1;
-        for (var key in arraydata) {
-          if (i == datalength) {
-            data += key + "=" + arraydata[key];
-          } else if ((i/2)%1  === 0) {
-            data += key + "=" + arraydata[key] + "&";
-          } else {
-            data += key + "=" + arraydata[key] + "&";
-          }
-          i++
-        }
-        return data;
-      }
       curlreturn_2('spinner','curlrest.php','iseTicket_1',data_1,data_2);
       alert(data_1); // debug
     }
