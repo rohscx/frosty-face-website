@@ -191,6 +191,13 @@
             if (myObj[0].Action > 5) {
               document.getElementById("adiv2").innerHTML = "ACA : "+aca+'<br />'+"MAC : "+myObj[0].Mac_ID+" "+'<br />'+ticket+'<br />'+
               '<p>'+"BYPASS count : "+'<font color="red">'+myObj[0].Action+'</font>'+'</p>';
+              if (myObj[0].State = "Passive") {
+                var div_1 = document.getElementById('adiv2');
+                var button_1 = div_1.appendChild(document.createElement('button'));
+                button_1.type = 'button';
+                button_1.id = 'myBtn_2';
+                button_1.innerHTML = 'Submit'; // buttons use innerHTLM to display text, kinda kool...
+              }
             } else {
               document.getElementById("adiv2").innerHTML = "ACA : "+aca+'<br />'+"MAC : "+myObj[0].Mac_ID+" "+'<br />'+ticket+'<br />'+
               '<p>'+"BYPASS count : "+myObj[0].Action+'</p>';
