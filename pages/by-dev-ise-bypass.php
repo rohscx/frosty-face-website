@@ -208,6 +208,7 @@
             btn_3.type = 'button';
             btn_3.id = 'myBtn_3';
             btn_3.innerHTML = 'Remove'; // buttons use innerHTLM to display text, kinda kool...
+            /*
             btn_3.onclick = function() {
               var iseurl_1 = "";  // URL needed for te submit the form . NOT YET USED. SHOULD BE USED TO REMOVE FROM ISE
               var input_1 = "";  // gets the value and makes text uppercase
@@ -218,6 +219,7 @@
               var data_1 = datamaker_1(arraydata_1);
               curlreturn_3(thediv, "mysqli.php", ticket, data_1);
             }
+            */
           }
         }
       }
