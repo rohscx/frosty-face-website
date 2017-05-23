@@ -27,7 +27,7 @@ class mysqlquery {
 				ON am.Mac_ID = amm.Mac_ID
 				WHERE am.Valid_Until = ?
 				ORDER BY am.Valid_From ASC";	// general lookup
-	protected $query_4 = "SELECT amm.Mac_ID, amm.Note, am.Ticket, amm.Action, a.ACA_Name
+	protected $query_4 = "SELECT amm.Mac_ID, amm.Note, am.Ticket, amm.Action, a.ACA_Name, am.State
 				FROM aca_mab_metadata as amm
 				JOIN aca_mab as am
 				USING (Mac_ID)
