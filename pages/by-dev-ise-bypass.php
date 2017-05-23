@@ -197,7 +197,7 @@
                 button_1.type = 'button';
                 button_1.id = 'myBtn_2';
                 button_1.innerHTML = 'Bypass'; // buttons use innerHTLM to display text, kinda kool...
-                var button_2 = div_1.document.createElement('button');
+                var button_2 = div_1.appendChild(document.createElement('button'));
                 button_1.type = 'button';
                 button_1.id = 'myBtn_3';
                 button_1.innerHTML = 'Remove'; // buttons use innerHTLM to display text, kinda kool...
