@@ -72,6 +72,7 @@ class mysqlquery {
 				ORDER BY am.Valid_From ASC";	// search MAB table DB by MAC Address and Returns sigle row
   protected $procedure_1 = "CALL add_user_all_tables (?, ?, ?, ?, ?)";	// adds new user to ALL needed tables
 	protected $procedure_2 = "CALL add_user_update_all_tables (?, ?, ?, ?, ?)";	// adds new user and UPDATES all tables
+	protected $procedure_3 = "CALL disable_mac (?)";	// adds new user and UPDATES all tables
 	protected $results;
 
   	function __construct($sqlQuery,$param_type, $param_bind) {
