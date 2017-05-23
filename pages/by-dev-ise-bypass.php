@@ -190,10 +190,10 @@
             var aca = myObj[0].ACA_Name;
             var div_1 = document.getElementById('adiv2');
             if (myObj[0].State = "Passive") {
-              var button_1 = div_1.appendChild(document.createElement('button'));
-              button_1.type = 'button';
-              button_1.id = 'myBtn_2';
-              button_1.innerHTML = 'Bypass'; // buttons use innerHTLM to display text, kinda kool...
+              var btn_2 = div_1.appendChild(document.createElement('button'));
+              btn_2.type = 'button';
+              btn_2.id = 'myBtn_2';
+              btn_2.innerHTML = 'Bypass'; // buttons use innerHTLM to display text, kinda kool...
               if (myObj[0].Action > 5) {
                 document.getElementById("adiv2").innerHTML = "ACA : "+aca+'<br />'+"MAC : "+myObj[0].Mac_ID+" "+'<br />'+ticket+'<br />'+
                 '<p>'+"BYPASS count : "+'<font color="red">'+myObj[0].Action+'</font>'+'</p>';
@@ -204,10 +204,20 @@
             }
             document.getElementById("modal-body").innerHTML = "";	// clears a DIV
             curlreturn_1("modal-body", "curlrest.php"  , "Type" , "ouiLookup_1" , "curlAddress" , "http%3A%2F%2Fapi.macvendors.com%2F", "curlData", mac_encoded, "curlCustom" , "GET" , "curlPost" , "%22%22");
-            var button_2 = div_1.appendChild(document.createElement('button'));
-            button_2.type = 'button';
-            button_2.id = 'myBtn_3';
-            button_2.innerHTML = 'Remove'; // buttons use innerHTLM to display text, kinda kool...
+            var btn_3 = div_1.appendChild(document.createElement('button'));
+            btn_3.type = 'button';
+            btn_3.id = 'myBtn_3';
+            btn_3.innerHTML = 'Remove'; // buttons use innerHTLM to display text, kinda kool...
+            btn_3.onclick = function() {
+              var iseurl_1 = "";  // URL needed for te submit the form . NOT YET USED. SHOULD BE USED TO REMOVE FROM ISE
+              var input_1 = "";  // gets the value and makes text uppercase
+              var input_2 = "";  // gets the value and makes text uppercase
+              var input_3 = mac_encoded;  // gets the value this value has already been preformated
+              var arraydata_1 = {sqlQuery:"update_1",sqlMAC:input_3};
+              var ticket = "cats";  // CAN BE DELETED ONCE ticket VAR IS REMOVED AS IT IS NOT NEEDED... MAYBE...
+              var data_1 = datamaker_1(arraydata_1);
+              curlreturn_3(thediv, "mysqli.php", ticket, data_1);
+            }
           }
         }
       }
