@@ -205,7 +205,7 @@
               document.getElementById("adiv2").innerHTML = "ACA : "+aca+'<br />'+"MAC : "+myObj[0].Mac_ID+" "+'<br />'+ticket+'<br />'+
               '<p>'+"BYPASS count : "+myObj[0].Action+'</p>';
             }
-            //document.getElementById("modal-body").innerHTML = "";	// clears a DIV
+            document.getElementById("modal-body").innerHTML = "";	// clears a DIV
             curlreturn_1("modal-body", "curlrest.php"  , "Type" , "ouiLookup_1" , "curlAddress" , "http%3A%2F%2Fapi.macvendors.com%2F", "curlData", mac_encoded, "curlCustom" , "GET" , "curlPost" , "%22%22");
             var btn_3 = div_1.appendChild(document.createElement('button'));
             btn_3.type = 'button';
