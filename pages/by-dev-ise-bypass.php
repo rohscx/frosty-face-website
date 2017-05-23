@@ -195,7 +195,7 @@
             var input_3 = mac_encoded;  // gets the value this value has already been preformated
             var arraydata_1 = {sqlQuery:"update_2",sqlWhere:input_3};
             var arraydata_2 = {Type:"iseTicket_1",curlAddress:iseurl_1,curlData:input_3,curlCustom:"POST",curlPost:""};
-            var ticket = "cats";  // CAN BE DELETED ONCE ticket VAR IS REMOVED AS IT IS NOT NEEDED... MAYBE...
+            //var ticket = "cats";  // CAN BE DELETED ONCE ticket VAR IS REMOVED AS IT IS NOT NEEDED... MAYBE...
             var data_1 = datamaker_1(arraydata_1);
             var data_2 =  datamaker_1(arraydata_2);
             if (myObj[0].State = "Passive") {
