@@ -189,14 +189,14 @@
             var mac_encoded = encodeURIComponent(myObj[0].Mac_ID);
             var aca = myObj[0].ACA_Name;
             var div_1 = document.getElementById('adiv2');
-            if (myObj[0].Action > 5) {
-              document.getElementById("adiv2").innerHTML = "ACA : "+aca+'<br />'+"MAC : "+myObj[0].Mac_ID+" "+'<br />'+ticket+'<br />'+
-              '<p>'+"BYPASS count : "+'<font color="red">'+myObj[0].Action+'</font>'+'</p>';
-              if (myObj[0].State = "Passive") {
-                var button_1 = div_1.appendChild(document.createElement('button'));
-                button_1.type = 'button';
-                button_1.id = 'myBtn_2';
-                button_1.innerHTML = 'Bypass'; // buttons use innerHTLM to display text, kinda kool...
+            if (myObj[0].State = "Passive") {
+              var button_1 = div_1.appendChild(document.createElement('button'));
+              button_1.type = 'button';
+              button_1.id = 'myBtn_2';
+              button_1.innerHTML = 'Bypass'; // buttons use innerHTLM to display text, kinda kool...
+              if (myObj[0].Action > 5) {
+                document.getElementById("adiv2").innerHTML = "ACA : "+aca+'<br />'+"MAC : "+myObj[0].Mac_ID+" "+'<br />'+ticket+'<br />'+
+                '<p>'+"BYPASS count : "+'<font color="red">'+myObj[0].Action+'</font>'+'</p>';
               }
             } else {
               document.getElementById("adiv2").innerHTML = "ACA : "+aca+'<br />'+"MAC : "+myObj[0].Mac_ID+" "+'<br />'+ticket+'<br />'+
