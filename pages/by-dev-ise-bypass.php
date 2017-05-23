@@ -197,11 +197,6 @@
                 button_1.type = 'button';
                 button_1.id = 'myBtn_2';
                 button_1.innerHTML = 'Bypass'; // buttons use innerHTLM to display text, kinda kool...
-                var button_2 = div_1.appendChild(document.createElement('button'));
-                button_1.type = 'button';
-                button_1.id = 'myBtn_3';
-                button_1.innerHTML = 'Remove'; // buttons use innerHTLM to display text, kinda kool...
-
               }
             } else {
               document.getElementById("adiv2").innerHTML = "ACA : "+aca+'<br />'+"MAC : "+myObj[0].Mac_ID+" "+'<br />'+ticket+'<br />'+
@@ -209,6 +204,10 @@
             }
             document.getElementById("modal-body").innerHTML = "";	// clears a DIV
             curlreturn_1("modal-body", "curlrest.php"  , "Type" , "ouiLookup_1" , "curlAddress" , "http%3A%2F%2Fapi.macvendors.com%2F", "curlData", mac_encoded, "curlCustom" , "GET" , "curlPost" , "%22%22");
+            var button_2 = div_1.appendChild(document.createElement('button'));
+            button_2.type = 'button';
+            button_2.id = 'myBtn_3';
+            button_2.innerHTML = 'Bypass'; // buttons use innerHTLM to display text, kinda kool...
           }
         }
       }
