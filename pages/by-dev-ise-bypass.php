@@ -202,16 +202,23 @@
               if (myObj[0].Action > 5) {
                 document.getElementById("adiv2").innerHTML = "ACA : "+aca+'<br />'+"MAC : "+myObj[0].Mac_ID+" "+'<br />'+ticket+'<br />'+
                 '<p>'+"BYPASS count : "+'<font color="red">'+myObj[0].Action+'</font>'+'</p>';
+                var btn_2 = div_1.appendChild(document.createElement('button'));
+                btn_2.type = 'button';
+                btn_2.id = 'myBtn_2';
+                btn_2.innerHTML = 'Bypass'; // buttons use innerHTLM to display text, kinda kool...
+                btn_2.onclick = function() {
+                  curlreturn_2('spinner','curlrest.php','iseTicket_1',data_1,data_2);
+                }
               } else {
                 document.getElementById("adiv2").innerHTML = "ACA : "+aca+'<br />'+"MAC : "+myObj[0].Mac_ID+" "+'<br />'+ticket+'<br />'+
                 '<p>'+"BYPASS count : "+myObj[0].Action+'</p>';
-              }
-              var btn_2 = div_1.appendChild(document.createElement('button'));
-              btn_2.type = 'button';
-              btn_2.id = 'myBtn_2';
-              btn_2.innerHTML = 'Bypass'; // buttons use innerHTLM to display text, kinda kool...
-              btn_2.onclick = function() {
-              curlreturn_2('spinner','curlrest.php','iseTicket_1',data_1,data_2);
+                var btn_2 = div_1.appendChild(document.createElement('button'));
+                btn_2.type = 'button';
+                btn_2.id = 'myBtn_2';
+                btn_2.innerHTML = 'Bypass'; // buttons use innerHTLM to display text, kinda kool...
+                btn_2.onclick = function() {
+                  curlreturn_2('spinner','curlrest.php','iseTicket_1',data_1,data_2);
+                }
               }
             } else {
               document.getElementById("adiv2").innerHTML = "ACA : "+aca+'<br />'+"MAC : "+myObj[0].Mac_ID+" "+'<br />'+ticket+'<br />'+
