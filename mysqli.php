@@ -99,6 +99,10 @@ class mysqlquery {
 			$this->mac2int_1($this->a_bind_params[3]);
 			$this->a_bind_params[3] = $this->int_1;	// adds formating needed for sql searches
 			$this->existCheck($this->procedure_1);
+		} elseif ($sqlQuery == "update_1") {
+			$this->mac2int_1($this->a_bind_params[0]);
+			$this->a_bind_params[0] = $this->int_1;	// adds formating needed for sql searches
+			$this->sqlquery($this->procedure_3);
 		} elseif ($function == "iseTicket_1") {
 		  $this->iseTicket_1();
 	  }
