@@ -471,7 +471,7 @@
               <div id="modal-body"></div>
               <div id="spinner" align="center" class="spinner"></div>
               <div style="text-align: center;">
-                <div id="adiv2" class="apicdata" style="display: inline-block; text-align: left">
+                <div id="adiv2" class="data" style="display: inline-block; text-align: left; width:300px;">
                   Content<br /> style="font-size:20px">
                   </div>
                   </div>
