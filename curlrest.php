@@ -137,7 +137,7 @@ function iseCurl_1() {
     	if ($array['http-code'] == 500) {
         	echo print_r($array);
     	} elseif (strpos($this->curlAddress, "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint") !== false) {
-		echo $json
+		echo $json;
 	} else {
 	//echo print_r($array);	// debug
 	#echo $array['user_name'] . "<br>";	// debug
