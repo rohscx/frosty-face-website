@@ -195,8 +195,13 @@ function iseCurl_1() {
 		if (strpos($this->curlAddress, "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint") !== false) {
 			$cache_1 = "cache-control: no-cache";
 			$cache_2 = "content-type: application/vnd.com.cisco.ise.identity.endpoint.1.0+xml; charset=utf-8";
-			$token = "postman-token: 73848290-3b9d-e474-cb6c-adec0023bb89";
+			//$token = "postman-token: 73848290-3b9d-e474-cb6c-adec0023bb89";
 			$arr = array('serviceTicket' => $auth_1, 'serviceCache_1' => $cache_1, 'serviceCache_2' => $cache_2, 'Token' => $token);	// create array for JSON
+		} elseif (strpos($this->curlAddress, "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint?filter=mac.") !== false) {
+			$cache_1 = "cache-control: no-cache";
+			$cache_2 = "accept: application/vnd.com.cisco.ise.identity.endpoint.1.0+xml";
+			//$token = "postman-token: 73848290-3b9d-e474-cb6c-adec0023bb89";
+			$arr = array('serviceTicket' => $auth_1, 'serviceCache_1' => $cache_1, 'serviceCache_2' => $cache_2);	// create array for JSON
 		} else {
 			$cache_1 ="cache-control: no-cache"; 	// populate with needed information
     			$arr = array('serviceTicket' => $auth_1, 'serviceCache_1' => $cache_1);	// create array for JSON
@@ -284,6 +289,17 @@ if (isset($_GET['Type']) & isset($_GET['curlAddress']) & isset($_GET['curlData']
 		//$post = (string) $post;
 		//$a->curlPost = htmlspecialchars($post, ENT_QUOTES);
 		$a->curlPost = $post;
+		$a->curlPort = "9060";
+		$a->iseTicket_1();
+		//print "curlPost  " . $a->curlPost . "<br />";	//debug
+		
+	} elseif (strpos($_GET['curlAddress'], "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint?filter=mac.") !== false) {
+		/*
+		$post =  addcslashes('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\r\n<ns3:endpoint name="name" id="id" description="description"\r\nxmlns:ns2="ers.ise.cisco.com" xmlns:ns3="identity.ers.ise.cisco.com">\r\n<groupId>c07b4190-247b-11e7-b9de-00505698708f</groupId>\r\n<identityStore></identityStore>\r\n<identityStoreId></identityStoreId>\r\n<mac>'.$_GET['curlData'].'</mac>\r\n<portalUser></portalUser>\r\n<profileId></profileId>\r\n<staticGroupAssignment>true</staticGroupAssignment>\r\n<staticProfileAssignment>false</staticProfileAssignment>\r\n</ns3:endpoint>\r\n','"');
+		*/
+		//$post = (string) $post;
+		//$a->curlPost = htmlspecialchars($post, ENT_QUOTES);
+		$a->curlPost = "";
 		$a->curlPort = "9060";
 		$a->iseTicket_1();
 		//print "curlPost  " . $a->curlPost . "<br />";	//debug
