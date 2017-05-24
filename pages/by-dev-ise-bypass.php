@@ -328,7 +328,8 @@
               var replacement_2 = "PUT";
               thedata_2 = thedata_2.replaceAt(89,replacement_1);
               thedata_2 = thedata_2.replaceAt(153,replacement_2);
-              alert(thedata_2);
+              //alert(thedata_2); // debug
+              curlreturn_4(thediv, "curlrest.php", theticket, thedata_1, thedata_2)
             }
           }
         }
@@ -348,7 +349,37 @@
         if (this.readyState == 4 && this.status == 200) {
           document.getElementById('spinner').style.display = "none";
           myObj = JSON.parse(this.responseText);
-          alert(JSON.stringify(myObj)); // debug turns JSON int string so it can be displayed
+          //alert(JSON.stringify(myObj)); // debug turns JSON int string so it can be displayed
+          /*
+          if (myObj.http_code == 201) {
+            //document.getElementById(thediv).innerHTML = '<p>'+"OUI : "+xmlhttp.responseText+'</p>';
+            //alert(JSON.stringify(myObj)); // debug turns JSON int string so it can be displayed
+            alert("201");
+
+          } else if (myObj.http_code == 500) {
+            //document.getElementById(thediv).innerHTML = xmlhttp.responseText;
+            //alert(JSON.stringify(myObj)); // debug turns JSON int string so it can be displayed
+            alert("500");
+          }
+          */
+        }
+      }
+      //xmlhttp.open('GET', thefile+'?'+thekeyA_1+'='+thekeyB_1+'&'+thekeyA_2+'='+thekeyB_2+'&'+thekeyA_3+'='+thekeyB_3, true);
+      xmlhttp.open('GET', thefile+'?'+thedata_1, true);
+      xmlhttp.send();
+    }
+    function curlreturn_4(thediv, thefile, theticket, thedata_1) {
+      document.getElementById('spinner').style.display = "block";
+      if (window.XMLHttpRequest) {
+        xmlhttp = new XMLHttpRequest();
+      } else {
+        xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
+      }
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById('spinner').style.display = "none";
+          myObj = JSON.parse(this.responseText);
+          //alert(JSON.stringify(myObj)); // debug turns JSON int string so it can be displayed
           /*
           if (myObj.http_code == 201) {
             //document.getElementById(thediv).innerHTML = '<p>'+"OUI : "+xmlhttp.responseText+'</p>';
