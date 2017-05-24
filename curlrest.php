@@ -317,7 +317,10 @@ if (isset($_GET['Type']) & isset($_GET['curlAddress']) & isset($_GET['curlData']
 		$a->curlData = "(" . $_GET['curlData'] . ")";	// formats user input
 		$a->primeCurl_1();	// calls the correct function based on the GET type
 	} elseif ($_GET['Type'] == "iseTicket_1") {
-		if (strpos($_GET['curlAddress'], "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint") !== false) {
+		if (strpos($_GET['curlAddress'], "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint?filter=mac.") !== false) {
+			$a->curlData = $_GET['curlData'];	// formats user input
+			$a->iseCurl_1();	// calls the correct function based on the GET Type
+		} elseif (strpos($_GET['curlAddress'], "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint") !== false) {
 			$a->curlData = "";	// formats user input
 			$a->iseCurl_1();	// calls the correct function based on the GET Type
 		} else {
