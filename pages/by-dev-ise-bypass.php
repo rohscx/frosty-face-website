@@ -207,7 +207,8 @@
                 btn_2.id = 'myBtn_2';
                 btn_2.innerHTML = 'Bypass'; // buttons use innerHTLM to display text, kinda kool...
                 btn_2.onclick = function() {
-                  curlreturn_2('spinner','curlrest.php','iseTicket_1',data_1,data_2);
+                  var data_1 = curlreturn_2('spinner','curlrest.php','iseTicket_1',data_1,data_2);
+                  alert(JSON.stringify(data_1)); // debug turns JSON int string so it can be displayed
                 }
               } else {
                 document.getElementById("adiv2").innerHTML = "ACA : "+aca+'<br />'+"MAC : "+myObj[0].Mac_ID+" "+'<br />'+ticket+'<br />'+
@@ -320,6 +321,9 @@
             alert("500");
           } else {
             //alert(JSON.stringify(myObj)); // debug turns JSON int string so it can be displayed
+            if (myObj.resources.resource['@attributes'].total == 1){
+              return myObj;
+            }
           }
         }
       }
