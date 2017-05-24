@@ -117,10 +117,10 @@ function iseCurl_1() {
    $response = $this->myCurl();
     //print "iseCurl_1 RESPONSE:   " . $response . "<br />";	// debug
     //echo "RESPONSE HTTP STATUS CODES  " . print_r( $response) . "<br />";	// debug
-    if ($response['http_code'] == 201) {
+    if (@$response['http_code'] == 201) {
 	    $response = json_encode($response);
 	    print_r($response);	// 201 means the POST was successful
-    } else if ($response['http_code'] == 500) {
+    } else if (@$response['http_code'] == 500) {
 	    $response = json_encode($response);
 	    print_r($response);	// 500 means the POST was not successful, and probably means the mac is still in the ISE bypassdatabase
     } else {
