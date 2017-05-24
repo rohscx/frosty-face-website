@@ -320,7 +320,7 @@
             alert("500");
           } else {
             //alert(JSON.stringify(myObj)); // debug turns JSON int string so it can be displayed
-            if (myObj.resources.resource['@attributes'].total == 1){
+            if (myObj['@attributes'].total == 1){
               String.prototype.replaceAt = function(index, replacement){
                 return this.substr(0,index) + replacement + this.substr(index + replacement.length);
               }
