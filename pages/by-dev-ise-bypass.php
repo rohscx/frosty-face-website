@@ -189,12 +189,12 @@
             var mac_encoded = encodeURIComponent(myObj[0].Mac_ID);
             var aca = myObj[0].ACA_Name;
             var div_1 = document.getElementById('adiv2');
-            var iseurl_1 = "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint";  // URL needed for te submit the form . NOT YET USED. SHOULD BE USED TO REMOVE FROM ISE
+            var iseurl_1 = "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint?filter=mac.EQ.";  // URL needed for te submit the form . NOT YET USED. SHOULD BE USED TO REMOVE FROM ISE
             var input_1 = "";  // gets the value and makes text uppercase
             var input_2 = "";  // gets the value and makes text uppercase
             var input_3 = mac_encoded;  // gets the value this value has already been preformated
             var arraydata_1 = {sqlQuery:"update_2",sqlWhere:input_3};
-            var arraydata_2 = {Type:"iseTicket_1",curlAddress:iseurl_1,curlData:input_3,curlCustom:"POST",curlPost:""};
+            var arraydata_2 = {Type:"iseTicket_1",curlAddress:iseurl_1,curlData:input_3,curlCustom:"GET",curlPost:""};
             //var ticket = "cats";  // CAN BE DELETED ONCE ticket VAR IS REMOVED AS IT IS NOT NEEDED... MAYBE...
             var data_1 = datamaker_1(arraydata_1);
             var data_2 =  datamaker_1(arraydata_2);
@@ -318,6 +318,8 @@
             //document.getElementById(thediv).innerHTML = xmlhttp.responseText;
             //alert(JSON.stringify(myObj)); // debug turns JSON int string so it can be displayed
             alert("500");
+          } else {
+            //alert(JSON.stringify(myObj)); // debug turns JSON int string so it can be displayed
           }
         }
       }
