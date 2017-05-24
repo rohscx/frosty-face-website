@@ -599,7 +599,7 @@
     modal.style.display = "block";  // stops the spinner from being displayed
     var btn_1 = document.getElementById("myBtn_1");
     btn_1.onclick = function() {
-      var iseurl_1 = "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint";  // URL needed for te submit the form
+      var iseurl_1 = "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint?filter=mac.EQ.";  // URL needed for te submit the form
       var input_1 = document.getElementById('fname_1').value.toUpperCase();  // gets the value and makes text uppercase
       var input_2 = document.getElementById('lname_1').value.toUpperCase();  // gets the value and makes text uppercase
       var input_3 = encodeURIComponent(document.getElementById('mac_1').value);  // gets the value this value has already been preformated
@@ -609,7 +609,7 @@
       //alert(input_4); // debug
       var arraydata_1 = {sqlQuery:"insert_1",sqlFname:input_1,sqlLname:input_2,sqlMAC:input_3,sqlIncedent:input_4,sqlACA:input_5};
       //alert(data["curlFname"]); // debug
-      var arraydata_2 = {Type:"iseTicket_1",curlAddress:iseurl_1,curlData:input_3,curlCustom:"POST",curlPost:""};
+      var arraydata_2 = {Type:"iseTicket_1",curlAddress:iseurl_1,curlData:input_3,curlCustom:"GET",curlPost:""};
       //var data_1 = arraydata_1;  // stores preformated post information
       //var data_1 = "";  // stores preformated post information
       var data_1 = datamaker_1(arraydata_1);
