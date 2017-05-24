@@ -209,6 +209,7 @@
                 btn_2.innerHTML = 'Bypass'; // buttons use innerHTLM to display text, kinda kool...
                 btn_2.onclick = function() {
                   curlreturn_2('spinner','curlrest.php','iseTicket_1',data_1,data_2);
+                  default_list('flex_div_1','mysqli.php','sqlQuery','query_3','sqlWhere',encodeURIComponent("1000-01-01 00:00:00"));
                 }
               } else {
                 document.getElementById("adiv2").innerHTML = "ACA : "+aca+'<br />'+"MAC : "+myObj[0].Mac_ID+" "+'<br />'+ticket+'<br />'+
@@ -219,6 +220,7 @@
                 btn_2.innerHTML = 'Bypass'; // buttons use innerHTLM to display text, kinda kool...
                 btn_2.onclick = function() {
                   curlreturn_2('spinner','curlrest.php','iseTicket_1',data_1,data_2);
+                  default_list('flex_div_1','mysqli.php','sqlQuery','query_3','sqlWhere',encodeURIComponent("1000-01-01 00:00:00"));
                 }
               }
             } else {
@@ -233,6 +235,7 @@
             btn_3.innerHTML = 'Remove'; // buttons use innerHTLM to display text, kinda kool...
             btn_3.onclick = function() {
               curlreturn_3(thediv, "mysqli.php", ticket, data_3);
+              default_list('flex_div_1','mysqli.php','sqlQuery','query_3','sqlWhere',encodeURIComponent("1000-01-01 00:00:00"));
             }
           }
         }
