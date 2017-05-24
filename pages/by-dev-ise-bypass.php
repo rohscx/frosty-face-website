@@ -325,6 +325,7 @@
                 return this.substr(0,index) + replacement + this.substr(index + replacement.length);
               }
               alert(thedata_2.replaceAt(89,"CATS"));
+              alert(thedata_2);
             }
           }
         }
