@@ -133,7 +133,7 @@ function iseCurl_1() {
     	//echo $dom->saveXML();	// debug
     	$json = json_encode($xml);
     	$array = json_decode($json,TRUE);
-    	echo print_r($array);	// debug
+    	//echo print_r($array);	// debug
     	if ($array['http-code'] == 500) {
         	echo print_r($array);
     	} elseif (strpos($this->curlAddress, "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint") !== false) {
