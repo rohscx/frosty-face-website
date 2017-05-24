@@ -324,8 +324,11 @@
               String.prototype.replaceAt = function(index, replacement){
                 return this.substr(0,index) + replacement + this.substr(index + replacement.length);
               }
-              var replacement = "/" + myObj.resources.resource['@attributes'].id;
-              alert(thedata_2.replaceAt(89,replacement));
+              var replacement_1 = "/" + myObj.resources.resource['@attributes'].id;
+              var replacement_2 = "PUT";
+              alert(thedata_2.replaceAt(89,replacement_1));
+              alert(thedata_2.replaceAt(153,replacement_2));
+
             }
           }
         }
