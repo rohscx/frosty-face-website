@@ -321,21 +321,14 @@
           } else {
             //alert(JSON.stringify(myObj)); // debug turns JSON int string so it can be displayed
             if (myObj['@attributes'].total == 1){
+              String.prototype.replaceAt = function(index, replacement){
+                return this.substr(0,index) + replacement + this.substr(index + replacement.length);
+              }
               var replacement_1 = "/" + myObj.resources.resource['@attributes'].id;
               var replacement_2 = "PUT";
-              var arraydata = [replacement_1: 89, replacement_2: 153];
-              String.prototype.replaceAt = function(arraydata){
-                //return this.substr(0,index) + replacement + this.substr(index + replacement.length);
-                for (var key in arraydata) {
-                    //data = key + arraydata[key];
-                    var data = this.substr(0,arraydata[key]) + key + this.substr(arraydata[key] + key.length);
-                }
-                return data;
-              }
-
-            }
-              thedata_2 = thedata_2.replaceAt(arraydata);
-              //thedata_2 = thedata_2.replaceAt(153,replacement_2);
+              var array = [replacement_1: 89, replacement_2: 153];
+              thedata_2 = thedata_2.replaceAt(89,replacement_1);
+              thedata_2 = thedata_2.replaceAt(153,replacement_2);
               alert(thedata_2);
             }
           }
