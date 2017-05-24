@@ -324,8 +324,7 @@
               String.prototype.replaceAt = function(index, replacement){
                 return this.substr(0,index) + replacement + this.substr(index + replacement.length);
               }
-              alert(thedata_2.replaceAt(89,"CATS"));
-              alert(thedata_2);
+              alert(thedata_2.replaceAt(89,myObj.resources.resource['@attributes'].id));
             }
           }
         }
