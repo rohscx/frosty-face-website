@@ -195,9 +195,10 @@
             var input_3 = mac_encoded;  // gets the value this value has already been preformated
             var arraydata_1 = {sqlQuery:"update_2",sqlWhere:input_3};
             var arraydata_2 = {Type:"iseTicket_1",curlAddress:iseurl_1,curlData:input_3,curlCustom:"GET",curlPost:""};
-            //var ticket = "cats";  // CAN BE DELETED ONCE ticket VAR IS REMOVED AS IT IS NOT NEEDED... MAYBE...
+            var arraydata_3 = {sqlQuery:"update_1",sqlWhere:input_3};
             var data_1 = datamaker_1(arraydata_1);
-            var data_2 =  datamaker_1(arraydata_2);
+            var data_2 = datamaker_1(arraydata_2);
+            var data_3 = datamaker_1(arraydata_3);
             if (myObj[0].State == "PASSIVE") {
               if (myObj[0].Action > 5) {
                 document.getElementById("adiv2").innerHTML = "ACA : "+aca+'<br />'+"MAC : "+myObj[0].Mac_ID+" "+'<br />'+ticket+'<br />'+
@@ -231,7 +232,7 @@
             btn_3.id = 'myBtn_3';
             btn_3.innerHTML = 'Remove'; // buttons use innerHTLM to display text, kinda kool...
             btn_3.onclick = function() {
-              curlreturn_3(thediv, "mysqli.php", ticket, data_1);
+              curlreturn_3(thediv, "mysqli.php", ticket, data_3);
             }
           }
         }
