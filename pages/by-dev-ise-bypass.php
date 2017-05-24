@@ -327,7 +327,7 @@
               var replacement_1 = "/" + myObj.resources.resource['@attributes'].id;
               var replacement_2 = "curlData=" + encodeURI(myObj.resources.resource['@attributes'].name) + "&curlCustom=PUT&curlPost=";
               thedata_2 = thedata_2.replaceAt(89,replacement_1);
-              thedata_2 = thedata_2.replaceAt(143,replacement_2);
+              thedata_2 = thedata_2.replaceAt(142,replacement_2);
               alert(thedata_2); // debug
               //curlreturn_4(thediv, "curlrest.php", theticket, thedata_1, thedata_2)
             }
