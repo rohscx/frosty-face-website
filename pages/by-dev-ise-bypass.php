@@ -198,7 +198,7 @@
             //var ticket = "cats";  // CAN BE DELETED ONCE ticket VAR IS REMOVED AS IT IS NOT NEEDED... MAYBE...
             var data_1 = datamaker_1(arraydata_1);
             var data_2 =  datamaker_1(arraydata_2);
-            if (myObj[0].State = "Passive") {
+            if (myObj[0].State = "PASSIVE") {
               if (myObj[0].Action > 5) {
                 document.getElementById("adiv2").innerHTML = "ACA : "+aca+'<br />'+"MAC : "+myObj[0].Mac_ID+" "+'<br />'+ticket+'<br />'+
                 '<p>'+"BYPASS count : "+'<font color="red">'+myObj[0].Action+'</font>'+'</p>';
