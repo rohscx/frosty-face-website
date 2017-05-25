@@ -319,12 +319,12 @@
           if (myObj.http_code == 201) {
             //document.getElementById(thediv).innerHTML = '<p>'+"OUI : "+xmlhttp.responseText+'</p>';
             //alert(JSON.stringify(myObj)); // debug turns JSON int string so it can be displayed
-            alert("201");
+            //alert("201");
             curlreturn_3(thediv, "mysqli.php", theticket, thedata_1);
           } else if (myObj.http_code == 500) {
             //document.getElementById(thediv).innerHTML = xmlhttp.responseText;
             //alert(JSON.stringify(myObj)); // debug turns JSON int string so it can be displayed
-            alert("500");
+            //alert("500");
           } else {
             //alert(JSON.stringify(myObj)); // debug turns JSON int string so it can be displayed
             if (myObj['@attributes'].total == 1){
@@ -335,8 +335,8 @@
               var replacement_2 = "&curlData=" + encodeURI(myObj.resources.resource['@attributes'].name) + "&curlCustom=PUT&curlPost=";
               thedata_2 = thedata_2.replaceAt(89,replacement_1);
               thedata_2 = thedata_2.replaceAt(126,replacement_2);
-              alert(thedata_2); // debug
-              curlreturn_4(thediv, "curlrest.php", theticket, thedata_2)
+              //alert(thedata_2); // debug
+              curlreturn_4(thediv, "curlrest.php", theticket, thedata_2);
               curlreturn_3(thediv, "mysqli.php", theticket, thedata_1);
             }
           }
