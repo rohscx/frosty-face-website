@@ -43,10 +43,10 @@
   </div>
   <p><b>Whats New!</b></p>
   <ul>
-    <li>Color Coding and visual effects</li>
-    <li>Select a row to view notes!!</li>
-    <li>New Authenication Page for Bypasses!!!!</li>
-    <li>PHP backend refactored Now Object oriented</li>
+    <li>Big update: Users can now be Bypassed in ISE</li>
+    <li>Big update (Cont.): Users can be removed from the DB</li>
+    <li>Big update (Cont.): Existing Users can be bypassed again from the DB</li>
+    <li>Big update (Cont.): Tickets link to the Service NOW</li>
   </ul>
   <head>
     <script type="text/javascript">

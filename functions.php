@@ -16,8 +16,8 @@ function siteName()
     echo $config['name'];
 }
 /**
- * Displays page title. It takes the data from 
- * URL, it replaces the hyphens with spaces and 
+ * Displays page title. It takes the data from
+ * URL, it replaces the hyphens with spaces and
  * it capitalizes the words.
  */
 function pageTitle()
@@ -26,7 +26,7 @@ function pageTitle()
     echo ucwords(str_replace('-', ' ', $page));
 }
 /**
- * Displays page content. It takes the data from 
+ * Displays page content. It takes the data from
  * the static pages inside the pages/ directory.
  * When not found, display the 404 error page.
  */
@@ -42,7 +42,7 @@ function pageContent()
 }
 function siteVersion()
 {
-     $sitever = " Version: 17.0.5";
+     $sitever = " Version: 17.1.0";
     echo $sitever;
 }
 function primeMac($mac)
@@ -52,10 +52,10 @@ function primeMac($mac)
     echo "This is what was passed through GET" . $name;
     echo $sitever['17.0.1'];
 }
-if (isset($_GET['data'])) 
+if (isset($_GET['data']))
 {
 	//$get_data = $_GET['data'];
-	
+
 	function deviceURL_1($data){
 		$str = $data;
 		$str = preg_replace('/\s+/', '', $str);     //Remove whitespaces
@@ -84,7 +84,7 @@ if (isset($_GET['data']))
     			$url_encode = urlencode($add_quotes);           // %22192.168.1.1%22
 			$arr = array('Input' => $data,'Type' => 'IP','Normalized' => $add_quotes,'Encoded' => $url_encode);	//creates an array for the JSON encoder
 			echo json_encode($arr);
-		} else { 
+		} else {
     			//echo "it's probably a hostname!!!" . "<br>";	// Debug
 		    	$add_quotes = "\"" . $str . "\"";               // "macbook_123.user.net"
 		    	$url_encode = urlencode($add_quotes);           // %22macbook_123.user.net%22
@@ -94,7 +94,7 @@ if (isset($_GET['data']))
 	}
 	deviceURL_1($_GET['data']);
 }
-if (isset($_GET['data_2'])) 
+if (isset($_GET['data_2']))
 {
 	//$get_data = $_GET['data'];
 	function deviceURL_1($data){
@@ -125,7 +125,7 @@ if (isset($_GET['data_2']))
     			$url_encode = urlencode($add_quotes);           // %22192.168.1.1%22
 			$arr = array('Input' => $data,'Type' => 'IP','Normalized' => $add_quotes,'Encoded' => $url_encode);	//creates an array for the JSON encoder
 			echo json_encode($arr);
-		} else { 
+		} else {
     			//echo "it's probably a hostname!!!" . "<br>";	// Debug
 		    	$add_quotes = "\"" . $str . "\"";               // "macbook_123.user.net"
 		    	$url_encode = urlencode($add_quotes);           // %22macbook_123.user.net%22
@@ -136,11 +136,11 @@ if (isset($_GET['data_2']))
 	deviceURL_1($_GET['data_2']);
 }
 if (isset($_GET['hostName_1'])){
-	//echo "DEBUG GET HOSTBY NAME : " . gethostbyname("86c.nfcs.fpir.pvt") . "\r\n";	// debug 
+	//echo "DEBUG GET HOSTBY NAME : " . gethostbyname("86c.nfcs.fpir.pvt") . "\r\n";	// debug
         function resolveHost_1($host){
-		$dns_1 = array(".fpi.fpir.pvt", ".nfcs.fpir.pvt", ".farmcrediteast.fpir.pvt", 
-			       ".agcountry.fpir.pvt", ".yankee.fpir.pvt", ".fpi.pvt", 
-			       ".fpicorelab.fpir.pvt", "fcc.fpir.pvt", ".nextgen.fpir.pvt", 
+		$dns_1 = array(".fpi.fpir.pvt", ".nfcs.fpir.pvt", ".farmcrediteast.fpir.pvt",
+			       ".agcountry.fpir.pvt", ".yankee.fpir.pvt", ".fpi.pvt",
+			       ".fpicorelab.fpir.pvt", "fcc.fpir.pvt", ".nextgen.fpir.pvt",
 			       ".farmcreditwest.fpir.pvt"); 	// DNS search suffix's
 		$message = "Unable to resolve: ";	// if submitted message is returned
 		foreach ($dns_1 as $suffix) {
@@ -170,7 +170,7 @@ if (isset($_GET['hostName_1'])){
 					echo json_encode($arr);		// return JSON
 					//echo "PING AND DNS ARE NOT EQUAL USING PING VALUE"; // debug
 					break;
-				} 
+				}
 			} else if ($ip == $host . $suffix) {
 			  $arr = array('Failure' => $failure);	 // create array for JSON
 			  echo json_encode($arr);		// return JSON
