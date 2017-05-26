@@ -213,8 +213,13 @@
                   modal.style.display = "none";
                 }
               } else {
-                document.getElementById("adiv2").innerHTML = "ACA : "+aca+'<br />'+"MAC : "+myObj[0].Mac_ID+" "+'<br />'+ticket+'<br />'+
-                '<p>'+"BYPASS count : "+myObj[0].Action+'</p>';
+                if (myObj[0].Action > 5) {
+                  document.getElementById("adiv2").innerHTML = "ACA : "+aca+'<br />'+"MAC : "+myObj[0].Mac_ID+" "+'<br />'+ticket+'<br />'+
+                  '<p>'+"BYPASS count : "+'<font color="red">'+myObj[0].Action+'</font>'+'</p>';
+                } else {
+                  document.getElementById("adiv2").innerHTML = "ACA : "+aca+'<br />'+"MAC : "+myObj[0].Mac_ID+" "+'<br />'+ticket+'<br />'+
+                  '<p>'+"BYPASS count : "+myObj[0].Action+'</p>';
+                }
                 var btn_2 = div_1.appendChild(document.createElement('button'));
                 btn_2.type = 'button';
                 btn_2.id = 'myBtn_2';
