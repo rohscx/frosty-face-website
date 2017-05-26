@@ -424,33 +424,12 @@
           document.getElementById('spinner').style.display = "none";
           myObj = JSON.parse(this.responseText);
           alert(myObj['@attributes'].total);
-          if ("total" in myObj) {
-            var replacement_1 = "/" + myObj.resources.resource['@attributes'].id + "/deregister";
-            var replacement_2 = "PUT";
-            thedate_2 = thedata_1.replace("?filter=mac.EQ.",replacement_1);
-            thedate_2 = thedata_1.replace('GET',replacement_2);
-            alert(thedata_2); // debug
-            curlreturn_4(thediv, "curlrest.php", theticket, thedata_2);
-          } else if (myObj.http_code == 500) {
-            //document.getElementById(thediv).innerHTML = xmlhttp.responseText;
-            //alert(JSON.stringify(myObj)); // debug turns JSON int string so it can be displayed
-            //alert("500");
-          } else {
-            //alert(JSON.stringify(myObj)); // debug turns JSON int string so it can be displayed
-          }
-          //alert(JSON.stringify(myObj)); // debug turns JSON int string so it can be displayed
-          /*
-          if (myObj.http_code == 201) {
-            //document.getElementById(thediv).innerHTML = '<p>'+"OUI : "+xmlhttp.responseText+'</p>';
-            //alert(JSON.stringify(myObj)); // debug turns JSON int string so it can be displayed
-            alert("201");
-
-          } else if (myObj.http_code == 500) {
-            //document.getElementById(thediv).innerHTML = xmlhttp.responseText;
-            //alert(JSON.stringify(myObj)); // debug turns JSON int string so it can be displayed
-            alert("500");
-          }
-          */
+          var replacement_1 = "/" + myObj.resources.resource['@attributes'].id + "/deregister";
+          var replacement_2 = "PUT";
+          thedate_2 = thedata_1.replace("?filter=mac.EQ.",replacement_1);
+          thedate_2 = thedata_1.replace('GET',replacement_2);
+          alert(thedata_2); // debug
+          curlreturn_4(thediv, "curlrest.php", theticket, thedata_2);
         }
       }
       //xmlhttp.open('GET', thefile+'?'+thekeyA_1+'='+thekeyB_1+'&'+thekeyA_2+'='+thekeyB_2+'&'+thekeyA_3+'='+thekeyB_3, true);
