@@ -316,7 +316,7 @@ if (isset($_GET['Type']) & isset($_GET['curlAddress']) & isset($_GET['curlData']
 		$a->curlPort = "9060";	
 		$a->iseTicket_1();
 		//print "curlPost  " . $a->curlPost . "<br />";	//debug
-		
+		echo "asdfasdfz    CATS  sdfsadfasd";
 	}  else {
 		$a->curlPost = $_GET['curlPost'];
 	}
