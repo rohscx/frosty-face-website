@@ -423,7 +423,7 @@
         if (this.readyState == 4 && this.status == 200) {
           document.getElementById('spinner').style.display = "none";
           myObj = JSON.parse(this.responseText);
-          if (myObj.http_code == 200) {
+          if (myObj['@attributes'] == 1) {
             var replacement_1 = "/" + myObj.resources.resource['@attributes'].id + "/deregister";
             var replacement_2 = "PUT";
             thedate_1 = thedata_1.replace('?filter=mac.EQ.',replacement_1);
@@ -431,6 +431,7 @@
             //alert(thedata_2); // debug
             curlreturn_4(thediv, "curlrest.php", theticket, thedata_1);
             curlreturn_3(thediv, "mysqli.php", theticket, thedata_1);
+
           } else if (myObj.http_code == 500) {
             //document.getElementById(thediv).innerHTML = xmlhttp.responseText;
             //alert(JSON.stringify(myObj)); // debug turns JSON int string so it can be displayed
