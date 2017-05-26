@@ -201,7 +201,7 @@ function iseCurl_1() {
 			$arr = array('serviceTicket' => $auth_1, 'serviceCache_1' => $cache_1, 'serviceCache_2' => $cache_2);	// create array for JSON
 		} elseif (strpos($this->curlAddress, "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint") !== false) {
 			$cache_1 = "cache-control: no-cache";
-			if (strpos($this->curlAddress, "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint" && $this->curlCustom = "PUT") {
+			if (strpos($this->curlAddress, "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint") && $this->curlCustom = "PUT") {
 				$cache_2 = "accept: application/vnd.com.cisco.ise.identity.endpoint.1.1+xml";
 			} else {
 				$cache_2 = "content-type: application/vnd.com.cisco.ise.identity.endpoint.1.0+xml; charset=utf-8";
