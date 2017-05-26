@@ -423,6 +423,7 @@
         if (this.readyState == 4 && this.status == 200) {
           document.getElementById('spinner').style.display = "none";
           myObj = JSON.parse(this.responseText);
+          alert(myObj['@attributes'].total);
           if (myObj['@attributes'].total == 1) {
             var replacement_1 = "/" + myObj.resources.resource['@attributes'].id + "/deregister";
             var replacement_2 = "PUT";
