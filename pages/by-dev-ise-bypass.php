@@ -242,7 +242,6 @@
             btn_3.innerHTML = 'Remove'; // buttons use innerHTLM to display text, kinda kool...
             btn_3.onclick = function() {
               curlreturn_5(thediv, 'curlrest.php', 'iseTicket_1', data_2, data_3);
-              default_list('flex_div_1','mysqli.php','sqlQuery','query_3','sqlWhere',encodeURIComponent("1000-01-01 00:00:00"));
               modal.style.display = "none";
             }
           }
@@ -440,8 +439,10 @@
             //alert(thedata_2); // debug
             curlreturn_4(thediv, "curlrest.php", theticket, data_1);
             curlreturn_3(thediv, 'mysqli.php', theticket, thedata_2);
+            default_list('flex_div_1','mysqli.php','sqlQuery','query_3','sqlWhere',encodeURIComponent("1000-01-01 00:00:00"));
           } else {
             curlreturn_3(thediv, 'mysqli.php', theticket, thedata_2);
+            default_list('flex_div_1','mysqli.php','sqlQuery','query_3','sqlWhere',encodeURIComponent("1000-01-01 00:00:00"));
           }
         }
       }
