@@ -424,11 +424,13 @@
           document.getElementById('spinner').style.display = "none";
           myObj = JSON.parse(this.responseText);
           alert(myObj['@attributes'].total);
-          var replacement_1 = "/" + myObj.resources.resource['@attributes'].id + "/deregister";
-          var replacement_2 = "PUT";
+          var replacement_1 = "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint";
+          var replacement_2 = "/" + myObj.resources.resource['@attributes'].id + "/deregister";
+          var replacement_3 = "PUT";
           var thedata_2;
-          thedata_2 = thedata_1.replace("?filter=mac.EQ.",replacement_1);
-          thedata_2 = thedata_1.replace('GET',replacement_2);
+          thedata_2 = thedata_1.replace("https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint?filter=mac.EQ.",replacement_1);
+          thedata_2 = thedata_1.replace(myObj.resources.resource['@attributes'].name,replacement_2);
+          thedata_2 = thedata_1.replace('GET',replacement_3);
           alert(thedata_2); // debug
           curlreturn_4(thediv, "curlrest.php", theticket, thedata_2);
         }
