@@ -411,7 +411,7 @@
       xmlhttp.open('GET', thefile+'?'+thedata_1, true);
       xmlhttp.send();
     }
-    function curlreturn_5(thediv, thefile, theticket, thedata_1 , thedata_3) {
+    function curlreturn_5(thediv, thefile, theticket, thedata_1 , thedata_2) {
       document.getElementById('spinner').style.display = "block";
       if (window.XMLHttpRequest) {
         xmlhttp = new XMLHttpRequest();
@@ -429,11 +429,11 @@
             }
             var replacement_1 = "/" + myObj.resources.resource['@attributes'].id;
             var replacement_2 = "&curlData=" + encodeURI(myObj.resources.resource['@attributes'].name) + "&curlCustom=PUT&curlPost=";
-            thedata_2 = thedata_2.replaceAt(89,replacement_1);
-            thedata_2 = thedata_2.replaceAt(126,replacement_2);
+            thedata_1 = thedata_1.replaceAt(89,replacement_1);
+            thedata_1 = thedata_1.replaceAt(126,replacement_2);
             //alert(thedata_2); // debug
-            curlreturn_4(thediv, "curlrest.php", theticket, thedata_2);
-            curlreturn_3(thediv, 'mysqli.php', ticket, thedata_3);
+            curlreturn_4(thediv, "curlrest.php", theticket, thedata_1);
+            curlreturn_3(thediv, 'mysqli.php', ticket, thedata_2);
           }
         }
       }
