@@ -423,6 +423,27 @@
         if (this.readyState == 4 && this.status == 200) {
           document.getElementById('spinner').style.display = "none";
           myObj = JSON.parse(this.responseText);
+          if (myObj.http_code == 200) {
+            if (myObj['@attributes'].total == 1){
+              var replacement_1 = "/" + myObj.resources.resource['@attributes'].id;
+              var replacement_2 = "DELETE";
+              thedate_1 = thedata_1.replace('?filter=mac.EQ.',replacement_1);
+              thedate_1 = thedata_1.replace('GET',replacement_2);
+              //alert(thedata_2); // debug
+              curlreturn_4(thediv, "curlrest.php", theticket, thedata_2);
+              curlreturn_3(thediv, "mysqli.php", theticket, thedata_1);
+            }
+            //document.getElementById(thediv).innerHTML = '<p>'+"OUI : "+xmlhttp.responseText+'</p>';
+            //alert(JSON.stringify(myObj)); // debug turns JSON int string so it can be displayed
+            //alert("201");
+            curlreturn_3(thediv, "mysqli.php", theticket, thedata_1);
+          } else if (myObj.http_code == 500) {
+            //document.getElementById(thediv).innerHTML = xmlhttp.responseText;
+            //alert(JSON.stringify(myObj)); // debug turns JSON int string so it can be displayed
+            //alert("500");
+          } else {
+            //alert(JSON.stringify(myObj)); // debug turns JSON int string so it can be displayed
+          }
           //alert(JSON.stringify(myObj)); // debug turns JSON int string so it can be displayed
           /*
           if (myObj.http_code == 201) {
