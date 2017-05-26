@@ -241,8 +241,7 @@
             btn_3.id = 'myBtn_3';
             btn_3.innerHTML = 'Remove'; // buttons use innerHTLM to display text, kinda kool...
             btn_3.onclick = function() {
-              curlreturn_3(thediv, 'mysqli.php', ticket, data_3);
-              curlreturn_5(thediv, 'curlrest.php', 'iseTicket_1', data_2);
+              curlreturn_5(thediv, 'curlrest.php', 'iseTicket_1', data_2, data_3);
               default_list('flex_div_1','mysqli.php','sqlQuery','query_3','sqlWhere',encodeURIComponent("1000-01-01 00:00:00"));
               modal.style.display = "none";
             }
@@ -412,7 +411,7 @@
       xmlhttp.open('GET', thefile+'?'+thedata_1, true);
       xmlhttp.send();
     }
-    function curlreturn_5(thediv, thefile, theticket, thedata_1) {
+    function curlreturn_5(thediv, thefile, theticket, thedata_1 , thedata_3) {
       document.getElementById('spinner').style.display = "block";
       if (window.XMLHttpRequest) {
         xmlhttp = new XMLHttpRequest();
@@ -424,17 +423,18 @@
           document.getElementById('spinner').style.display = "none";
           myObj = JSON.parse(this.responseText);
           alert(myObj['@attributes'].total);
-          var replacement_1 = "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint";
-          var replacement_2 = "/" + myObj.resources.resource['@attributes'].id + "/deregister";
-          var replacement_3 = "PUT";
-          var mac = encodeURI(myObj.resources.resource['@attributes'].name);
-          var thedata_2;
-          thedata_2 = thedata_1.replace('https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint?filter=mac.EQ.',replacement_1);
-          thedata_2 = thedata_1.replace(mac,replacement_2);
-          thedata_2 = thedata_1.replace('GET',replacement_3);
-          alert(thedata_2); // debug
-          alert(mac);
-          curlreturn_4(thediv, "curlrest.php", theticket, thedata_2);
+          if (myObj['@attributes'].total == 1){
+            String.prototype.replaceAt = function(index, replacement){
+              return this.substr(0,index) + replacement + this.substr(index + replacement.length);
+            }
+            var replacement_1 = "/" + myObj.resources.resource['@attributes'].id;
+            var replacement_2 = "&curlData=" + encodeURI(myObj.resources.resource['@attributes'].name) + "&curlCustom=PUT&curlPost=";
+            thedata_2 = thedata_2.replaceAt(89,replacement_1);
+            thedata_2 = thedata_2.replaceAt(126,replacement_2);
+            //alert(thedata_2); // debug
+            curlreturn_4(thediv, "curlrest.php", theticket, thedata_2);
+            curlreturn_3(thediv, 'mysqli.php', ticket, thedata_3);
+          }
         }
       }
       //xmlhttp.open('GET', thefile+'?'+thekeyA_1+'='+thekeyB_1+'&'+thekeyA_2+'='+thekeyB_2+'&'+thekeyA_3+'='+thekeyB_3, true);
