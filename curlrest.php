@@ -204,7 +204,7 @@ function iseCurl_1() {
 			if (strpos($this->curlData, "deregister") !== false) {
 				$cache_2 = "accept: application/vnd.com.cisco.ise.identity.endpoint.1.1+xml";
 			} else {
-				$cache_2 = "content-type: application/vnd.com.cisco.ise.identity.endpoint.1.0+xml; charset=utf-8";
+				$cache_2 = "condtent-type: application/vnd.com.cisco.ise.identity.endpoint.1.0+xml; charset=utf-8";
 			}
 			//$token = "postman-token: 73848290-3b9d-e474-cb6c-adec0023bb89";
 			$arr = array('serviceTicket' => $auth_1, 'serviceCache_1' => $cache_1, 'serviceCache_2' => $cache_2, 'Token' => $token);	// create array for JSON
