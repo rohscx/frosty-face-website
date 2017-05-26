@@ -242,7 +242,7 @@
             btn_3.innerHTML = 'Remove'; // buttons use innerHTLM to display text, kinda kool...
             btn_3.onclick = function() {
               curlreturn_3(thediv, 'mysqli.php', ticket, data_3);
-              curlreturn_5(thediv, 'iseTicket_1', ticket, data_2);
+              curlreturn_5(thediv, 'curlrest.php', 'iseTicket_1', data_2);
               default_list('flex_div_1','mysqli.php','sqlQuery','query_3','sqlWhere',encodeURIComponent("1000-01-01 00:00:00"));
               modal.style.display = "none";
             }
