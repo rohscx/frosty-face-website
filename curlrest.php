@@ -202,7 +202,7 @@ function iseCurl_1() {
 		} elseif (strpos($this->curlAddress, "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint") !== false) {
 			$cache_1 = "cache-control: no-cache"; 
 			echo "$this->curlData";
-			if (strpos($this->curlData, "deregister") !== false) {
+			if (strpos($this->curlData, "/deregister") !== false) {
 				$cache_2 = "accept: application/vnd.com.cisco.ise.identity.endpoint.1.1+xml";
 			} else {
 				$cache_2 = "condtent-type: application/vnd.com.cisco.ise.identity.endpoint.1.0+xml; charset=utf-8";
@@ -332,7 +332,7 @@ if (isset($_GET['Type']) & isset($_GET['curlAddress']) & isset($_GET['curlData']
 		} elseif (strpos($_GET['curlAddress'], "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint") !== false) {
 			if (strpos($_GET['curlData'], "/deregister") !== false) {
 				$a->curlData = $_GET['curlData'];	// formats user input
-				$a->apicCurl_1();	// calls the correct function based on the GET tpe
+				$a->iseCurl_1();	// calls the correct function based on the GET tpe
 			} else {
 				$a->curlData = "";	// formats user input
 				$a->iseCurl_1();	// calls the correct function based on the GET Type
