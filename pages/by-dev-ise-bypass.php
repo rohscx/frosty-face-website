@@ -564,7 +564,7 @@
     var input = form.appendChild(document.createElement('input'));
     input.type = 'text';
     input.name = 'incedent_1';
-    input.placeholder = 'Incenent Number...';
+    input.placeholder = 'Incedent Number...';
     input.id = 'incedent_1';
     var input = form.appendChild(document.createElement('select')); // creates select box
     var aca_list_1 = ["NULL","FPI","NWFCS","FCE"];  // lista all usable ACA's. NULL is a place holder so that the ACA number matches DB Value
