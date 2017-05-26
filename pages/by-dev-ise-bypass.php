@@ -422,7 +422,7 @@
         if (this.readyState == 4 && this.status == 200) {
           document.getElementById('spinner').style.display = "none";
           myObj = JSON.parse(this.responseText);
-          alert(myObj['@attributes'].total);
+          //alert(myObj['@attributes'].total);  // debug
           if (myObj['@attributes'].total == 1){
             String.prototype.replaceAt = function(index, replacement){
               return this.substr(0,index) + replacement + this.substr(index + replacement.length);
