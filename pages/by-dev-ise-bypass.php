@@ -423,7 +423,7 @@
           document.getElementById('spinner').style.display = "none";
           myObj = JSON.parse(this.responseText);
           //alert(myObj['@attributes'].total);  // debug
-          if (myObj['@attributes'].total <= 1){
+          if (myObj['@attributes'].total == 1){
             String.prototype.replaceAt = function(index, replacement){
               return this.substr(0,index) + replacement + this.substr(index + replacement.length);
             }
@@ -439,6 +439,8 @@
             var data_1 = datamaker_1(arraydata_2);
             //alert(thedata_2); // debug
             curlreturn_4(thediv, "curlrest.php", theticket, data_1);
+            curlreturn_3(thediv, 'mysqli.php', theticket, thedata_2);
+          } else {
             curlreturn_3(thediv, 'mysqli.php', theticket, thedata_2);
           }
         }
