@@ -325,3 +325,9 @@ $ mysql -u [uname] -p[pass] db_name < db_backup.sql
 # RESTORE THE DB FROM SQL
 mysql> use db_name;
 mysql> source backup-file.sql;
+
+# RESTORE THE DB FROM DOCKER EXEC
+ docker exec -it <CONTAINER_ID> bash -c "mysql -u<SQL_USER_ID> -p"<PASSWORD>" < /var/lib/mysql/backup-file.sql"
+# BACKUP THE DB FROM DOCKER EXEC
+docker exec -it <CONTAINER_ID> bash -c "mysql -u<SQL_USER_ID> -p"<PASSWORD>" --add-drop-database --triggers --routines --events --databases MAB_TRACK > /var/lib/mysql/backup-file.sql"
+
