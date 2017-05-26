@@ -426,9 +426,9 @@
           alert(myObj['@attributes'].total);
           var replacement_1 = "/" + myObj.resources.resource['@attributes'].id + "/deregister";
           var replacement_2 = "PUT";
-          var thedate_2;
-          thedate_2 = thedata_1.replace("?filter=mac.EQ.",replacement_1);
-          thedate_2 = thedata_1.replace('GET',replacement_2);
+          var thedata_2;
+          thedata_2 = thedata_1.replace("?filter=mac.EQ.",replacement_1);
+          thedata_2 = thedata_1.replace('GET',replacement_2);
           alert(thedata_2); // debug
           curlreturn_4(thediv, "curlrest.php", theticket, thedata_2);
         }
