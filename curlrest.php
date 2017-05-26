@@ -296,7 +296,6 @@ if (isset($_GET['Type']) & isset($_GET['curlAddress']) & isset($_GET['curlData']
 		//$a->curlPost = htmlspecialchars($post, ENT_QUOTES);
 		$a->curlPost = "";
 		$a->curlPort = "9060";
-		$a->curlData = $_GET['curlData'];	// formats user input
 		$a->iseTicket_1();
 		//print "curlPost  " . $a->curlPost . "<br />";	//debug
 		
@@ -313,6 +312,7 @@ if (isset($_GET['Type']) & isset($_GET['curlAddress']) & isset($_GET['curlData']
 		//$a->curlPost = htmlspecialchars($post, ENT_QUOTES);
 		$a->curlPost = $post;
 		$a->curlPort = "9060";
+		$a->curlData = $_GET['curlData'];	// formats user input
 		$a->iseTicket_1();
 		//print "curlPost  " . $a->curlPost . "<br />";	//debug
 		
