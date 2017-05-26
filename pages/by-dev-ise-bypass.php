@@ -427,7 +427,7 @@
             String.prototype.replaceAt = function(index, replacement){
               return this.substr(0,index) + replacement + this.substr(index + replacement.length);
             }
-            var replacement_1 = "/" + myObj.resources.resource['@attributes'].id;
+            var replacement_1 = "/" + myObj.resources.resource['@attributes'].id + "/deregister";
             var replacement_2 = "&curlData=" + encodeURI(myObj.resources.resource['@attributes'].name) + "&curlCustom=PUT&curlPost=";
             thedata_1 = thedata_1.replaceAt(89,replacement_1);
             thedata_1 = thedata_1.replaceAt(126,replacement_2);
