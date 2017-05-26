@@ -423,7 +423,7 @@
         if (this.readyState == 4 && this.status == 200) {
           document.getElementById('spinner').style.display = "none";
           myObj = JSON.parse(this.responseText);
-          if (myObj['@attributes'] == 1) {
+          if (myObj['@attributes'].total == 1) {
             var replacement_1 = "/" + myObj.resources.resource['@attributes'].id + "/deregister";
             var replacement_2 = "PUT";
             thedate_1 = thedata_1.replace('?filter=mac.EQ.',replacement_1);
