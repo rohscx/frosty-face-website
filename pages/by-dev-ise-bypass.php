@@ -241,7 +241,8 @@
             btn_3.id = 'myBtn_3';
             btn_3.innerHTML = 'Remove'; // buttons use innerHTLM to display text, kinda kool...
             btn_3.onclick = function() {
-              curlreturn_3(thediv, "mysqli.php", ticket, data_3);
+              curlreturn_3(thediv, 'mysqli.php', ticket, data_3);
+              curlreturn_5(thediv, 'iseTicket_1', ticket, data_2);
               default_list('flex_div_1','mysqli.php','sqlQuery','query_3','sqlWhere',encodeURIComponent("1000-01-01 00:00:00"));
               modal.style.display = "none";
             }
@@ -382,6 +383,36 @@
       xmlhttp.send();
     }
     function curlreturn_4(thediv, thefile, theticket, thedata_1) {
+      document.getElementById('spinner').style.display = "block";
+      if (window.XMLHttpRequest) {
+        xmlhttp = new XMLHttpRequest();
+      } else {
+        xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
+      }
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById('spinner').style.display = "none";
+          myObj = JSON.parse(this.responseText);
+          //alert(JSON.stringify(myObj)); // debug turns JSON int string so it can be displayed
+          /*
+          if (myObj.http_code == 201) {
+            //document.getElementById(thediv).innerHTML = '<p>'+"OUI : "+xmlhttp.responseText+'</p>';
+            //alert(JSON.stringify(myObj)); // debug turns JSON int string so it can be displayed
+            alert("201");
+
+          } else if (myObj.http_code == 500) {
+            //document.getElementById(thediv).innerHTML = xmlhttp.responseText;
+            //alert(JSON.stringify(myObj)); // debug turns JSON int string so it can be displayed
+            alert("500");
+          }
+          */
+        }
+      }
+      //xmlhttp.open('GET', thefile+'?'+thekeyA_1+'='+thekeyB_1+'&'+thekeyA_2+'='+thekeyB_2+'&'+thekeyA_3+'='+thekeyB_3, true);
+      xmlhttp.open('GET', thefile+'?'+thedata_1, true);
+      xmlhttp.send();
+    }
+    function curlreturn_5(thediv, thefile, theticket, thedata_1) {
       document.getElementById('spinner').style.display = "block";
       if (window.XMLHttpRequest) {
         xmlhttp = new XMLHttpRequest();
