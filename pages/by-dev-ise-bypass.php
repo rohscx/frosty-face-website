@@ -427,11 +427,13 @@
           var replacement_1 = "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint";
           var replacement_2 = "/" + myObj.resources.resource['@attributes'].id + "/deregister";
           var replacement_3 = "PUT";
+          var mac = encodeURI(myObj.resources.resource['@attributes'].name);
           var thedata_2;
-          thedata_2 = thedata_1.replace("https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint?filter=mac.EQ.",replacement_1);
-          thedata_2 = thedata_1.replace(encodeURI(myObj.resources.resource['@attributes'].name),replacement_2);
+          thedata_2 = thedata_1.replace('https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint?filter=mac.EQ.',replacement_1);
+          thedata_2 = thedata_1.replace(mac,replacement_2);
           thedata_2 = thedata_1.replace('GET',replacement_3);
           alert(thedata_2); // debug
+          alert(mac);
           curlreturn_4(thediv, "curlrest.php", theticket, thedata_2);
         }
       }
