@@ -430,7 +430,7 @@
               thedate_1 = thedata_1.replace('?filter=mac.EQ.',replacement_1);
               thedate_1 = thedata_1.replace('GET',replacement_2);
               //alert(thedata_2); // debug
-              curlreturn_4(thediv, "curlrest.php", theticket, thedata_2);
+              curlreturn_4(thediv, "curlrest.php", theticket, thedata_1);
               curlreturn_3(thediv, "mysqli.php", theticket, thedata_1);
             }
             //document.getElementById(thediv).innerHTML = '<p>'+"OUI : "+xmlhttp.responseText+'</p>';
