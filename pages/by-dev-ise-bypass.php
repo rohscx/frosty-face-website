@@ -504,25 +504,6 @@
   default_list('flex_div_1','mysqli.php','sqlQuery','query_3','sqlWhere',encodeURIComponent("1000-01-01 00:00:00"));
   // Get the modal
   var form_1 = document.getElementById('formid01');
-  /* not needed as their are no buttons and it stops the exection of the rest of the code.
-  btn.onclick = function() {
-    //document.getElementById("adiv2").innerHTML = b('flex_div_1','mysqli.php','sqlQuery','query_3','sqlWhere',cats);
-    //document.getElementById("adiv2").innerHTML = restmodal('adiv2','restAuth.php','get_ticket');
-    document.getElementById("adiv2").innerHTML = encoded_1('adiv2','functions.php','data_2');
-    //document.getElementById("adiv2").innerHTML = document.getElementById("uniqueID").value;
-    //document.getElementById("adiv2").innerHTML = input_1;
-    modal.style.display = "block";
-  }
-  // When the user clicks the button, reset adiv
-  rst.onclick = function() {
-    document.getElementById('adiv').innerHTML = "";
-  }*/
-  /*
-  btn_1.onclick = function() {
-    //document.getElementById("adiv2").innerHTML = encoded_1('adiv2','functions.php','data_2');
-    alert("THIS BUTTON WORKS");
-  }
-  */
   // When the user clicks on <span> (x), close the modal
   span.onclick = function() {
     modal.style.display = "none";
@@ -621,36 +602,8 @@
       //var data_1 = "";  // stores preformated post information
       var data_1 = datamaker_1(arraydata_1);
       var data_2 = datamaker_1(arraydata_2);  // stores preformated post information
-
-      // Can Probably be deleted as it is now a function
-      /*
-      var datalength = Object.keys(arraydata_2).length;
-      var i = 1;
-      for (var key in arraydata_2) {
-        if (i == datalength) {
-          data_2 += key + "=" + arraydata_2[key];
-        } else if ((i/2)%1  === 0) {
-          data_2 += key + "=" + arraydata_2[key] + "&";
-        } else {
-          data_2 += key + "=" + arraydata_2[key] + "&";
-        }
-        i++
-      }
-
-      var datalength = Object.keys(arraydata_1).length;
-      var i = 1;
-      for (var key in arraydata_1) {
-        if (i == datalength) {
-          data_1 += key + "=" + arraydata_1[key];
-        } else if ((i/2)%1  === 0) {
-          data_1 += key + "=" + arraydata_1[key] + "&";
-        } else {
-          data_1 += key + "=" + arraydata_1[key] + "&";
-        }
-        i++
-      }
-      */
       curlreturn_2('spinner','curlrest.php','iseTicket_1',data_1,data_2);
+      modal.style.display = "none";
       //alert(data_1); // debug
     }
   }
