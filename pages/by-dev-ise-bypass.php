@@ -433,7 +433,7 @@
             thedata_1 = thedata_1.replaceAt(126,replacement_2);
             //alert(thedata_2); // debug
             curlreturn_4(thediv, "curlrest.php", theticket, thedata_1);
-            curlreturn_3(thediv, 'mysqli.php', ticket, thedata_2);
+            curlreturn_3(thediv, 'mysqli.php', theticket, thedata_2);
           }
         }
       }
