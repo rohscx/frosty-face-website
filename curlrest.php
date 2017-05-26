@@ -68,7 +68,7 @@ class curlauth {
         echo "cURL Error #:" . $err;
 	//echo "RESPONSE HTTP STATUS CODES  " . print_r( $response_info) . "<br />";	// debug
 	return $response_info;
-    } else if ($response_info['http_code'] == 500 || $response_info['http_code'] == 201 ) {
+    } else if ($response_info['http_code'] == 500 || $response_info['http_code'] == 201 || $response_info['http_code'] == 204 ) {
 	    //echo "RESPONSE HTTP STATUS CODES  " . print_r( $response_info) . "<br />";	// debug
 	    return $response_info;
     } else {
@@ -123,6 +123,9 @@ function iseCurl_1() {
     } else if (@$response['http_code'] == 500) {
 	    $response = json_encode($response);
 	    print_r($response);	// 500 means the POST was not successful, and probably means the mac is still in the ISE bypassdatabase
+    } else if (strpos($this->curlData, "/deregister") !== false) {
+	    $response = json_encode($response);
+	    print_r($response);	// 204 means the POST was successful
     } else {
 	$xml = new SimpleXMLElement($response);
 	//echo $xml->asXML();	// debug
