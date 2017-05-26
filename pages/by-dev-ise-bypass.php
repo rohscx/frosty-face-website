@@ -424,7 +424,7 @@
           document.getElementById('spinner').style.display = "none";
           myObj = JSON.parse(this.responseText);
           if (myObj.http_code == 200) {
-            var replacement_1 = "/" + myObj.resources.resource['@attributes'].id;
+            var replacement_1 = "/" + myObj.resources.resource['@attributes'].id + "/deregister";
             var replacement_2 = "DELETE";
             thedate_1 = thedata_1.replace('?filter=mac.EQ.',replacement_1);
             thedate_1 = thedata_1.replace('GET',replacement_2);
