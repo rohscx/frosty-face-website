@@ -431,8 +431,14 @@
             var replacement_2 = "&curlData=" + encodeURI(myObj.resources.resource['@attributes'].name) + "&curlCustom=PUT&curlPost=";
             thedata_1 = thedata_1.replaceAt(89,replacement_1);
             thedata_1 = thedata_1.replaceAt(126,replacement_2);
+            var iseurl_1 = "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint";  // URL needed for te submit the form . NOT YET USED. SHOULD BE USED TO REMOVE FROM ISE
+            var input_1 = "";  // gets the value and makes text uppercase
+            var input_2 = "";  // gets the value and makes text uppercase
+            var input_3 = "/" + myObj.resources.resource['@attributes'].id + "/deregister";  // gets the value this value has already been preformated
+            var arraydata_2 = {Type:"iseTicket_1",curlAddress:iseurl_1,curlData:input_3,curlCustom:"PUT",curlPost:""};
+            var data_1 = datamaker_1(arraydata_2);
             //alert(thedata_2); // debug
-            curlreturn_4(thediv, "curlrest.php", theticket, thedata_1);
+            curlreturn_4(thediv, "curlrest.php", theticket, data_1);
             curlreturn_3(thediv, 'mysqli.php', theticket, thedata_2);
           }
         }
