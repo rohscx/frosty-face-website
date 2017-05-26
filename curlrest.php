@@ -329,8 +329,13 @@ if (isset($_GET['Type']) & isset($_GET['curlAddress']) & isset($_GET['curlData']
 			$a->curlData = $_GET['curlData'];	// formats user input
 			$a->iseCurl_1();	// calls the correct function based on the GET Type
 		} elseif (strpos($_GET['curlAddress'], "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint") !== false) {
-			$a->curlData = "";	// formats user input
-			$a->iseCurl_1();	// calls the correct function based on the GET Type
+			if (strpos($_GET['curlData'], "/deregister") !== false) {
+				$a->curlData = $_GET['curlData'];	// formats user input
+				$a->apicCurl_1();	// calls the correct function based on the GET tpe
+			} else {
+				$a->curlData = "";	// formats user input
+				$a->iseCurl_1();	// calls the correct function based on the GET Type
+			}	
 		} else {
 			$a->curlData = $_GET['curlData'];	// formats user input
 			$a->iseCurl_1();	// calls the correct function based on the GET Type
