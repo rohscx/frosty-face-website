@@ -296,6 +296,7 @@ if (isset($_GET['Type']) & isset($_GET['curlAddress']) & isset($_GET['curlData']
 		//$a->curlPost = htmlspecialchars($post, ENT_QUOTES);
 		$a->curlPost = "";
 		$a->curlPort = "9060";
+		$a->curlData = $_GET['curlData'];	// formats user input
 		$a->iseTicket_1();
 		//print "curlPost  " . $a->curlPost . "<br />";	//debug
 		
@@ -331,7 +332,7 @@ if (isset($_GET['Type']) & isset($_GET['curlAddress']) & isset($_GET['curlData']
 			$a->iseCurl_1();	// calls the correct function based on the GET Type
 		} elseif (strpos($_GET['curlAddress'], "https://agaisepr01.fpicore.fpir.pvt:9060/ers/config/endpoint") !== false) {
 			if (strpos($_GET['curlData'], "/deregister") !== false) {
-				$a->curlData = $_GET['curlData'];	// formats user input
+				
 				$a->iseCurl_1();	// calls the correct function based on the GET tpe
 			} else {
 				$a->curlData = "";	// formats user input
