@@ -424,7 +424,7 @@
           document.getElementById('spinner').style.display = "none";
           myObj = JSON.parse(this.responseText);
           alert(myObj['@attributes'].total);
-          if (myObj['@attributes'].total == "1") {
+          if ("total" in myObj) {
             var replacement_1 = "/" + myObj.resources.resource['@attributes'].id + "/deregister";
             var replacement_2 = "PUT";
             thedate_2 = thedata_1.replace("?filter=mac.EQ.",replacement_1);
