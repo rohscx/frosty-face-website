@@ -428,7 +428,7 @@
             var replacement_2 = "PUT";
             thedate_2 = thedata_1.replace("?filter=mac.EQ.",replacement_1);
             thedate_2 = thedata_1.replace('GET',replacement_2);
-            //alert(thedata_2); // debug
+            alert(thedata_2); // debug
             curlreturn_4(thediv, "curlrest.php", theticket, thedata_2);
           } else if (myObj.http_code == 500) {
             //document.getElementById(thediv).innerHTML = xmlhttp.responseText;
